@@ -1,0 +1,166 @@
+class Memory {
+    function void init() {
+        var int local_0;
+        var int local_1;
+        let local_0 = 2048 + 7;
+        let local_0[0] = ( 16384 - local_0 - 5);
+        let local_0[1] = 1;
+        let local_0[2] = 0;
+        let local_0[3] = 0;
+        do Memory.create_foot(local_0);
+        do Memory.add_node(2048 + 6, local_0);
+        return;
+	}
+
+    function int alloc(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        let local_0 = Memory.getBinIndex(argument_0);
+        let local_1 = 2048 + local_0;
+        let local_2 = Memory.get_best_fit(local_1, argument_0);
+        while (local_2 = 0) {
+        	if (~(( local_0 + 1 < 7))) {
+        		return 0;
+        	}
+        	let local_0 = local_0 + 1;
+        	let local_1 = 2048 + local_0;
+        	let local_2 = Memory.get_best_fit(local_1, argument_0);
+        }
+        do Memory.remove_node(( 2048 + Memory.getBinIndex(local_2[0])), local_2);
+        let local_3 = ( local_2[0] - argument_0);
+        if (local_3 > 5) {
+        	let local_2[0] = argument_0;
+        	let local_2[1] = 0;
+        	do Memory.create_foot(local_2);
+        	let local_4 = ( local_2 + argument_0 + 5);
+        	let local_4[0] = local_3 - 5;
+        	let local_4[1] = 1;
+        	do Memory.create_foot(local_4);
+        	do Memory.add_node(( 2048 + Memory.getBinIndex(local_3)), local_4);
+        }
+        else {
+        	let local_2[1] = 0;
+        	do Memory.create_foot(local_2);
+        }
+        return local_2 + 4;
+	}
+
+    function void deAlloc(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        let local_0 = argument_0 - 4;
+        let local_0[1] = 1;
+        let local_1 = local_0[2];
+        let local_2 = local_0[3];
+        if (~(local_1 = 0)) {
+        	if (( local_1[1] = 1)) {
+        		do Memory.remove_node(( 2048 + Memory.getBinIndex(local_1[0])), local_1);
+        		let local_1[0] = ( ( local_1[0] + local_0[0]) + 5);
+        		do Memory.create_foot(local_1);
+        		let local_0 = local_1;
+        	}
+        }
+        if (~(local_2 = 0)) {
+        	if (( local_2[1] = 1)) {
+        		do Memory.remove_node(( 2048 + Memory.getBinIndex(local_2[0])), local_2);
+        		let local_0[0] = ( ( local_0[0] + local_2[0]) + 5);
+        		do Memory.create_foot(local_0);
+        	}
+        }
+        do Memory.add_node(( 2048 + Memory.getBinIndex(local_0[0])), local_0);
+        return;
+	}
+
+    function void copy(int argument_0, int argument_1, int argument_2) {
+        var int local_0;
+        let local_0 = 0;
+        while (local_0 < argument_2) {
+        	let argument_1[local_0] = argument_0[local_0];
+        	let local_0 = local_0 + 1;
+        }
+        return;
+	}
+
+    function void remove_node(int argument_0, int argument_1) {
+        if (~(( argument_1[2] = 0))) {
+        	let argument_1[2][3] = argument_1[3];
+        }
+        else {
+        	let argument_0[0] = argument_1[3];
+        }
+        if (~(( argument_1[3] = 0))) {
+        	let argument_1[3][2] = argument_1[2];
+        }
+        let argument_1[2] = 0;
+        let argument_1[3] = 0;
+        return;
+	}
+
+    function int getBinIndex(int argument_0) {
+        var int local_0;
+        let local_0 = 0;
+        while (( local_0 < 7 &  (~ ( ( 2048[local_0] = 0) )))) {
+        	if (~(( argument_0 > Math.multiply(local_0 + 1, 16)))) {
+        		return local_0;
+        	}
+        	let local_0 = local_0 + 1;
+        }
+        return 7 - 1;
+	}
+
+    function int get_best_fit(int argument_0, int argument_1) {
+        var int local_0;
+        let local_0 = argument_0[0];
+        if (~(( local_0[0] < argument_1))) {
+        	return local_0;
+        }
+        while (~(( local_0[3] = 0))) {
+        	let local_0 = local_0[3];
+        	if (~(( local_0[0] < argument_1))) {
+        		return local_0;
+        	}
+        }
+        return 0;
+	}
+
+    function void create_foot(int argument_0) {
+        let argument_0[( argument_0[0] + 4)] = argument_0;
+        return;
+	}
+
+    function void add_node(int argument_0, int argument_1) {
+        var int local_0;
+        var int local_1;
+        let argument_1[2] = 0;
+        let argument_1[3] = 0;
+        if (( argument_0[0] = 0)) {
+        	let argument_0[0] = argument_1;
+        	return;
+        }
+        let local_0 = argument_0[0];
+        let local_1 = 0;
+        while ((  (~ ( local_0 = 0 )) &  (~ ( ( local_0[0] > argument_1[0]) )))) {
+        	let local_1 = local_0;
+        	let local_0 = local_0[3];
+        }
+        if (~(local_1)) {
+        	let argument_1[3] = argument_0[0];
+        	let argument_0[0][2] = argument_1;
+        	let argument_0[0] = argument_1;
+        }
+        else {
+        	let argument_1[3] = local_0;
+        	let argument_1[2] = local_1;
+        	if (local_0) {
+        		let local_0[2] = argument_1;
+        	}
+        	let local_1[3] = argument_1;
+        }
+        return;
+	}
+
+}

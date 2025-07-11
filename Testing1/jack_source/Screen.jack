@@ -1,0 +1,6 @@
+class Screen {
+    static int static_0;
+    static int static_1;
+    static int static_2;
+    function void init() {
+        var int local_0;

@@ -1,0 +1,233 @@
+function Math.init 2
+push constant 1
+pop local 0
+push constant 0
+pop local 1
+push constant 16
+call Array.new 1
+pop static 0
+label WHILE_START_Math.init1
+push local 1
+push constant 16
+lt
+not
+if-goto WHILE_END_Math.init1
+push local 0
+push static 0
+push local 1
+add
+pop pointer 1
+pop that 0
+push local 0
+push local 0
+add
+pop local 0
+push local 1
+push constant 1
+add
+pop local 1
+goto WHILE_START_Math.init1
+label WHILE_END_Math.init1
+push constant 0
+return
+function Math.multiply 3
+push argument 0
+push constant 0
+eq
+push argument 1
+or
+push constant 0
+eq
+not
+if-goto Math.multiply.IfElseEND1
+push constant 0
+return
+label Math.multiply.IfElseEND1
+push argument 0
+push constant 1
+eq
+not
+if-goto Math.multiply.IfElseEND2
+push argument 1
+return
+label Math.multiply.IfElseEND2
+push argument 1
+push constant 1
+eq
+not
+if-goto Math.multiply.IfElseEND3
+push argument 0
+return
+label Math.multiply.IfElseEND3
+push argument 0
+push constant 2
+eq
+not
+if-goto Math.multiply.IfElseEND4
+push argument 1
+push argument 1
+add
+return
+label Math.multiply.IfElseEND4
+push argument 1
+push constant 2
+eq
+not
+if-goto Math.multiply.IfElseEND5
+push argument 0
+push argument 0
+add
+return
+label Math.multiply.IfElseEND5
+push constant 1
+pop local 2
+push constant 0
+pop local 1
+push constant 0
+pop local 0
+label WHILE_START_Math.multiply1
+push local 1
+push constant 16
+lt
+not
+if-goto WHILE_END_Math.multiply1
+push argument 1
+push local 2
+and
+push constant 0
+eq
+not
+not
+if-goto Math.multiply.IfElseEND6
+push local 0
+push argument 0
+add
+pop local 0
+label Math.multiply.IfElseEND6
+push argument 0
+push argument 0
+add
+pop argument 0
+push local 1
+push constant 1
+add
+pop local 1
+push local 2
+push local 2
+add
+pop local 2
+goto WHILE_START_Math.multiply1
+label WHILE_END_Math.multiply1
+push local 0
+return
+function Math.divide 3
+push argument 0
+call Math.abs 1
+pop local 1
+push argument 1
+call Math.abs 1
+pop local 2
+push local 2
+push local 1
+gt
+not
+if-goto Math.divide.IfElseEND1
+push constant 0
+return
+label Math.divide.IfElseEND1
+push local 1
+push local 2
+push local 2
+add
+call Math.divide 2
+pop local 0
+push local 1
+push local 0
+push local 0
+add
+push local 2
+call Math.multiply 2
+sub
+push local 2
+lt
+not
+if-goto Math.divide.IfElse2
+push argument 0
+push constant 0
+lt
+push argument 1
+and
+push constant 0
+gt
+push argument 0
+push constant 0
+gt
+push argument 1
+and
+push constant 0
+lt
+or
+not
+if-goto Math.divide.IfElseEND3
+push local 0
+neg
+pop local 0
+label Math.divide.IfElseEND3
+push local 0
+push local 0
+add
+return
+goto Math.divide.IfElseEND2
+label Math.divide.IfElse2
+push argument 0
+push constant 0
+lt
+push argument 1
+and
+push constant 0
+gt
+push argument 0
+push constant 0
+gt
+push argument 1
+and
+push constant 0
+lt
+or
+not
+if-goto Math.divide.IfElseEND4
+push local 0
+neg
+pop local 0
+label Math.divide.IfElseEND4
+push local 0
+push local 0
+add
+push constant 1
+add
+return
+label Math.divide.IfElseEND2
+function Math.twoToThe 0
+push static 0
+push argument 0
+add
+pop pointer 1
+push that 0
+return
+function Math.max 0
+push argument 0
+push argument 1
+gt
+not
+if-goto Math.max.IfElseEND1
+push argument 0
+return
+label Math.max.IfElseEND1
+push argument 1
+return
+function Math.abs 0
+push argument 0
+push argument 0
+neg
+call Math.max 2
+return

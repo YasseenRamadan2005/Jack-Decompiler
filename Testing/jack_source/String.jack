@@ -1,0 +1,118 @@
+class String {
+    field int field_0;
+    field int field_1;
+    field int field_2;
+    constructor int new(int argument_0) {
+        if (argument_0 = 0) {
+        	let this_0 = 0;
+        }
+        else {
+        	let this_0 = Array.new(argument_0);
+        }
+        let this_2 = argument_0;
+        let this_1 = 0;
+        return this;
+	}
+
+    method void dispose() {
+        if (~(this_0 = 0)) {
+        	do this_0.dispose();
+        }
+        return;
+	}
+
+    method int length() {
+        return this_1;
+	}
+
+    method int charAt(int argument_0) {
+        return this_0[argument_1];
+	}
+
+    method void appendChar(int argument_0) {
+        var int local_0;
+        if (this_1 = this_2) {
+        	let local_0 = Array.new(this_2 + this_2);
+        	do Memory.copy(this_0, local_0, this_1);
+        	do this_0.dispose();
+        	let this_2 = this_2 + this_2;
+        	let this_0 = local_0;
+        }
+        let this_0[this_1] = argument_1;
+        let this_1 = this_1 + 1;
+        return;
+	}
+
+    method void eraseLastChar() {
+        let this_1 = this_1 - 1;
+        return;
+	}
+
+    method int intValue() {
+        var int local_0;
+        var int local_1;
+        let local_1 = 1;
+        let local_0 = 0;
+        while (local_1 < this_1) {
+        	let local_0 = ( Math.multiply(local_0, 10) + ( this_0[local_1] - 48));
+        	let local_1 = local_1 + 1;
+        }
+        return local_0;
+	}
+
+    method void setInt(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        let this_1 = 0;
+        let local_4 = 0;
+        if (argument_1 = 0) {
+        	do this.appendChar(48);
+        	return;
+        }
+        if (argument_1 < 0) {
+        	let local_4 = 1;
+        	if (( argument_1 < 0 & ( argument_1 & 32767 = 32767))) {
+        		do this.appendChar(45);
+        		do this.appendChar(51);
+        		do this.appendChar(50);
+        		do this.appendChar(55);
+        		do this.appendChar(54);
+        		do this.appendChar(56);
+        		return;
+        	}
+        	let argument_1 =  (-argument_1);
+        }
+        let local_2 = argument_1;
+        let local_3 = 0;
+        while (local_2 > 0) {
+        	let local_2 = Math.divide(local_2, 10);
+        	let local_3 = local_3 + 1;
+        }
+        let local_5 = Array.new(local_3);
+        let local_1 = 0;
+        while (argument_1 > 0) {
+        	let local_0 = ( argument_1 - Math.multiply(Math.divide(argument_1, 10), 10));
+        	let local_5[local_1] = local_0 + 48;
+        	let argument_1 = Math.divide(argument_1, 10);
+        	let local_1 = local_1 + 1;
+        }
+        if (local_4 = 1) {
+        	do this.appendChar(45);
+        }
+        while (local_1 > 0) {
+        	let local_1 = local_1 - 1;
+        	do this.appendChar(local_5[local_1]);
+        }
+        do local_5.dispose();
+        return;
+	}
+
+    function int newLine() {
+        return 128;
+	}
+
+}

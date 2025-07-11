@@ -1,0 +1,35 @@
+class Keyboard {
+    function void init() {
+        return;
+	}
+
+    function int readChar() {
+        var int local_0;
+        while (( 24576[0] = 0)) {
+        }
+        let local_0 = 24576[0];
+        while (~(( 24576[0] = 0))) {
+        }
+        do Output.printChar(local_0);
+        return local_0;
+	}
+
+    function int readLine(int argument_0) {
+        var int local_0;
+        var int local_1;
+        do Output.printString(argument_0);
+        let local_0 = String.new(50);
+        let local_1 = Keyboard.readChar();
+        while (~(( local_1 = String.newLine()))) {
+        	if (local_1 = 129) {
+        		do local_0.eraseLastChar();
+        	}
+        	else {
+        		do local_0.appendChar(local_1);
+        	}
+        	let local_1 = Keyboard.readChar();
+        }
+        return local_0;
+	}
+
+}
