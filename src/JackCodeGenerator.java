@@ -4,25 +4,38 @@ import java.util.List;
 import VMTranslator.vmcode.*;
 
 public class JackCodeGenerator {
-    private String ClassName;
     private JackDecompiler.FunctionMetadata fn;
+    private JackDecompiler decompiler;  // reference to query metadata
 
-    public List<String> generateJackCode(List<VMinstruction> parsed, String className, JackDecompiler.FunctionMetadata fn) {
-        this.ClassName = className;
+    public JackCodeGenerator(JackDecompiler decompiler) {
+        this.decompiler = decompiler;
+    }
+
+    public List<String> generateJackCode(List<VMinstruction> parsed, JackDecompiler.FunctionMetadata fn) {
         this.fn = fn;
+        List<VMinstruction> cleaned = preprocess(parsed);
         List<String> jackLines = new ArrayList<>();
-        int i = 1;
-        if (fn.isConstructor || fn.isMethod) {
-            parsed.remove(1);
-        }
+        int i = 0;
         int indentLevel = 0;
-        while (i < parsed.size()) {
-            i = generateBlock(parsed, i, jackLines, indentLevel);
+
+        while (i < cleaned.size()) {
+            i = generateBlock(cleaned, i, jackLines, indentLevel);
         }
 
         return jackLines;
     }
 
+    // Strip compiler-generated instructions like:
+    // push argument 0 / pop pointer 0 (method)
+    // push constant n / call Memory.alloc 1 / pop pointer 0 (constructor)
+    private List<VMinstruction> preprocess(List<VMinstruction> parsed) {
+        List<VMinstruction> result = new ArrayList<>(parsed);
+        if (fn.isMethod || fn.isConstructor) {
+            result.remove(1);
+            result.remove(0);
+        }
+        return result;
+    }
 
     private int generateBlock(List<VMinstruction> parsed, int start, List<String> jackLines, int indentLevel) {
         VMinstruction instr = parsed.get(start);
@@ -124,6 +137,7 @@ public class JackCodeGenerator {
                     case PushPopPair pair -> indent(generatePushPopPair(pair), indentLevel);
                     case PushWriter pw -> indent(generatePushWriter(pw), indentLevel);
                     case ReturnInstruction r -> indent(generateReturnInstruction(r), indentLevel);
+                    case FunctionInstruction f -> "";
                     default -> "// Unhandled VM instruction: " + instr.getClass().getSimpleName();
                 };
                 jackLines.add(generated);
@@ -137,20 +151,14 @@ public class JackCodeGenerator {
         if (pg instanceof CallGroup cg) {
             return generateCallGroup(cg);
         } else if (pg instanceof Dereference dr) {
+            PushGroup cur = dr.getBase();
             List<String> indices = new ArrayList<>();
-            PushGroup current = dr.getBase();
-
-            // Inline unwrap logic: collect right-hand sides of nested ADDs as indices
-            while (current instanceof BinaryPushGroup bg && bg.getOp().equals(ArithmeticInstruction.Op.ADD)) {
-                indices.addFirst(generatePushGroup(bg.getRight())); // index
-                current = bg.getLeft();                             // step toward base
+            while (cur instanceof BinaryPushGroup bg && bg.getOp() == ArithmeticInstruction.Op.ADD) {
+                indices.addFirst(generatePushGroup(bg.getRight()));
+                cur = bg.getLeft();
             }
-
-            StringBuilder sb = new StringBuilder(generatePushGroup(current)); // base
-            for (String index : indices) {
-                sb.append("[").append(index).append("]");
-            }
-
+            StringBuilder sb = new StringBuilder(generatePushGroup(cur));
+            for (String idx : indices) sb.append('[').append(idx).append(']');
             return sb.toString();
         } else if (pg instanceof UnaryPushGroup ug) {
             String operator = switch (ug.getOp()) {
@@ -158,10 +166,7 @@ public class JackCodeGenerator {
                 case ArithmeticInstruction.Op.NOT -> "~";
                 default -> throw new IllegalStateException("Unhandled op: " + ug.getOp());
             };
-            if (ug.getInner() instanceof PushInstruction){
-                return " (" + operator + generatePushGroup(ug.getInner()) + ")";
-            }
-            return " (" + operator + " ( " + generatePushGroup(ug.getInner()) + " ))";
+            return operator + "(" + generatePushGroup(ug.getInner()) + ")";
         } else if (pg instanceof BinaryPushGroup bg) {
             String operator = switch (bg.getOp()) {
                 case ArithmeticInstruction.Op.ADD -> "+";
@@ -173,7 +178,7 @@ public class JackCodeGenerator {
                 case ArithmeticInstruction.Op.LT -> "<";
                 default -> throw new IllegalStateException("Unhandled op: " + bg.getOp());
             };
-            if (bg.getLeft() instanceof PushInstruction pl && bg.getRight() instanceof PushInstruction pr){
+            if (bg.getLeft() instanceof PushInstruction pl && bg.getRight() instanceof PushInstruction pr) {
                 return generatePushGroup(pl) + " " + operator + " " + generatePushGroup(pr);
             }
             return "( " + generatePushGroup(bg.getLeft()) + " " + operator + " " + generatePushGroup(bg.getRight()) + ")";
@@ -182,28 +187,6 @@ public class JackCodeGenerator {
         } else {
             return pg.toString();
         }
-    }
-
-    private String generateCallGroup(CallGroup cg) {
-        if (isAppendCharChain(cg)) {
-            return "\"" + extractStringFromAppendChain(cg) + "\"";
-        }
-
-        StringBuilder sb = new StringBuilder();
-        List<PushGroup> theArguments = cg.getPushes();
-
-        if (JackDecompiler.FuncTable.get(cg.getFunctionName())) {
-            sb.append(generatePushGroup(theArguments.getFirst())).append(".").append(cg.getFunctionName().substring(cg.getFunctionName().indexOf('.') + 1)).append("(");
-            theArguments.removeFirst();
-            List<String> args = theArguments.stream().map(this::generatePushGroup).toList();
-            sb.append(String.join(", ", args)).append(")");
-        } else {
-            sb.append(cg.getFunctionName()).append("(");
-            List<String> args = theArguments.stream().map(this::generatePushGroup).toList();
-            sb.append(String.join(", ", args)).append(")");
-        }
-
-        return sb.toString();
     }
 
 
@@ -269,6 +252,34 @@ public class JackCodeGenerator {
         }
         return "return " + generatePushGroup(retInstr.getPg()) + ";";
     }
+
+    private String generateCallGroup(CallGroup cg) {
+        if (isAppendCharChain(cg)) {
+            return "\"" + extractStringFromAppendChain(cg) + "\"";
+        }
+
+        String functionName = cg.getFunctionName();  // e.g. ClassName.methodName
+        List<PushGroup> args = cg.getPushes();
+        List<String> jackArgs = new ArrayList<>();
+
+        boolean isMethod = decompiler.isMethodFunction(functionName);
+
+        if (isMethod && !args.isEmpty()) {
+            // First argument is instance
+            String instance = generatePushGroup(args.getFirst());
+            for (int i = 1; i < args.size(); i++) {
+                jackArgs.add(generatePushGroup(args.get(i)));
+            }
+            String methodName = functionName.substring(functionName.indexOf('.') + 1);
+            return instance + "." + methodName + "(" + String.join(", ", jackArgs) + ")";
+        } else {
+            for (PushGroup arg : args) {
+                jackArgs.add(generatePushGroup(arg));
+            }
+            return functionName + "(" + String.join(", ", jackArgs) + ")";
+        }
+    }
+
 
     private String generatePushWriter(PushWriter pw) {
         // Handle dest (e.g. arr[2][3])

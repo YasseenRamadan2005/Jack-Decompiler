@@ -1,5 +1,6 @@
 class Sys {
     function int init() {
+        
         do Memory.init();
         do Math.init();
         do Screen.init();
@@ -8,12 +9,13 @@ class Sys {
         do Main.main();
         do Sys.halt();
         return 0;
-	}
+    }
 
     function void halt() {
+        
         while (~(0)) {
         }
         return;
-	}
+    }
 
 }

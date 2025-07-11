@@ -1,4 +1,5 @@
 // Main.java
+
 import java.io.*;
 
 public class Main {
@@ -9,18 +10,18 @@ public class Main {
         }
 
         File inputDir = new File(args[0]);
-        if (!inputDir.exists() || !inputDir.isDirectory()) {
-            System.err.println("Error: Provided path is not a directory.");
+        if (!inputDir.isDirectory()) {
+            System.err.println("Not a directory.");
             System.exit(1);
         }
 
         File outputDir = new File(inputDir, "jack_source");
-        if (!outputDir.exists() && !outputDir.mkdir()) {
-            System.err.println("Error: Could not create output directory 'jack_source'.");
-            System.exit(1);
-        }
+        outputDir.mkdir();
 
-        JackDecompiler decompiler = new JackDecompiler(inputDir, outputDir);
+        JackDecompiler decompiler = new JackDecompiler(inputDir);
         decompiler.decompileAll();
+
+        VMToJackTranslator translator = new VMToJackTranslator(decompiler);
+        decompiler.writeJackFiles(outputDir, translator);
     }
 }

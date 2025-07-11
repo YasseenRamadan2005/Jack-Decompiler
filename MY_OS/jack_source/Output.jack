@@ -3,14 +3,16 @@ class Output {
     static int static_1;
     static int static_2;
     function void init() {
+        
         do Output.initMap();
         let static_1 = 0;
         let static_2 = 0;
         return;
-	}
+    }
 
     function void initMap() {
         var int local_0;
+        
         let static_0 = Array.new(127);
         do Output.create(0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0);
         do Output.create(32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
@@ -109,10 +111,11 @@ class Output {
         do Output.create(125, 7, 12, 12, 12, 56, 12, 12, 12, 7, 0, 0);
         do Output.create(126, 38, 45, 25, 0, 0, 0, 0, 0, 0, 0, 0);
         return;
-	}
+    }
 
     function void create(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4, int argument_5, int argument_6, int argument_7, int argument_8, int argument_9, int argument_10, int argument_11) {
         var int local_0;
+        
         let local_0 = Array.new(11);
         let static_0[argument_0] = local_0;
         let local_0[0] = argument_1;
@@ -127,20 +130,22 @@ class Output {
         let local_0[9] = argument_10;
         let local_0[10] = argument_11;
         return;
-	}
+    }
 
     function int getMap(int argument_0) {
+        
         if (( argument_0 < 32 | argument_0 > 126)) {
         	let argument_0 = 0;
         }
         return static_0[argument_0];
-	}
+    }
 
     function void printChar(int argument_0) {
         var int local_0;
         var int local_1;
         var int local_2;
         var int local_3;
+        
         let local_0 = Output.getMap(argument_0);
         let local_3 = 0;
         while (local_3 < 11) {
@@ -161,11 +166,12 @@ class Output {
         	let static_1 = static_1 + 1;
         }
         return;
-	}
+    }
 
     function void printString(int argument_0) {
         var int local_0;
         var int local_1;
+        
         let local_0 = 0;
         let local_1 = argument_0.length();
         while (local_0 < local_1) {
@@ -173,18 +179,20 @@ class Output {
         	let local_0 = local_0 + 1;
         }
         return;
-	}
+    }
 
     function void printInt(int argument_0) {
         var int local_0;
+        
         let local_0 = String.new(10);
         do local_0.setInt(argument_0);
         do Output.printString(local_0);
         do local_0.dispose();
         return;
-	}
+    }
 
     function void println() {
+        
         let static_1 = 0;
         if (static_2 = 22) {
         	let static_2 = 0;
@@ -193,6 +201,6 @@ class Output {
         	let static_2 = static_2 + 1;
         }
         return;
-	}
+    }
 
 }

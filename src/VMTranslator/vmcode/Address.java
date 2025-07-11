@@ -91,7 +91,8 @@ public class Address {
         }
         return switch (segment) {
             case "constant" -> String.valueOf(index);
-            case "static", "this", "argument", "local" -> segment + "_" + index;
+            case "static", "argument", "local" -> segment + "_" + index;
+            case "this" -> "field_" + index;
             default -> ""; // fallback
         };
     }
