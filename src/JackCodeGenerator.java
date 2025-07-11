@@ -1,7 +1,7 @@
+import VMTranslator.vmcode.*;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import VMTranslator.vmcode.*;
 
 public class JackCodeGenerator {
     private JackDecompiler.FunctionMetadata fn;
@@ -11,7 +11,7 @@ public class JackCodeGenerator {
         this.decompiler = decompiler;
     }
 
-    public List<String> generateJackCode(List<VMinstruction> parsed, JackDecompiler.FunctionMetadata fn) {
+    public List<String> generateJackCode(List<VMinstruction> parsed, JackDecompiler.FunctionMetadata fn) throws Exception {
         this.fn = fn;
         List<VMinstruction> cleaned = preprocess(parsed);
         List<String> jackLines = new ArrayList<>();
@@ -37,11 +37,14 @@ public class JackCodeGenerator {
         return result;
     }
 
-    private int generateBlock(List<VMinstruction> parsed, int start, List<String> jackLines, int indentLevel) {
+    private int generateBlock(List<VMinstruction> parsed, int start, List<String> jackLines, int indentLevel) throws Exception {
         VMinstruction instr = parsed.get(start);
+
         switch (instr) {
             case LabelInstruction labelStart when (start + 1 < parsed.size()) && parsed.get(start + 1) instanceof ConditionalGroup cond -> {
+                // While loop detection pattern:
                 String endLabel = cond.getIfGoto().getLabel();
+
                 if (cond.getPush() instanceof UnaryPushGroup up && up.getOp().equals(ArithmeticInstruction.Op.NOT)) {
                     jackLines.add(indent("while (" + generatePushGroup(up.getInner()) + ") {", indentLevel));
                 } else {
@@ -56,75 +59,120 @@ public class JackCodeGenerator {
                 jackLines.addAll(body);
                 jackLines.add(indent("}", indentLevel));
                 return i + 2;
-
             }
+
             case ConditionalGroup cg -> {
                 String falseLabel = cg.getIfGoto().getLabel();
+                int i = start + 1;
 
-                // Detect condition expression and emit "if"
-                if (cg.getPush() instanceof UnaryPushGroup up && up.getOp().equals(ArithmeticInstruction.Op.NOT)) {
-                    jackLines.add(indent("if (" + generatePushGroup(up.getInner()) + ") {", indentLevel));
-                } else {
-                    jackLines.add(indent("if (~(" + generatePushGroup(cg.getPush()) + ")) {", indentLevel));
+                // Detect the *other compiler* if-else pattern:
+                // if-goto ELSE_LABEL
+                // goto THEN_LABEL
+                // label ELSE_LABEL
+                // ... else block ...
+                // label THEN_LABEL
+                // ... then block ...
+                if (i < parsed.size() && parsed.get(i) instanceof GotoInstruction thenGoto) {
+                    String thenLabel = thenGoto.getLabel();
+
+                    if (i + 1 < parsed.size() && parsed.get(i + 1) instanceof LabelInstruction elseLabelInstr && elseLabelInstr.getLabel().equals(falseLabel)) {
+
+                        // Generate if condition without redundant negation
+                        String conditionStr;
+                        if (cg.getPush() instanceof UnaryPushGroup up && up.getOp().equals(ArithmeticInstruction.Op.NOT)) {
+                            conditionStr = generatePushGroup(up.getInner());
+                        } else {
+                            conditionStr = "~(" + generatePushGroup(cg.getPush()) + ")";
+                        }
+                        jackLines.add(indent("if (" + conditionStr + ") {", indentLevel));
+
+                        i += 2; // consume goto THEN_LABEL and label ELSE_LABEL
+
+                        // Parse else block until label THEN_LABEL
+                        List<String> elseBlock = new ArrayList<>();
+                        while (i < parsed.size()) {
+                            VMinstruction current = parsed.get(i);
+                            if (current instanceof LabelInstruction l && l.getLabel().equals(thenLabel)) {
+                                break;
+                            }
+                            i = generateBlock(parsed, i, elseBlock, indentLevel + 1);
+                        }
+
+                        // Consume label THEN_LABEL
+                        if (i < parsed.size() && parsed.get(i) instanceof LabelInstruction thenLabelInstr && thenLabelInstr.getLabel().equals(thenLabel)) {
+                            i++;
+                        }
+
+                        // Parse then block until next label or end of list
+                        List<String> thenBlock = new ArrayList<>();
+                        while (i < parsed.size()) {
+                            VMinstruction current = parsed.get(i);
+                            if (current instanceof LabelInstruction) break;
+                            i = generateBlock(parsed, i, thenBlock, indentLevel + 1);
+                        }
+
+                        // Emit then block inside the if braces first
+                        jackLines.addAll(thenBlock);
+                        jackLines.add(indent("} else {", indentLevel));
+                        jackLines.addAll(elseBlock);
+                        jackLines.add(indent("}", indentLevel));
+
+                        return i;
+                    }
                 }
 
-                int i = start + 1;
+
+                // FALLBACK: original if-else detection pattern
+                jackLines.add(indent("if (~(" + generatePushGroup(cg.getPush()) + ")) {", indentLevel));
+
+                int j = start + 1;
                 List<String> thenBlock = new ArrayList<>();
 
-                // Parse then block: stop at either
-                //   a) goto instruction that jumps to end label (if-else)
-                //   b) label instruction matching falseLabel (if no else)
-                while (i < parsed.size()) {
-                    VMinstruction current = parsed.get(i);
-
-                    // Stop if goto jumps to end label or label matches falseLabel
-                    if (current instanceof GotoInstruction) {
-                        // This goto should jump over else block (to end label)
-                        break;
-                    } else if (current instanceof LabelInstruction l && l.getLabel().equals(falseLabel)) {
-                        // Label marking start of else block or end of if block without else
+                while (j < parsed.size()) {
+                    VMinstruction current = parsed.get(j);
+                    if (current instanceof GotoInstruction || (current instanceof LabelInstruction l && l.getLabel().equals(falseLabel))) {
                         break;
                     }
-                    i = generateBlock(parsed, i, thenBlock, indentLevel + 1);
+                    j = generateBlock(parsed, j, thenBlock, indentLevel + 1);
                 }
 
                 jackLines.addAll(thenBlock);
                 jackLines.add(indent("}", indentLevel));
 
-                // If next instruction is a goto jumping to end label, then there's an else block
-                if (i < parsed.size() && parsed.get(i) instanceof GotoInstruction g) {
+                if (j < parsed.size() && parsed.get(j) instanceof GotoInstruction g) {
                     String endLabel = g.getLabel();
-                    i++; // consume goto
+                    j++;
 
-                    // Next instruction should be the label marking start of else block
-                    if (i < parsed.size() && parsed.get(i) instanceof LabelInstruction elseLabelInstr && elseLabelInstr.getLabel().equals(falseLabel)) {
-                        i++; // consume else label
+                    if (j < parsed.size() && parsed.get(j) instanceof LabelInstruction elseLabelInstr && elseLabelInstr.getLabel().equals(falseLabel)) {
+                        j++;
 
                         List<String> elseBlock = new ArrayList<>();
-                        // Parse else block until the end label
-                        while (i < parsed.size()) {
-                            VMinstruction current = parsed.get(i);
+                        while (j < parsed.size()) {
+                            VMinstruction current = parsed.get(j);
                             if (current instanceof LabelInstruction l && l.getLabel().equals(endLabel)) {
                                 break;
                             }
-                            i = generateBlock(parsed, i, elseBlock, indentLevel + 1);
+                            j = generateBlock(parsed, j, elseBlock, indentLevel + 1);
                         }
+
                         jackLines.add(indent("else {", indentLevel));
                         jackLines.addAll(elseBlock);
                         jackLines.add(indent("}", indentLevel));
-                        if (i < parsed.size() && parsed.get(i) instanceof LabelInstruction endLabelInstr && endLabelInstr.getLabel().equals(endLabel)) {
-                            i++; // consume end label
+
+                        if (j < parsed.size() && parsed.get(j) instanceof LabelInstruction endLabelInstr && endLabelInstr.getLabel().equals(endLabel)) {
+                            j++;
                         }
+                    } else if (j < parsed.size() && parsed.get(j) instanceof LabelInstruction l && l.getLabel().equals(falseLabel)) {
+                        j++;
                     }
-                    return i;
-                } else if (i < parsed.size() && parsed.get(i) instanceof LabelInstruction l && l.getLabel().equals(falseLabel)) {
-                    // No else block, just consume the falseLabel
-                    i++;
-                    return i;
+
+                    return j;
+                } else if (j < parsed.size() && parsed.get(j) instanceof LabelInstruction l && l.getLabel().equals(falseLabel)) {
+                    j++;
+                    return j;
                 }
 
-                return i;
-
+                return j;
             }
 
             case LabelInstruction l -> {
@@ -143,9 +191,9 @@ public class JackCodeGenerator {
                 jackLines.add(generated);
                 return start + 1;
             }
-
         }
     }
+
 
     private String generatePushGroup(PushGroup pg) {
         if (pg instanceof CallGroup cg) {

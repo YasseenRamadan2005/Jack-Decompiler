@@ -17,14 +17,13 @@ public class VMParser {
 
 
     private static PushGroup getThePushOnTop(Deque<VMinstruction> stack) throws Exception {
-        if (stack.isEmpty()){
+        if (stack.isEmpty()) {
             throw new Exception("Empty stack when looking for a PushGroup");
         }
-        if (stack.peekLast() instanceof PushGroup pg){
+        if (stack.peekLast() instanceof PushGroup pg) {
             stack.removeLast();
             return pg;
-        }
-        else{
+        } else {
             throw new Exception("No PushGroup on top");
         }
     }
@@ -66,23 +65,44 @@ public class VMParser {
                     if (stack.isEmpty()) {
                         throw new Exception("pop without matching push");
                     }
-                    if (stack.peekLast() instanceof PushPopPair ppp && ppp.getPopAddress().equals(new Address("pointer", (short) 1)) && pop.getAddress().equals(new Address("that", (short) 0))) {
-                        PushPopPair thePPP = (PushPopPair) stack.removeLast();
-                        if (stack.peekLast() instanceof PushGroup) {
-                            PushGroup pg = (PushGroup) stack.getLast(); //This is the source
-                            stack.removeLast();
-                            stack.addLast(new PushWriter(pg, thePPP.getPush()));
-                        } else {
-                            throw new Exception("error when creating PushWriter");
+
+                    Address that0 = new Address("that", (short) 0);
+                    Address pointer1 = new Address("pointer", (short) 1);
+                    Address temp0 = new Address("temp", (short) 0);
+
+                    // Check for: source → dest → pop temp 0 → pop pointer 1 → push temp 0 → pop that 0
+                    if (pop.getAddress().equals(pointer1)) {
+                        List<VMinstruction> list = new ArrayList<>(stack);
+                        int size = list.size();
+
+                        if (size >= 2 && list.get(size - 1) instanceof PushPopPair ppp && ppp.getPopAddress().equals(temp0) && list.get(size - 2) instanceof PushGroup dest) {
+
+                            stack.removeLast(); // remove PushPopPair (temp0)
+                            stack.removeLast(); // remove dest
+
+                            stack.addLast(new PushWriter(ppp.getPush(), dest));
                         }
-                    } else {
-                        if (stack.peekLast() instanceof PushGroup pg) {
-                            stack.removeLast();
-                            stack.addLast(new PushPopPair(pg, pop));
+                    } else
+                        // Alternate simpler form: source → dest → pop pointer 1 → pop that 0
+                        if (stack.peekLast() instanceof PushPopPair ppp && ppp.getPopAddress().equals(pointer1) && pop.getAddress().equals(that0)) {
+
+                            stack.removeLast(); // pop pointer 1 pair
+
+                            if (stack.peekLast() instanceof PushGroup source) {
+                                stack.removeLast();
+                                stack.addLast(new PushWriter(source, ppp.getPush()));
+                            } else {
+                                throw new Exception("error when creating PushWriter");
+                            }
+
                         } else {
-                            throw new Exception("pop without matching push");
+                            if (stack.peekLast() instanceof PushGroup pg) {
+                                stack.removeLast();
+                                stack.addLast(new PushPopPair(pg, pop));
+                            } else {
+                                throw new Exception("pop without matching push");
+                            }
                         }
-                    }
                 }
 
 
@@ -150,7 +170,8 @@ public class VMParser {
                 }
                 default -> stack.addLast(cur); // keep labels, goto, function, return, etc.
             }
-        } fuck.addAll(stack);
+        }
+        fuck.addAll(stack);
         return new ArrayList<>(fuck);
     }
 

@@ -1,0 +1,31 @@
+class Sys {
+    function int init() {
+        
+        do Memory.init();
+        do Math.init();
+        do Screen.init();
+        do Output.init();
+        do Keyboard.init();
+        do Main.main();
+        do Sys.halt();
+        return 0;
+    }
+
+    function void halt() {
+        
+        while (~(0)) {
+        }
+        return;
+    }
+
+    function void error(int argument_0) {
+        
+        do Output.printChar(69);
+        do Output.printChar(82);
+        do Output.printChar(82);
+        do Output.printInt(argument_0);
+        do Sys.halt();
+        return;
+    }
+
+}

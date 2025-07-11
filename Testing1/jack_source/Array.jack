@@ -1,16 +1,16 @@
 class Array {
     function int new(int argument_0) {
+        
         if (argument_0 > 0) {
-        }
-        else {
+        	return Memory.alloc(argument_0);
+        } else {
         	do Sys.error(2);
         }
-        return Memory.alloc(argument_0);
-	}
+    }
 
-    method void dispose() {
+    method void dispose(int argument_0) {
         do Memory.deAlloc(this);
         return;
-	}
+    }
 
 }
