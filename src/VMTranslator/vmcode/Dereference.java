@@ -8,10 +8,10 @@ public class Dereference extends PushGroup {
     //  PushGroup
     //  pop pointer 1
     //  push that 0
-    BinaryPushGroup base;
+    PushGroup base;
 
 
-    public Dereference(BinaryPushGroup base) {
+    public Dereference(PushGroup base) {
         this.base = base;
     }
 
@@ -36,10 +36,6 @@ public class Dereference extends PushGroup {
     }
 
 
-    public BinaryPushGroup getBase() {
-        return base;
-    }
-
     @Override
     boolean isConstant() {
         return false;
@@ -61,4 +57,7 @@ public class Dereference extends PushGroup {
     }
 
 
+    public PushGroup getBase() {
+        return base;
+    }
 }

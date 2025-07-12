@@ -1,11 +1,6 @@
 class Sys {
-    static int static_0;
+
     function int init() {
-        
-        let static_0 = 5;
-        if (static_0 = 5) {
-        	let static_0 = 7;
-        }
         do Memory.init();
         do Math.init();
         do Screen.init();
@@ -17,10 +12,17 @@ class Sys {
     }
 
     function void halt() {
-        
-        while (~(0)) {
+        while (true) {
         }
         return;
     }
 
+    function void error(int errorCode) {
+        do Output.printChar("E");  // 'E'
+        do Output.printChar("R");  // 'R'
+        do Output.printChar("R");  // 'R'
+        do Output.printInt(errorCode);
+        do Sys.halt();
+        return;
+    }
 }

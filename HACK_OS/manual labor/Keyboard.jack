@@ -1,0 +1,58 @@
+class Keyboard {
+
+    function void init() {
+        return;
+    }
+
+    function int keyPressed() {
+        return Memory.peek(24576);
+    }
+
+    function char readChar() {
+        var char c;
+        var char last;
+
+        do Output.printChar(0);  // Draw black square
+
+        let last = 0;
+        while ((last = 0) | (c > 0)) {
+            let c = Keyboard.keyPressed();
+            if (c > 0) {
+                let last = c;
+            }
+        }
+
+        do Output.printChar(String.backSpace());
+        do Output.printChar(last);
+        return last;
+    }
+
+    function String readLine(String prompt) {
+        var char ch;
+        var char newline;
+        var char backspace;
+        var String line;
+        var boolean done;
+
+        let line = String.new(80);
+        do Output.printString(prompt);
+
+        let newline = String.newLine();
+        let backspace = String.backSpace();
+        let done = false;
+
+        while (~done) {
+            let ch = Keyboard.readChar();
+            let done = (ch = newline);
+            if (~done) {
+                if (ch = backspace) {
+                    do line.eraseLastChar();
+                } else {
+                    let line = line.appendChar(ch);
+                }
+            }
+        }
+
+        return line;
+    }
+}

@@ -52,7 +52,7 @@ public class VMParser {
 
                 case PushGroup pg -> {
                     if (!stack.isEmpty() && stack.getLast() instanceof PushPopPair PPP && PPP.getPopAddress().equals(new Address("pointer", (short) 1)) && pg instanceof PushInstruction pi && pi.equals(new PushInstruction(new Address("that", (short) 0)))) {
-                        Dereference d = new Dereference((BinaryPushGroup) PPP.getPush());
+                        Dereference d = new Dereference(PPP.getPush());
                         stack.removeLast();
                         stack.addLast(d);
                     } else {
@@ -60,49 +60,64 @@ public class VMParser {
                     }
                 }
 
-
                 case PopInstruction pop -> {
                     if (stack.isEmpty()) {
                         throw new Exception("pop without matching push");
                     }
 
-                    Address that0 = new Address("that", (short) 0);
-                    Address pointer1 = new Address("pointer", (short) 1);
-                    Address temp0 = new Address("temp", (short) 0);
+                    // === Pattern A: pop temp 0 → pop pointer 1 → (later) push temp 0 + pop that 0
+                    if (pop.getAddress().equals(new Address("pointer", (short) 1))) {
+                        if (stack.size() >= 2) {
+                            VMinstruction tempPair = stack.removeLast();  // should be PushPopPair to temp 0
+                            VMinstruction destExpr = stack.removeLast();  // should be PushGroup (dest address)
 
-                    // Check for: source → dest → pop temp 0 → pop pointer 1 → push temp 0 → pop that 0
-                    if (pop.getAddress().equals(pointer1)) {
-                        List<VMinstruction> list = new ArrayList<>(stack);
-                        int size = list.size();
+                            if (tempPair instanceof PushPopPair ppp && ppp.getPopAddress().equals(new Address("temp", (short) 0)) && destExpr instanceof PushGroup dest) {
 
-                        if (size >= 2 && list.get(size - 1) instanceof PushPopPair ppp && ppp.getPopAddress().equals(temp0) && list.get(size - 2) instanceof PushGroup dest) {
-
-                            stack.removeLast(); // remove PushPopPair (temp0)
-                            stack.removeLast(); // remove dest
-
-                            stack.addLast(new PushWriter(ppp.getPush(), dest));
-                        }
-                    } else
-                        // Alternate simpler form: source → dest → pop pointer 1 → pop that 0
-                        if (stack.peekLast() instanceof PushPopPair ppp && ppp.getPopAddress().equals(pointer1) && pop.getAddress().equals(that0)) {
-
-                            stack.removeLast(); // pop pointer 1 pair
-
-                            if (stack.peekLast() instanceof PushGroup source) {
-                                stack.removeLast();
-                                stack.addLast(new PushWriter(source, ppp.getPush()));
+                                // Store pending writer for use when we later see: push temp 0 → pop that 0
+                                stack.addLast(new PushWriter(ppp.getPush(), dest));
+                                break;
                             } else {
-                                throw new Exception("error when creating PushWriter");
+                                // Not a match: restore stack
+                                stack.addLast(destExpr);
+                                stack.addLast(tempPair);
                             }
+                        }
+                    }
 
+                    // === Pattern B: push → pop pointer 1 → pop that 0
+                    if (stack.peekLast() instanceof PushPopPair ppp && ppp.getPopAddress().equals(new Address("pointer", (short) 1)) && pop.getAddress().equals(new Address("that", (short) 0))) {
+
+                        PushPopPair ptrSet = (PushPopPair) stack.removeLast();
+
+                        if (!stack.isEmpty() && stack.peekLast() instanceof PushGroup source) {
+                            stack.removeLast();
+                            stack.addLast(new PushWriter(source, ptrSet.getPush()));
+                            break;
                         } else {
-                            if (stack.peekLast() instanceof PushGroup pg) {
-                                stack.removeLast();
-                                stack.addLast(new PushPopPair(pg, pop));
-                            } else {
-                                throw new Exception("pop without matching push");
-                            }
+                            throw new Exception("error when creating PushWriter");
                         }
+                    }
+
+                    // === Pattern C: we previously added a PushWriter; now we expect push temp 0 + pop that 0
+                    if (pop.getAddress().equals(new Address("that", (short) 0)) && stack.peekLast() instanceof PushWriter pw && todo.peekFirst() instanceof PushInstruction tempPush && tempPush.getAddress().equals(new Address("temp", (short) 0))) {
+
+                        // Consume temp push from todo
+                        todo.removeFirst();
+                        stack.removeLast();
+
+                        // Rebuild PushWriter with final value now known
+                        PushWriter completed = new PushWriter(tempPush, pw.getDest());
+                        stack.addLast(completed);
+                        break;
+                    }
+
+                    // === Default: push + pop → PushPopPair
+                    if (stack.peekLast() instanceof PushGroup pg) {
+                        stack.removeLast();
+                        stack.addLast(new PushPopPair(pg, pop));
+                    } else {
+                        throw new Exception("pop without matching push");
+                    }
                 }
 
 

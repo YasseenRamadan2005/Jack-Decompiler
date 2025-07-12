@@ -5,16 +5,17 @@ pop pointer 0
 push argument 0
 push constant 0
 eq
-not
-if-goto String.new.IfElse1
+if-goto String.new$IF_TRUE1
+goto String.new$IF_FALSE1
+label String.new$IF_TRUE1
 push constant 0
 pop this 0
-goto String.new.IfElseEND1
-label String.new.IfElse1
+goto String.new$IF_END1
+label String.new$IF_FALSE1
 push argument 0
 call Array.new 1
 pop this 0
-label String.new.IfElseEND1
+label String.new$IF_END1
 push argument 0
 pop this 2
 push constant 0
@@ -28,12 +29,13 @@ push this 0
 push constant 0
 eq
 not
-not
-if-goto String.dispose.IfElseEND1
+if-goto String.dispose$IF_TRUE1
+goto String.dispose$IF_FALSE1
+label String.dispose$IF_TRUE1
 push this 0
 call Array.dispose 1
 pop temp 0
-label String.dispose.IfElseEND1
+label String.dispose$IF_FALSE1
 push constant 0
 return
 function String.length 0
@@ -60,15 +62,16 @@ add
 pop pointer 1
 pop that 0
 push constant 0
-return
-function String.appendChar 1
+returnappendChar
+function String. 1
 push argument 0
 pop pointer 0
 push this 1
 push this 2
 eq
-not
-if-goto String.appendChar.IfElseEND1
+if-goto String.appendChar$IF_TRUE1
+goto String.appendChar$IF_FALSE1
+label String.appendChar$IF_TRUE1
 push this 2
 push this 2
 add
@@ -88,7 +91,7 @@ add
 pop this 2
 push local 0
 pop this 0
-label String.appendChar.IfElseEND1
+label String.appendChar$IF_FALSE1
 push argument 1
 push this 0
 push this 1
@@ -117,12 +120,12 @@ push constant 1
 pop local 1
 push constant 0
 pop local 0
-label WHILE_START_String.intValue1
+label String.intValue_WHILE_EXP1
 push local 1
 push this 1
 lt
 not
-if-goto WHILE_END_String.intValue1
+if-goto String.intValue_WHILE_END1
 push local 0
 push constant 10
 call Math.multiply 2
@@ -139,8 +142,8 @@ push local 1
 push constant 1
 add
 pop local 1
-goto WHILE_START_String.intValue1
-label WHILE_END_String.intValue1
+goto String.intValue_WHILE_EXP1
+label String.intValue_WHILE_END1
 push local 0
 return
 function String.setInt 6
@@ -153,20 +156,22 @@ pop local 4
 push argument 1
 push constant 0
 eq
-not
-if-goto String.setInt.IfElseEND1
+if-goto String.setInt$IF_TRUE1
+goto String.setInt$IF_FALSE1
+label String.setInt$IF_TRUE1
 push pointer 0
 push constant 48
 call String.appendChar 2
 pop temp 0
 push constant 0
 return
-label String.setInt.IfElseEND1
+label String.setInt$IF_FALSE1
 push argument 1
 push constant 0
 lt
-not
-if-goto String.setInt.IfElseEND2
+if-goto String.setInt$IF_TRUE2
+goto String.setInt$IF_FALSE2
+label String.setInt$IF_TRUE2
 push constant 1
 pop local 4
 push argument 1
@@ -178,8 +183,9 @@ and
 push constant 32767
 eq
 and
-not
-if-goto String.setInt.IfElseEND3
+if-goto String.setInt$IF_TRUE3
+goto String.setInt$IF_FALSE3
+label String.setInt$IF_TRUE3
 push pointer 0
 push constant 45
 call String.appendChar 2
@@ -206,21 +212,21 @@ call String.appendChar 2
 pop temp 0
 push constant 0
 return
-label String.setInt.IfElseEND3
+label String.setInt$IF_FALSE3
 push argument 1
 neg
 pop argument 1
-label String.setInt.IfElseEND2
+label String.setInt$IF_FALSE2
 push argument 1
 pop local 2
 push constant 0
 pop local 3
-label WHILE_START_String.setInt1
+label String.setInt_WHILE_EXP1
 push local 2
 push constant 0
 gt
 not
-if-goto WHILE_END_String.setInt1
+if-goto String.setInt_WHILE_END1
 push local 2
 push constant 10
 call Math.divide 2
@@ -229,19 +235,19 @@ push local 3
 push constant 1
 add
 pop local 3
-goto WHILE_START_String.setInt1
-label WHILE_END_String.setInt1
+goto String.setInt_WHILE_EXP1
+label String.setInt_WHILE_END1
 push local 3
 call Array.new 1
 pop local 5
 push constant 0
 pop local 1
-label WHILE_START_String.setInt2
+label String.setInt_WHILE_EXP2
 push argument 1
 push constant 0
 gt
 not
-if-goto WHILE_END_String.setInt2
+if-goto String.setInt_WHILE_END2
 push argument 1
 push argument 1
 push constant 10
@@ -266,24 +272,25 @@ push local 1
 push constant 1
 add
 pop local 1
-goto WHILE_START_String.setInt2
-label WHILE_END_String.setInt2
+goto String.setInt_WHILE_EXP2
+label String.setInt_WHILE_END2
 push local 4
 push constant 1
 eq
-not
-if-goto String.setInt.IfElseEND4
+if-goto String.setInt$IF_TRUE4
+goto String.setInt$IF_FALSE4
+label String.setInt$IF_TRUE4
 push pointer 0
 push constant 45
 call String.appendChar 2
 pop temp 0
-label String.setInt.IfElseEND4
-label WHILE_START_String.setInt3
+label String.setInt$IF_FALSE4
+label String.setInt_WHILE_EXP3
 push local 1
 push constant 0
 gt
 not
-if-goto WHILE_END_String.setInt3
+if-goto String.setInt_WHILE_END3
 push local 1
 push constant 1
 sub
@@ -296,8 +303,8 @@ pop pointer 1
 push that 0
 call String.appendChar 2
 pop temp 0
-goto WHILE_START_String.setInt3
-label WHILE_END_String.setInt3
+goto String.setInt_WHILE_EXP3
+label String.setInt_WHILE_END3
 push local 5
 call Array.dispose 1
 pop temp 0

@@ -23,12 +23,12 @@ class Keyboard {
         do Output.printString(argument_0);
         let local_0 = String.new(50);
         let local_1 = Keyboard.readChar();
-        while (~(( local_1 = String.newLine()))) {
+        while (~(local_1 = 128)) {
         	if (local_1 = 129) {
         		do local_0.eraseLastChar();
         	}
         	else {
-        		do local_0.appendChar(local_1);
+        		do String.appendChar(local_0, local_1);
         	}
         	let local_1 = Keyboard.readChar();
         }

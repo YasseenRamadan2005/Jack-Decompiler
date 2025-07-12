@@ -28,8 +28,9 @@ push static 0
 push constant 0
 eq
 not
-not
-if-goto Screen.drawPixel.IfElse1
+if-goto Screen.drawPixel$IF_TRUE1
+goto Screen.drawPixel$IF_FALSE1
+label Screen.drawPixel$IF_TRUE1
 push local 0
 push constant 0
 add
@@ -43,8 +44,8 @@ push constant 0
 add
 pop pointer 1
 pop that 0
-goto Screen.drawPixel.IfElseEND1
-label Screen.drawPixel.IfElse1
+goto Screen.drawPixel$IF_END1
+label Screen.drawPixel$IF_FALSE1
 push local 0
 push constant 0
 add
@@ -59,7 +60,7 @@ push constant 0
 add
 pop pointer 1
 pop that 0
-label Screen.drawPixel.IfElseEND1
+label Screen.drawPixel$IF_END1
 push constant 0
 return
 function Screen.drawLine 6
@@ -76,38 +77,40 @@ pop local 1
 push argument 0
 push argument 2
 lt
-not
-if-goto Screen.drawLine.IfElse1
+if-goto Screen.drawLine$IF_TRUE1
+goto Screen.drawLine$IF_FALSE1
+label Screen.drawLine$IF_TRUE1
 push constant 1
 pop local 2
-goto Screen.drawLine.IfElseEND1
-label Screen.drawLine.IfElse1
+goto Screen.drawLine$IF_END1
+label Screen.drawLine$IF_FALSE1
 push constant 1
 neg
 pop local 2
-label Screen.drawLine.IfElseEND1
+label Screen.drawLine$IF_END1
 push argument 1
 push argument 3
 lt
-not
-if-goto Screen.drawLine.IfElse2
+if-goto Screen.drawLine$IF_TRUE2
+goto Screen.drawLine$IF_FALSE2
+label Screen.drawLine$IF_TRUE2
 push constant 1
 pop local 3
-goto Screen.drawLine.IfElseEND2
-label Screen.drawLine.IfElse2
+goto Screen.drawLine$IF_END2
+label Screen.drawLine$IF_FALSE2
 push constant 1
 neg
 pop local 3
-label Screen.drawLine.IfElseEND2
+label Screen.drawLine$IF_END2
 push local 0
 push local 1
 sub
 pop local 4
-label WHILE_START_Screen.drawLine1
+label Screen.drawLine_WHILE_EXP1
 push constant 0
 not
 not
-if-goto WHILE_END_Screen.drawLine1
+if-goto Screen.drawLine_WHILE_END1
 push argument 0
 push argument 1
 call Screen.drawPixel 2
@@ -119,11 +122,12 @@ push argument 1
 push argument 3
 eq
 and
-not
-if-goto Screen.drawLine.IfElseEND3
+if-goto Screen.drawLine$IF_TRUE3
+goto Screen.drawLine$IF_FALSE3
+label Screen.drawLine$IF_TRUE3
 push constant 0
 return
-label Screen.drawLine.IfElseEND3
+label Screen.drawLine$IF_FALSE3
 push local 4
 push local 4
 add
@@ -133,8 +137,9 @@ push local 1
 add
 push constant 0
 gt
-not
-if-goto Screen.drawLine.IfElseEND4
+if-goto Screen.drawLine$IF_TRUE4
+goto Screen.drawLine$IF_FALSE4
+label Screen.drawLine$IF_TRUE4
 push local 4
 push local 1
 sub
@@ -143,12 +148,13 @@ push argument 0
 push local 2
 add
 pop argument 0
-label Screen.drawLine.IfElseEND4
+label Screen.drawLine$IF_FALSE4
 push local 5
 push local 0
 lt
-not
-if-goto Screen.drawLine.IfElseEND5
+if-goto Screen.drawLine$IF_TRUE5
+goto Screen.drawLine$IF_FALSE5
+label Screen.drawLine$IF_TRUE5
 push local 4
 push local 0
 add
@@ -157,21 +163,21 @@ push argument 1
 push local 3
 add
 pop argument 1
-label Screen.drawLine.IfElseEND5
-goto WHILE_START_Screen.drawLine1
-label WHILE_END_Screen.drawLine1
+label Screen.drawLine$IF_FALSE5
+goto Screen.drawLine_WHILE_EXP1
+label Screen.drawLine_WHILE_END1
 push constant 0
 return
 function Screen.drawHorizontalLine 1
 push argument 0
 pop local 0
-label WHILE_START_Screen.drawHorizontalLine1
+label Screen.drawHorizontalLine_WHILE_EXP1
 push local 0
 push argument 1
 gt
 not
 not
-if-goto WHILE_END_Screen.drawHorizontalLine1
+if-goto Screen.drawHorizontalLine_WHILE_END1
 push local 0
 push argument 2
 call Screen.drawPixel 2
@@ -180,8 +186,8 @@ push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_START_Screen.drawHorizontalLine1
-label WHILE_END_Screen.drawHorizontalLine1
+goto Screen.drawHorizontalLine_WHILE_EXP1
+label Screen.drawHorizontalLine_WHILE_END1
 push constant 0
 return
 function Screen.drawCircle 5
@@ -193,13 +199,13 @@ push constant 1
 push argument 2
 sub
 pop local 2
-label WHILE_START_Screen.drawCircle1
+label Screen.drawCircle_WHILE_EXP1
 push local 0
 push local 1
 gt
 not
 not
-if-goto WHILE_END_Screen.drawCircle1
+if-goto Screen.drawCircle_WHILE_END1
 push argument 0
 push local 0
 sub
@@ -247,8 +253,9 @@ pop temp 0
 push local 2
 push constant 0
 lt
-not
-if-goto Screen.drawCircle.IfElse1
+if-goto Screen.drawCircle$IF_TRUE1
+goto Screen.drawCircle$IF_FALSE1
+label Screen.drawCircle$IF_TRUE1
 push local 2
 push local 0
 push local 0
@@ -257,8 +264,8 @@ add
 push constant 3
 add
 pop local 2
-goto Screen.drawCircle.IfElseEND1
-label Screen.drawCircle.IfElse1
+goto Screen.drawCircle$IF_END1
+label Screen.drawCircle$IF_FALSE1
 push local 2
 push local 0
 push local 1
@@ -275,13 +282,13 @@ push local 1
 push constant 1
 sub
 pop local 1
-label Screen.drawCircle.IfElseEND1
+label Screen.drawCircle$IF_END1
 push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_START_Screen.drawCircle1
-label WHILE_END_Screen.drawCircle1
+goto Screen.drawCircle_WHILE_EXP1
+label Screen.drawCircle_WHILE_END1
 push constant 0
 return
 function Screen.drawRectangle 10
@@ -290,20 +297,21 @@ neg
 pop local 9
 push static 0
 not
-not
-if-goto Screen.drawRectangle.IfElseEND1
+if-goto Screen.drawRectangle$IF_TRUE1
+goto Screen.drawRectangle$IF_FALSE1
+label Screen.drawRectangle$IF_TRUE1
 push constant 0
 pop local 9
-label Screen.drawRectangle.IfElseEND1
+label Screen.drawRectangle$IF_FALSE1
 push argument 1
 pop local 0
-label WHILE_START_Screen.drawRectangle1
+label Screen.drawRectangle_WHILE_EXP1
 push local 0
 push argument 3
 gt
 not
 not
-if-goto WHILE_END_Screen.drawRectangle1
+if-goto Screen.drawRectangle_WHILE_END1
 push argument 0
 push constant 16
 call Math.divide 2
@@ -327,8 +335,9 @@ pop local 5
 push local 1
 push local 2
 eq
-not
-if-goto Screen.drawRectangle.IfElse2
+if-goto Screen.drawRectangle$IF_TRUE2
+goto Screen.drawRectangle$IF_FALSE2
+label Screen.drawRectangle$IF_TRUE2
 push local 4
 push constant 1
 add
@@ -346,8 +355,9 @@ push local 1
 add
 pop local 7
 push static 0
-not
-if-goto Screen.drawRectangle.IfElse3
+if-goto Screen.drawRectangle$IF_TRUE3
+goto Screen.drawRectangle$IF_FALSE3
+label Screen.drawRectangle$IF_TRUE3
 push constant 16384
 push local 7
 add
@@ -360,8 +370,8 @@ push local 7
 add
 pop pointer 1
 pop that 0
-goto Screen.drawRectangle.IfElseEND3
-label Screen.drawRectangle.IfElse3
+goto Screen.drawRectangle$IF_END3
+label Screen.drawRectangle$IF_FALSE3
 push constant 16384
 push local 7
 add
@@ -375,9 +385,9 @@ push local 7
 add
 pop pointer 1
 pop that 0
-label Screen.drawRectangle.IfElseEND3
-goto Screen.drawRectangle.IfElseEND2
-label Screen.drawRectangle.IfElse2
+label Screen.drawRectangle$IF_END3
+goto Screen.drawRectangle$IF_END2
+label Screen.drawRectangle$IF_FALSE2
 push local 3
 call Math.twoToThe 1
 push constant 1
@@ -389,8 +399,9 @@ push local 1
 add
 pop local 7
 push static 0
-not
-if-goto Screen.drawRectangle.IfElse4
+if-goto Screen.drawRectangle$IF_TRUE4
+goto Screen.drawRectangle$IF_FALSE4
+label Screen.drawRectangle$IF_TRUE4
 push constant 16384
 push local 7
 add
@@ -403,8 +414,8 @@ push local 7
 add
 pop pointer 1
 pop that 0
-goto Screen.drawRectangle.IfElseEND4
-label Screen.drawRectangle.IfElse4
+goto Screen.drawRectangle$IF_END4
+label Screen.drawRectangle$IF_FALSE4
 push constant 16384
 push local 7
 add
@@ -418,17 +429,17 @@ push local 7
 add
 pop pointer 1
 pop that 0
-label Screen.drawRectangle.IfElseEND4
+label Screen.drawRectangle$IF_END4
 push local 1
 push constant 1
 add
 pop local 8
-label WHILE_START_Screen.drawRectangle2
+label Screen.drawRectangle_WHILE_EXP2
 push local 8
 push local 2
 lt
 not
-if-goto WHILE_END_Screen.drawRectangle2
+if-goto Screen.drawRectangle_WHILE_END2
 push local 5
 push local 8
 add
@@ -443,8 +454,8 @@ push local 8
 push constant 1
 add
 pop local 8
-goto WHILE_START_Screen.drawRectangle2
-label WHILE_END_Screen.drawRectangle2
+goto Screen.drawRectangle_WHILE_EXP2
+label Screen.drawRectangle_WHILE_END2
 push local 4
 push constant 1
 add
@@ -457,8 +468,9 @@ push local 2
 add
 pop local 7
 push static 0
-not
-if-goto Screen.drawRectangle.IfElse5
+if-goto Screen.drawRectangle$IF_TRUE5
+goto Screen.drawRectangle$IF_FALSE5
+label Screen.drawRectangle$IF_TRUE5
 push constant 16384
 push local 7
 add
@@ -471,8 +483,8 @@ push local 7
 add
 pop pointer 1
 pop that 0
-goto Screen.drawRectangle.IfElseEND5
-label Screen.drawRectangle.IfElse5
+goto Screen.drawRectangle$IF_END5
+label Screen.drawRectangle$IF_FALSE5
 push constant 16384
 push local 7
 add
@@ -486,25 +498,25 @@ push local 7
 add
 pop pointer 1
 pop that 0
-label Screen.drawRectangle.IfElseEND5
-label Screen.drawRectangle.IfElseEND2
+label Screen.drawRectangle$IF_END5
+label Screen.drawRectangle$IF_END2
 push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_START_Screen.drawRectangle1
-label WHILE_END_Screen.drawRectangle1
+goto Screen.drawRectangle_WHILE_EXP1
+label Screen.drawRectangle_WHILE_END1
 push constant 0
 return
 function Screen.clearScreen 1
 push constant 0
 pop local 0
-label WHILE_START_Screen.clearScreen1
+label Screen.clearScreen_WHILE_EXP1
 push local 0
 push constant 8192
 lt
 not
-if-goto WHILE_END_Screen.clearScreen1
+if-goto Screen.clearScreen_WHILE_END1
 push constant 0
 push constant 16384
 push local 0
@@ -515,7 +527,7 @@ push local 0
 push constant 1
 add
 pop local 0
-goto WHILE_START_Screen.clearScreen1
-label WHILE_END_Screen.clearScreen1
+goto Screen.clearScreen_WHILE_EXP1
+label Screen.clearScreen_WHILE_END1
 push constant 0
 return

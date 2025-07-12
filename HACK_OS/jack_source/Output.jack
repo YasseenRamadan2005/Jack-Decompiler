@@ -124,30 +124,30 @@ class Output {
         var int local_0;
         
         let local_0 = Array.new(11);
-        let argument_0[static_5] = local_0;
-        let  = ;
-        let 0[local_0] = argument_1;
-        let  = ;
-        let 1[local_0] = argument_2;
-        let  = ;
-        let 2[local_0] = argument_3;
-        let  = ;
-        let 3[local_0] = argument_4;
-        let  = ;
-        let 4[local_0] = argument_5;
-        let  = ;
-        let 5[local_0] = argument_6;
-        let  = ;
-        let 6[local_0] = argument_7;
-        let  = ;
-        let 7[local_0] = argument_8;
-        let  = ;
-        let 8[local_0] = argument_9;
-        let  = ;
-        let 9[local_0] = argument_10;
-        let  = ;
-        let 10[local_0] = argument_11;
-        let  = ;
+        let static_5[argument_0] = local_0;
+        
+        let local_0[0] = argument_1;
+        
+        let local_0[1] = argument_2;
+        
+        let local_0[2] = argument_3;
+        
+        let local_0[3] = argument_4;
+        
+        let local_0[4] = argument_5;
+        
+        let local_0[5] = argument_6;
+        
+        let local_0[6] = argument_7;
+        
+        let local_0[7] = argument_8;
+        
+        let local_0[8] = argument_9;
+        
+        let local_0[9] = argument_10;
+        
+        let local_0[10] = argument_11;
+        
         return;
     }
 
@@ -160,24 +160,21 @@ class Output {
         let static_6 = Array.new(127);
         let local_2 = 0;
         while (local_2 < 127) {
-        	local_2 + static_5
-        	let local_0 = ;
+        	let local_0 = static_5[local_2];
         	let local_1 = Array.new(11);
-        	let local_2[static_6] = local_1;
-        	let  = ;
+        	let static_6[local_2] = local_1;
+        	
         	let local_3 = 0;
         	while (local_3 < 11) {
-        		local_3 + local_1
-        		let local_3[local_0] = Math.multiply(, 256);
-        		let  = ;
+        		let local_1[local_3] = Math.multiply(local_0[local_3], 256);
+        		
         		let local_3 = local_3 + 1;
         	}
-        	if (~(local_2 = 0)) {
-        		let local_2 = local_2 + 1;
-        	} else {
+        	if (local_2 = 0) {
         		let local_2 = 32;
-        // Unhandled VM instruction: GotoInstruction
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         	}
+        	let local_2 = local_2 + 1;
         }
         return;
     }
@@ -185,18 +182,14 @@ class Output {
     function int getMap(int argument_0) {
         var int local_0;
         
-        if (~(( argument_0 < 32 | argument_0 > 126))) {
-        	if (~(static_2)) {
-        		argument_0 + static_6
-        		let local_0 = ;
-        	} else {
-        		argument_0 + static_5
-        		let local_0 = ;
-        // Unhandled VM instruction: GotoInstruction
-        	}
-        } else {
+        if (( argument_0 < 32 | argument_0 > 126)) {
         	let argument_0 = 0;
         }
+        if (static_2) {
+        	let local_0 = static_5[argument_0];
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        }
+        let local_0 = static_6[argument_0];
         return local_0;
     }
 
@@ -209,17 +202,13 @@ class Output {
         let local_2 = Output.getMap(argument_0);
         let local_0 = static_1;
         while (local_1 < 11) {
-        	if (~(static_2)) {
-        		local_0 + static_4
-        		let local_3 =  & 255;
-        	} else {
-        		local_0 + static_4
-        		let local_3 = (  & -(256));
-        // Unhandled VM instruction: GotoInstruction
+        	if (static_2) {
+        		let local_3 = ( static_4[local_0] & -(256));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         	}
-        	local_0 + static_4
-        	let local_1[local_2] =  | local_3;
-        	let  = ;
+        	let local_3 = ( static_4[local_0] & 255);
+        	let static_4[local_0] = ( local_2[local_1] | local_3);
+        	
         	let local_0 = local_0 + 32;
         	let local_1 = local_1 + 1;
         }
@@ -228,28 +217,24 @@ class Output {
 
     function void printChar(int argument_0) {
         
-        if (~(( argument_0 = String.newLine()))) {
-        	if (~(( argument_0 = String.backSpace()))) {
-        		do Output.drawChar(argument_0);
-        		if (static_2) {
-        			if (~(static_0 = 32)) {
-        				let static_2 = ~(static_2);
-        			} else {
-        				do Output.println();
-        // Unhandled VM instruction: GotoInstruction
-        			}
-        		} else {
-        			let static_0 = static_0 + 1;
-        			let static_1 = static_1 + 1;
-        		}
-        	} else {
-        		do Output.backSpace();
-        // Unhandled VM instruction: GotoInstruction
-        	}
-        } else {
+        if (( argument_0 = String.newLine())) {
         	do Output.println();
-        // Unhandled VM instruction: GotoInstruction
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         }
+        if (( argument_0 = String.backSpace())) {
+        	do Output.backSpace();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        }
+        do Output.drawChar(argument_0);
+        if (~(static_2)) {
+        	let static_0 = static_0 + 1;
+        	let static_1 = static_1 + 1;
+        }
+        if (static_0 = 32) {
+        	do Output.println();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END3}
+        }
+        let static_2 = ~(static_2);
         return;
     }
 
@@ -277,33 +262,29 @@ class Output {
         let static_1 = ( static_1 + 352 - static_0);
         let static_0 = 0;
         let static_2 = ~(0);
-        if (~(static_1 = 8128)) {
-        	return;
-        } else {
+        if (static_1 = 8128) {
         	let static_1 = 32;
         }
+        return;
     }
 
     function void backSpace() {
         
-        if (~(static_2)) {
-        	let static_2 = ~(0);
-        } else {
-        	if (~(static_0 > 0)) {
-        		let static_0 = 31;
-        		if (~(static_1 = 32)) {
-        			let static_1 = static_1 - 321;
-        		} else {
-        			let static_1 = 8128;
-        		}
-        	} else {
+        if (static_2) {
+        	if (static_0 > 0) {
         		let static_0 = static_0 - 1;
         		let static_1 = static_1 - 1;
-        // Unhandled VM instruction: GotoInstruction
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
         	}
+        	let static_0 = 31;
+        	if (static_1 = 32) {
+        		let static_1 = 8128;
+        	}
+        	let static_1 = static_1 - 321;
         	let static_2 = 0;
-        // Unhandled VM instruction: GotoInstruction
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         }
+        let static_2 = ~(0);
         do Output.drawChar(32);
         return;
     }

@@ -29,20 +29,6 @@ class String {
         return field_0[argument_1];
     }
 
-    method void appendChar(int argument_0, int argument_1) {
-        var int local_0;
-        if (field_1 = field_2) {
-        	let local_0 = Array.new(field_2 + field_2);
-        	do Memory.copy(field_0, local_0, field_1);
-        	do field_0.dispose();
-        	let field_2 = field_2 + field_2;
-        	let field_0 = local_0;
-        }
-        let field_0[field_1] = argument_1;
-        let field_1 = field_1 + 1;
-        return;
-    }
-
     method void eraseLastChar(int argument_0) {
         let field_1 = field_1 - 1;
         return;
@@ -70,18 +56,18 @@ class String {
         let field_1 = 0;
         let local_4 = 0;
         if (argument_1 = 0) {
-        	do this.appendChar(48);
+        	do String.appendChar(this, 48);
         	return;
         }
         if (argument_1 < 0) {
         	let local_4 = 1;
         	if (( argument_1 < 0 & ( argument_1 & 32767 = 32767))) {
-        		do this.appendChar(45);
-        		do this.appendChar(51);
-        		do this.appendChar(50);
-        		do this.appendChar(55);
-        		do this.appendChar(54);
-        		do this.appendChar(56);
+        		do String.appendChar(this, 45);
+        		do String.appendChar(this, 51);
+        		do String.appendChar(this, 50);
+        		do String.appendChar(this, 55);
+        		do String.appendChar(this, 54);
+        		do String.appendChar(this, 56);
         		return;
         	}
         	let argument_1 = -(argument_1);
@@ -101,19 +87,14 @@ class String {
         	let local_1 = local_1 + 1;
         }
         if (local_4 = 1) {
-        	do this.appendChar(45);
+        	do String.appendChar(this, 45);
         }
         while (local_1 > 0) {
         	let local_1 = local_1 - 1;
-        	do this.appendChar(local_5[local_1]);
+        	do String.appendChar(this, local_5[local_1]);
         }
         do local_5.dispose();
         return;
-    }
-
-    function int newLine() {
-        
-        return 128;
     }
 
 }

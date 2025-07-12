@@ -1,11 +1,27 @@
 class Output {
-    static int static_0;
-    static int static_1;
-    static int static_2;
+    static int column;
+    static int address;
+    static boolean inverted;
+    static int screenBase;
+    static String tempStr;
+    static Array charMap;
+    static Array shiftedCharMap;
+
     function void init() {
-        var int local_0;
+        let screenBase = 16384;
+        let inverted = true;
+        let address = 32;
+        let column = 0;
+        let tempStr = String.new(6);
+        do Output.initMap();
+        do Output.createShiftedMap();
+        return;
+    }
+
+
+    function void initMap() {
         
-        let static_0 = Array.new(127);
+        let charMap = Array.new(127);
         do Output.create(0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0);
         do Output.create(32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
         do Output.create(33, 12, 30, 30, 30, 12, 12, 0, 12, 12, 0, 0);
@@ -102,99 +118,150 @@ class Output {
         do Output.create(124, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0);
         do Output.create(125, 7, 12, 12, 12, 56, 12, 12, 12, 7, 0, 0);
         do Output.create(126, 38, 45, 25, 0, 0, 0, 0, 0, 0, 0, 0);
-        let static_1 = 0;
-        let static_2 = 0;
+        return;
+    }
+function void create(int c, int a1, int a2, int a3, int a4, int a5, int a6, int a7, int a8, int a9, int a10, int a11) {
+        var Array bitmap;
+        let bitmap = Array.new(11);
+        let charMap[c] = bitmap;
+        let bitmap[0] = a1;
+        let bitmap[1] = a2;
+        let bitmap[2] = a3;
+        let bitmap[3] = a4;
+        let bitmap[4] = a5;
+        let bitmap[5] = a6;
+        let bitmap[6] = a7;
+        let bitmap[7] = a8;
+        let bitmap[8] = a9;
+        let bitmap[9] = a10;
+        let bitmap[10] = a11;
         return;
     }
 
-    function void create(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4, int argument_5, int argument_6, int argument_7, int argument_8, int argument_9, int argument_10, int argument_11) {
-        var int local_0;
-        
-        let local_0 = Array.new(11);
-        let static_0[argument_0] = local_0;
-        let local_0[0] = argument_1;
-        let local_0[1] = argument_2;
-        let local_0[2] = argument_3;
-        let local_0[3] = argument_4;
-        let local_0[4] = argument_5;
-        let local_0[5] = argument_6;
-        let local_0[6] = argument_7;
-        let local_0[7] = argument_8;
-        let local_0[8] = argument_9;
-        let local_0[9] = argument_10;
-        let local_0[10] = argument_11;
-        return;
-    }
+    function void createShiftedMap() {
+        var int i, j;
+        var Array source;
+        var Array shifted;
 
-    function int getMap(int argument_0) {
-        
-        if (( argument_0 < 32 | argument_0 > 126)) {
-        	let argument_0 = 0;
-        }
-        return static_0[argument_0];
-    }
+        let shiftedCharMap = Array.new(127);
+        let i = 0;
+        while (i < 127) {
+            let source = charMap[i];
+            let shifted = Array.new(11);
+            let shiftedCharMap[i] = shifted;
 
-    function void printChar(int argument_0) {
-        var int local_0;
-        var int local_1;
-        var int local_2;
-        var int local_3;
-        
-        let local_0 = Output.getMap(argument_0);
-        let local_3 = 0;
-        while (local_3 < 11) {
-        	let local_1 = ( ( 16384 + Math.multiply(( Math.multiply(static_2, 11) + local_3), 32)) + Math.divide(static_1, 2));
-        	if (( static_1 & 1 = 0)) {
-        		let local_2 = local_0[local_3];
-        	}
-        	else {
-        		let local_2 = Math.multiply(local_0[local_3], 256);
-        	}
-        	let local_1[0] = ( local_1[0] | local_2);
-        	let local_3 = local_3 + 1;
-        }
-        if (static_1 = 63) {
-        	do Output.println();
-        }
-        else {
-        	let static_1 = static_1 + 1;
+            let j = 0;
+            while (j < 11) {
+                let shifted[j] = Math.multiply(source[j], 256);
+                let j = j + 1;
+            }
+
+            if (i = 0) {
+                let i = 32;
+            }
+            let i = i + 1;
         }
         return;
     }
 
-    function void printString(int argument_0) {
-        var int local_0;
-        var int local_1;
-        
-        let local_0 = 0;
-        let local_1 = argument_0.length();
-        while (local_0 < local_1) {
-        	do Output.printChar(argument_0.charAt(local_0));
-        	let local_0 = local_0 + 1;
+    function Array getMap(int c) {
+        if (c < 32 | c > 126) {
+            let c = 0;
+        }
+        if (inverted) {
+            return charMap[c];
+        }
+        return shiftedCharMap[c];
+    }
+
+    function void drawChar(int c) {
+        var int i;
+        var int rowAddr;
+        var Array glyph;
+        var int data;
+
+        let glyph = Output.getMap(c[0]);
+        let rowAddr = address;
+        let i = 0;
+
+        while (i < 11) {
+            if (inverted) {
+                let data = screenBase[rowAddr] & (-256);
+            } else {
+                let data = screenBase[rowAddr] & 255;
+            }
+            let screenBase[rowAddr] = glyph[i] | data;
+            let rowAddr = rowAddr + 32;
+            let i = i + 1;
         }
         return;
     }
 
-    function void printInt(int argument_0) {
-        var int local_0;
-        
-        let local_0 = String.new(10);
-        do local_0.setInt(argument_0);
-        do Output.printString(local_0);
-        do local_0.dispose();
+    function void printChar(int c) {
+        if (c = String.newLine()) {
+            do Output.println();
+        } else {
+            if (c = String.backSpace()) {
+                do Output.backSpace();
+            } else {
+                do Output.drawChar(c);
+                if (~inverted) {
+                    let column = column + 1;
+                    let address = address + 1;
+                }
+                if (column = 32) {
+                    do Output.println();
+                }
+                let inverted = ~inverted;
+            }
+        }
+        return;
+    }
+
+    function void printString(String s) {
+        var int i, len;
+        let len = s.length();
+        let i = 0;
+        while (i < len) {
+            do Output.printChar(s.charAt(i));
+            let i = i + 1;
+        }
+        return;
+    }
+
+    function void printInt(int n) {
+        do tempStr.setInt(n);
+        do Output.printString(tempStr);
         return;
     }
 
     function void println() {
-        
-        let static_1 = 0;
-        if (static_2 = 22) {
-        	let static_2 = 0;
-        }
-        else {
-        	let static_2 = static_2 + 1;
+        let address = address + 352 - column;
+        let column = 0;
+        let inverted = true;
+        if (address = 8128) {
+            let address = 32;
         }
         return;
     }
 
+    function void backSpace() {
+        if (inverted) {
+            if (column > 0) {
+                let column = column - 1;
+                let address = address - 1;
+            } else {
+                let column = 31;
+                if (address = 32) {
+                    let address = 8128;
+                }
+                let address = address - 321;
+            }
+            let inverted = false;
+        } else {
+            let inverted = true;
+        }
+        do Output.drawChar(32);
+        return;
+    }
 }

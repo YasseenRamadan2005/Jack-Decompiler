@@ -1,4 +1,15 @@
 function Sys.init 0
+push constant 5
+pop static 0
+push static 0
+push constant 5
+eq
+if-goto Sys.init$IF_TRUE1
+goto Sys.init$IF_FALSE1
+label Sys.init$IF_TRUE1
+push constant 7
+pop static 0
+label Sys.init$IF_FALSE1
 call Memory.init 0
 pop temp 0
 call Math.init 0
@@ -16,42 +27,42 @@ pop temp 0
 push constant 0
 return
 function Sys.halt 0
-label WHILE_START_Sys.halt1
+label Sys.halt_WHILE_EXP1
 push constant 0
 not
 not
-if-goto WHILE_END_Sys.halt1
-goto WHILE_START_Sys.halt1
-label WHILE_END_Sys.halt1
+if-goto Sys.halt_WHILE_END1
+goto Sys.halt_WHILE_EXP1
+label Sys.halt_WHILE_END1
 push constant 0
 return
 function Sys.wait 1
-label WHILE_START_Sys.wait1
+label Sys.wait_WHILE_EXP1
 push argument 0
 push constant 0
 gt
 not
-if-goto WHILE_END_Sys.wait1
+if-goto Sys.wait_WHILE_END1
 push argument 0
 push constant 1
 sub
 pop argument 0
 push constant 70
 pop local 0
-label WHILE_START_Sys.wait2
+label Sys.wait_WHILE_EXP2
 push local 0
 push constant 0
 gt
 not
-if-goto WHILE_END_Sys.wait2
+if-goto Sys.wait_WHILE_END2
 push local 0
 push constant 1
 sub
 pop local 0
-goto WHILE_START_Sys.wait2
-label WHILE_END_Sys.wait2
-goto WHILE_START_Sys.wait1
-label WHILE_END_Sys.wait1
+goto Sys.wait_WHILE_EXP2
+label Sys.wait_WHILE_END2
+goto Sys.wait_WHILE_EXP1
+label Sys.wait_WHILE_END1
 push constant 0
 return
 function Sys.error 0

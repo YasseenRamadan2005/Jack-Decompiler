@@ -1,0 +1,118 @@
+class Screen {
+    static Array static_0;
+    static int static_1;
+    static boolean static_2;
+
+    function void init() {
+        var int i;
+
+        let static_1 = 16384;
+        let static_2 = true;
+        let static_0 = Array.new(17);
+        let static_0[0] = 1;
+
+        let i = 0;
+        while (i < 16) {
+            let i = i + 1;
+            let static_0[i] = static_0[i - 1] + static_0[i - 1];
+        }
+        return;
+    }
+
+    function void updateLocation(int address, int value) {
+        var int current;
+        let current = Memory.peek(address + static_1);
+        if (static_2) {
+            let current = current | value;
+        } else {
+            let current = current & (~value);
+        }
+        do Memory.poke(address + static_1, current);
+        return;
+    }
+
+
+    function void drawPixel(int x, int y) {
+        var int wordIndex;
+        var int bitIndex;
+        var int address;
+
+        if (x < 0 | x > 511 | y < 0 | y > 255) {
+            do Sys.error(7);
+        }
+
+        let wordIndex = Math.divide(x, 16);
+        let bitIndex = x - Math.multiply(wordIndex, 16);
+        let address = Math.multiply(y, 32) + wordIndex;
+
+        do Screen.updateLocation(address, static_0[bitIndex]);
+        return;
+    }
+
+    function void drawConditional(int x, int y, int condition) {
+        if (condition) {
+            do Screen.drawPixel(y, x);
+        } else {
+            do Screen.drawPixel(x, y);
+        }
+        return;
+    }
+
+    function void drawHorizontal(int row, int x1, int x2) {
+        var int i;
+        var int minX;
+        var int maxX;
+        var int wordStart;
+        var int bitStart;
+        var int wordEnd;
+        var int bitEnd;
+        var int maskStart;
+        var int maskEnd;
+        var int address;
+        var int wordCount;
+
+        let minX = Math.min(x1, x2);
+        let maxX = Math.max(x1, x2);
+
+        if ((((~(row < 0)) & (row < 256)) & (minX < 512)) & (~(maxX < 0))) {
+            let minX = Math.max(minX, 0);
+            let maxX = Math.min(maxX, 511);
+
+            let wordStart = Math.divide(minX, 16);
+            let bitStart = minX - Math.multiply(wordStart, 16);
+
+            let wordEnd = Math.divide(maxX, 16);
+            let bitEnd = maxX - Math.multiply(wordEnd, 16);
+
+            let maskStart = ~ (static_0[bitStart] - 1);
+            let maskEnd = static_0[bitEnd + 1] - 1;
+
+            let address = Math.multiply(row, 32) + wordStart;
+            let wordCount = wordEnd - wordStart;
+
+            if (wordCount = 0) {
+                do Screen.updateLocation(address, maskStart & maskEnd);
+            } else {
+                do Screen.updateLocation(address, maskStart);
+                let address = address + 1;
+
+                while (address < Math.multiply(row, 32) + wordEnd) {
+                    do Screen.updateLocation(address, ~0);  // fill full word
+                    let address = address + 1;
+                }
+
+                do Screen.updateLocation(Math.multiply(row, 32) + wordEnd, maskEnd);
+            }
+        }
+
+        return;
+    }
+
+    function void drawSymetric(int cx, int cy, int dx, int dy) {
+        do Screen.drawHorizontal(cy - dy, cx + dx, cx - dx);
+        do Screen.drawHorizontal(cy + dy, cx + dx, cx - dx);
+        do Screen.drawHorizontal(cy - dx, cx - dy, cx + dy);
+        do Screen.drawHorizontal(cy + dx, cx - dy, cx + dy);
+        return;
+    }
+}

@@ -1,0 +1,151 @@
+class String {
+    field int field_0;      // allocated length
+    field Array field_1;    // char array
+    field int field_2;      // current length (used chars)
+
+    constructor String new(int length) {
+        if (length < 0) {
+            do Sys.error(14);
+        }
+        if (length > 0) {
+            let field_1 = Array.new(length);
+        }
+        let field_0 = length;
+        let field_2 = 0;
+        return this;
+    }
+
+    method void dispose() {
+        if (field_0 > 0) {
+            do field_1.dispose();
+        }
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method int length() {
+        return field_2;
+    }
+
+    method int charAt(int index) {
+        if ((index < 0) | (~(index < field_2))) {
+            do Sys.error(15);
+        }
+        return field_1[index];
+    }
+
+    method String appendChar(int c) {
+        if (field_2 = field_0) {
+            do Sys.error(17);
+        }
+        let field_1[field_2] = c;
+        let field_2 = field_2 + 1;
+        return this;
+    }
+
+    method void eraseLastChar() {
+        if (field_2 = 0) {
+            do Sys.error(18);
+        }
+        let field_2 = field_2 - 1;
+        return;
+    }
+
+    method int intValue() {
+        var int i;
+        var int val;
+        var int digit;
+        var int isValid;
+        var int isNegative;
+
+        if (field_2 = 0) {
+            return 0;
+        }
+
+        let isNegative = 0;
+        let val = 0;
+        let i = 0;
+        let isValid = 1;
+
+        if (field_1[0] = 45) { // ASCII '-' is 45
+            let isNegative = 1;
+            let i = 1;
+        }
+
+        while ((i < field_2) & isValid) {
+            let digit = field_1[i] - 48; // ASCII '0' = 48
+            let isValid = ~((digit < 0) | (digit > 9));
+            if (isValid) {
+                let val = val * 10 + digit;
+                let i = i + 1;
+            }
+        }
+
+        if (isNegative) {
+            let val = -val;
+        }
+
+        return val;
+    }
+
+    method void setInt(int value) {
+        var int i;
+        var int temp;
+        var int isNegative;
+        var Array digits;
+
+        if (field_0 = 0) {
+            do Sys.error(19);
+        }
+
+        let digits = Array.new(6); // enough for -32768 to 32767 plus sign
+        let isNegative = 0;
+
+        if (value < 0) {
+            let isNegative = 1;
+            let value = -value;
+        }
+
+        let i = 0;
+        if (value = 0) {
+            let digits[0] = 48; // '0'
+            let i = 1;
+        } else {
+            while (value > 0) {
+                let temp = Math.divide(value, 10);
+                let digits[i] = 48 + (value - temp * 10);
+                let i = i + 1;
+                let value = temp;
+            }
+        }
+
+        if (isNegative) {
+            let digits[i] = 45; // '-'
+            let i = i + 1;
+        }
+
+        if (field_0 < i) {
+            do Sys.error(19);
+        }
+
+        // reverse digits into field_1
+        // reverse digits into field_1
+        let field_2 = 0;
+        while (field_2 < i) {
+            let field_1[field_2] = digits[i - field_2 - 1];
+            let field_2 = field_2 + 1;
+        }
+
+        do digits.dispose();
+        return;
+    }
+
+    // static functions for special characters
+    function int newLine() {
+        return 128;
+    }
+
+    function int backSpace() {
+        return 129;
+    }
+}

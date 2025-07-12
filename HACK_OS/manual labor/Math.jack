@@ -1,0 +1,112 @@
+class Math {
+    static Array powersOfTwo;     // static_0
+    static Array multiplesOfY;    // static_1
+
+    function void init() {
+        var int i;
+
+        let multiplesOfY = Array.new(16);
+        let powersOfTwo = Array.new(16);
+        let powersOfTwo[0] = 1;
+
+        let i = 0;
+        while (i < 15) {
+            let i = i + 1;
+            let powersOfTwo[i] = powersOfTwo[i - 1] + powersOfTwo[i - 1];
+        }
+        return;
+    }
+
+    function int abs(int x) {
+        if (x < 0) {
+            let x = -x;
+        }
+        return x;
+    }
+
+    function int multiply(int x, int y) {
+        var int result, smaller, bit, i, isNegative;
+
+        let isNegative = (x < 0 & y > 0) | (x > 0 & y < 0);
+        let x = Math.abs(x);
+        let y = Math.abs(y);
+
+        if (x < y) {
+            let smaller = x;
+            let x = y;
+            let y = smaller;
+        }
+
+        let result = 0;
+        let bit = 0;
+        let i = 0;
+
+        while (i < 15 & bit < y) {
+            if (~((powersOfTwo[i] & y) = 0)) {
+                let result = result + x;
+                let bit = bit + powersOfTwo[i];
+            }
+            let x = x + x;
+            let i = i + 1;
+        }
+
+        if (isNegative) {
+            let result = -result;
+        }
+        return result;
+    }
+
+    function int divide(int x, int y) {
+        var int q, i, yAbs, next;
+        var boolean isNegative, overflow;
+        if (y = 0) {
+            do Sys.error(3);
+        }
+
+        let i = 0;
+        let isNegative = (x < 0 & y > 0) | (x > 0 & y < 0);
+        let yAbs = Math.abs(y);
+        let x = Math.abs(x);
+        let multiplesOfY[0] = yAbs;
+        let overflow = false;
+
+        while ((i < 15) & (~(overflow))) {
+            let next = multiplesOfY[i] + multiplesOfY[i];
+            let multiplesOfY[i + 1] = next;
+
+            let overflow = (next - 1) > x - 1;
+            if (~overflow) {
+                let i = i + 1;
+            }
+        }
+
+        let q = 0;
+        while (~(i < 0)) {
+            if (~((multiplesOfY[i] - 1) > x - 1)) {
+                let q = q + powersOfTwo[i];
+                let x = x - multiplesOfY[i];
+            }
+            let i = i - 1;
+        }
+
+        if (isNegative) {
+            let q = -q;
+        }
+
+        return q;
+    }
+
+    function int max(int a, int b) {
+        if (a > b) {
+            let b = a;
+        }
+        return b;
+    }
+
+    function int min(int a, int b) {
+        if (a < b) {
+            let b = a;
+        }
+        return b;
+    }
+}
