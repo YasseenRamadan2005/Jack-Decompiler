@@ -1,0 +1,1288 @@
+class UIBoard {
+    static int static_0;
+    field int field_0;
+    field int field_1;
+    field int field_2;
+    field int field_3;
+    function void init() {
+        
+        let static_0 = 512;
+        return;
+    }
+
+    function void final() {
+        
+        return;
+    }
+
+    constructor int new() {
+        let field_0 = 240;
+        let field_1 = ( ( static_0 - field_0 - 1) - 1);
+        let field_2 = 1;
+        return this;
+    }
+
+    method void dispose(int argument_0) {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void drawBoard(int argument_0, int argument_1, int argument_2) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        let field_3 = argument_2;
+        do Screen.drawLine(field_1 - 1, field_2 - 1, field_1 + field_0, field_2 - 1);
+        do Screen.drawLine(field_1 - 1, field_2 + field_0, field_1 + field_0, field_2 + field_0);
+        do Screen.drawLine(field_1 - 1, field_2 - 1, field_1 - 1, field_2 + field_0);
+        do Screen.drawLine(field_1 + field_0, field_2 - 1, field_1 + field_0, field_2 + field_0);
+        let local_2 = field_1;
+        let local_3 = field_2;
+        while (local_0 < 8) {
+        	while (local_1 < 8) {
+        		if (( ( local_0 + local_1 & 1) = 1)) {
+        			do Screen.drawRectangle(local_2, local_3, local_2 + 29, local_3 + 29);
+        		}
+        		let local_2 = local_2 + 30;
+        		let local_1 = local_1 + 1;
+        	}
+        	let local_2 = field_1;
+        	let local_3 = local_3 + 30;
+        	let local_0 = local_0 + 1;
+        	let local_1 = 0;
+        }
+        let local_0 = field_1 + 12;
+        let local_1 = ( field_2 + field_0 + 3);
+        if (field_3 = 1) {
+        	do draw_a(local_0, local_1);
+        	do draw_b(local_0 + 30, local_1);
+        	do draw_c(local_0 + 60, local_1);
+        	do draw_d(local_0 + 90, local_1);
+        	do draw_e(local_0 + 120, local_1);
+        	do draw_f(local_0 + 150, local_1);
+        	do draw_g(local_0 + 180, local_1);
+        	do draw_h(local_0 + 210, local_1);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        }
+        do draw_h(local_0, local_1);
+        do draw_g(local_0 + 30, local_1);
+        do draw_f(local_0 + 60, local_1);
+        do draw_e(local_0 + 90, local_1);
+        do draw_d(local_0 + 120, local_1);
+        do draw_c(local_0 + 150, local_1);
+        do draw_b(local_0 + 180, local_1);
+        do draw_a(local_0 + 210, local_1);
+        let local_0 = field_1 - 9;
+        let local_1 = field_2 + 10;
+        if (field_3 = 1) {
+        	do draw_8(local_0, local_1);
+        	do draw_7(local_0, local_1 + 30);
+        	do draw_6(local_0, local_1 + 60);
+        	do draw_5(local_0, local_1 + 90);
+        	do draw_4(local_0, local_1 + 120);
+        	do draw_3(local_0, local_1 + 150);
+        	do draw_2(local_0, local_1 + 180);
+        	do draw_1(local_0, local_1 + 210);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END2}
+        }
+        do draw_1(local_0, local_1);
+        do draw_2(local_0, local_1 + 30);
+        do draw_3(local_0, local_1 + 60);
+        do draw_4(local_0, local_1 + 90);
+        do draw_5(local_0, local_1 + 120);
+        do draw_6(local_0, local_1 + 150);
+        do draw_7(local_0, local_1 + 180);
+        do draw_8(local_0, local_1 + 210);
+        do drawPieces(argument_1.getwPieceList(), 1);
+        do drawPieces(argument_1.getbPieceList(), -(1));
+        return;
+    }
+
+    method void drawPieces(int argument_0, int argument_1, int argument_2) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        var int local_9;
+        var int local_10;
+        let local_8 = argument_1.getPieces();
+        let local_1 = argument_1.getCount();
+        while (local_0 < local_1) {
+        	let local_9 = local_8[local_0];
+        	let local_2 = local_9.getValue();
+        	let local_3 = local_9.getSquare();
+        	if (( field_3 = -(1))) {
+        		let local_3 = 119 - local_3;
+        	}
+        	let local_3 = Board.convertSq120to64(local_3);
+        	let local_4 = local_3 & 7;
+        	let local_5 = ( 7 - Math.divide(local_3, 8));
+        	let local_10 = ( ( local_4 + local_5 & 1) = 1);
+        	let local_6 = ( field_1 + Math.multiply(local_4, 30));
+        	let local_7 = ( field_2 + Math.multiply(local_5, 30));
+        	do drawPiece(local_2 & 7, argument_2, local_6, local_7, local_10);
+        	let local_0 = local_0 + 1;
+        }
+        return;
+    }
+
+    method void drawPiece(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4, int argument_5) {
+        if (argument_2 = 1) {
+        	if (argument_1 = 1) {
+        		do draw_wPawn(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        	}
+        	if (argument_1 = 2) {
+        		do draw_wKnight(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END2}
+        	}
+        	if (argument_1 = 5) {
+        		do draw_wBishop(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END3}
+        	}
+        	if (argument_1 = 6) {
+        		do draw_wRook(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END4}
+        	}
+        	if (argument_1 = 7) {
+        		do draw_wQueen(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END5}
+        	}
+        	do draw_wKing(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        if (argument_1 = 1) {
+        	do draw_bPawn(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END6}
+        }
+        if (argument_1 = 2) {
+        	do draw_bKnight(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END7}
+        }
+        if (argument_1 = 5) {
+        	do draw_bBishop(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END8}
+        }
+        if (argument_1 = 6) {
+        	do draw_bRook(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END9}
+        }
+        if (argument_1 = 7) {
+        	do draw_bQueen(argument_3, argument_4, argument_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END10}
+        }
+        do draw_bKing(argument_3, argument_4, argument_5);
+        return;
+    }
+
+    method void doUIMove(int argument_0, int argument_1, int argument_2, int argument_3) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        var int local_9;
+        var int local_10;
+        var int local_11;
+        var int local_12;
+        var int local_13;
+        var int local_14;
+        let local_7 = Board.decodeFromSq(argument_1);
+        let local_8 = argument_1 & 63;
+        let local_10 = Board.convertSq64to120(local_8);
+        let local_12 = argument_3.pieceValFromBoardIndex(local_10);
+        let local_9 = Board.convertSq64to120(local_7);
+        if (( field_3 = -(1))) {
+        	let local_7 = 63 - local_7;
+        	let local_8 = 63 - local_8;
+        }
+        do eraseSq(local_7);
+        let local_2 = local_8 & 7;
+        let local_1 = ( 7 - Math.divide(local_8, 8));
+        let local_0 = ( ( local_2 + local_1 & 1) = 1);
+        let local_3 = ( field_1 + Math.multiply(local_2, 30));
+        let local_4 = ( field_2 + Math.multiply(local_1, 30));
+        if (( argument_1 & 16384 = 16384)) {
+        	if (( ( argument_1 & -(4096)) = 20480)) {
+        		if (argument_2 = 1) {
+        			let local_11 = local_10 - 16;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END3}
+        		}
+        		let local_11 = local_10 + 16;
+        		if (( field_3 = -(1))) {
+        			let local_11 = 119 - local_11;
+        		}
+        		let local_11 = Board.convertSq120to64(local_11);
+        		do eraseSq(local_11);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END2}
+        	}
+        	do Screen.setColor(local_0);
+        	do Screen.drawRectangle(local_3, local_4, local_3 + 29, local_4 + 29);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        }
+        if (( ( argument_1 & -(4096)) = 8192)) {
+        	let local_13 = local_9 + 3;
+        	let local_14 = local_9 + 1;
+        	if (( field_3 = -(1))) {
+        		let local_13 = 119 - local_13;
+        		let local_14 = 119 - local_14;
+        	}
+        	let local_13 = Board.convertSq120to64(local_13);
+        	let local_14 = Board.convertSq120to64(local_14);
+        	do eraseSq(local_13);
+        	let local_2 = local_14 & 7;
+        	let local_1 = ( 7 - Math.divide(local_14, 8));
+        	let local_5 = ( field_1 + Math.multiply(local_2, 30));
+        	let local_6 = ( field_2 + Math.multiply(local_1, 30));
+        	do drawPiece(6, argument_2, local_5, local_6, ~(local_0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END5}
+        }
+        if (( ( argument_1 & -(4096)) = 12288)) {
+        	let local_13 = local_9 - 4;
+        	let local_14 = local_9 - 1;
+        	if (( field_3 = -(1))) {
+        		let local_13 = 119 - local_13;
+        		let local_14 = 119 - local_14;
+        	}
+        	let local_13 = Board.convertSq120to64(local_13);
+        	let local_14 = Board.convertSq120to64(local_14);
+        	do eraseSq(local_13);
+        	let local_2 = local_14 & 7;
+        	let local_1 = ( 7 - Math.divide(local_14, 8));
+        	let local_5 = ( field_1 + Math.multiply(local_2, 30));
+        	let local_6 = ( field_2 + Math.multiply(local_1, 30));
+        	do drawPiece(6, argument_2, local_5, local_6, ~(local_0));
+        }
+        do drawPiece(local_12 & 7, argument_2, local_3, local_4, local_0);
+        return;
+    }
+
+    method void eraseSq(int argument_0, int argument_1) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        let local_0 = argument_1 & 7;
+        let local_1 = ( 7 - Math.divide(argument_1, 8));
+        let local_4 = ( ( local_0 + local_1 & 1) = 1);
+        let local_2 = ( field_1 + Math.multiply(local_0, 30));
+        let local_3 = ( field_2 + Math.multiply(local_1, 30));
+        do Screen.setColor(local_4);
+        do Screen.drawRectangle(local_2, local_3, local_2 + 29, local_3 + 29);
+        do Screen.setColor(~(0));
+        return;
+    }
+
+    method void draw_wPawn(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_bPawn(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawLine(argument_1 + 13, argument_2 + 5, argument_1 + 16, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 17, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 11, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 18, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 10, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 19, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 11, argument_2 + 9);
+        do Screen.drawPixel(argument_1 + 18, argument_2 + 9);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 10);
+        do Screen.drawPixel(argument_1 + 17, argument_2 + 10);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 11, argument_1 + 11, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 11, argument_1 + 16, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 11, argument_1 + 20, argument_2 + 11);
+        do Screen.drawPixel(argument_1 + 8, argument_2 + 12);
+        do Screen.drawPixel(argument_1 + 21, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 13, argument_1 + 11, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 13, argument_1 + 21, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 14, argument_1 + 12, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 14, argument_1 + 17, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 18, argument_1 + 11, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 18, argument_1 + 18, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 20, argument_1 + 11, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 20, argument_1 + 19, argument_2 + 20);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 21);
+        do Screen.drawPixel(argument_1 + 20, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 7, argument_2 + 22, argument_1 + 9, argument_2 + 22);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 22, argument_1 + 22, argument_2 + 22);
+        do Screen.drawPixel(argument_1 + 6, argument_2 + 23);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 23, argument_1 + 19, argument_2 + 23);
+        do Screen.drawPixel(argument_1 + 23, argument_2 + 23);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 24, argument_1 + 5, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 24, argument_2 + 24, argument_1 + 24, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 26, argument_1 + 24, argument_2 + 26);
+        return;
+    }
+
+    method void draw_wKnight(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_bKnight(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawLine(argument_1 + 14, argument_2 + 3, argument_1 + 15, argument_2 + 3);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 4, argument_1 + 13, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 16, argument_2 + 4, argument_1 + 20, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 5, argument_1 + 21, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 6, argument_1 + 8, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 7, argument_1 + 12, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 6, argument_1 + 22, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 7, argument_2 + 8, argument_1 + 7, argument_2 + 9);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 10, argument_1 + 6, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 12, argument_1 + 5, argument_2 + 14);
+        do Screen.drawPixel(argument_1 + 7, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 15, argument_1 + 8, argument_2 + 15);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 14);
+        do Screen.drawPixel(argument_1 + 10, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 12, argument_1 + 13, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 23, argument_2 + 8, argument_1 + 23, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 12, argument_1 + 23, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 13, argument_1 + 13, argument_2 + 14);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 15, argument_1 + 13, argument_2 + 15);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 16);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 17, argument_1 + 12, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 18, argument_1 + 11, argument_2 + 18);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 19, argument_1 + 10, argument_2 + 19);
+        do Screen.drawPixel(argument_1 + 8, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 13, argument_1 + 22, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 21, argument_1 + 8, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 21, argument_1 + 20, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 21, argument_1 + 24, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 22, argument_1 + 5, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 24, argument_2 + 22, argument_1 + 24, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 26, argument_1 + 24, argument_2 + 26);
+        return;
+    }
+
+    method void draw_wBishop(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_bBishop(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawLine(argument_1 + 14, argument_2 + 3, argument_1 + 15, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 13, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 16, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 17, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 11, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 18, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 10, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 14, argument_2 + 7, argument_1 + 15, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 19, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 8);
+        do Screen.drawRectangle(argument_1 + 13, argument_2 + 8, argument_1 + 16, argument_2 + 9);
+        do Screen.drawPixel(argument_1 + 20, argument_2 + 8);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 9, argument_1 + 8, argument_2 + 10);
+        do Screen.drawRectangle(argument_1 + 14, argument_2 + 10, argument_1 + 15, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 21, argument_2 + 9, argument_1 + 21, argument_2 + 10);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 11, argument_1 + 9, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 11, argument_1 + 20, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 13, argument_1 + 12, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 13, argument_1 + 19, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 14, argument_1 + 12, argument_2 + 16);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 14, argument_1 + 17, argument_2 + 16);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 17, argument_1 + 12, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 17, argument_1 + 19, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 18, argument_1 + 10, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 19, argument_2 + 18, argument_1 + 19, argument_2 + 19);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 20, argument_1 + 17, argument_2 + 20);
+        do Screen.drawPixel(argument_1 + 20, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 21, argument_1 + 9, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 21, argument_1 + 24, argument_2 + 21);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 22);
+        do Screen.drawPixel(argument_1 + 24, argument_2 + 22);
+        do Screen.drawLine(argument_1 + 4, argument_2 + 23, argument_1 + 4, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 14, argument_2 + 23, argument_1 + 15, argument_2 + 23);
+        do Screen.drawLine(argument_1 + 25, argument_2 + 23, argument_1 + 25, argument_2 + 25);
+        do Screen.drawPixel(argument_1 + 13, argument_2 + 24);
+        do Screen.drawPixel(argument_1 + 16, argument_2 + 24);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 25);
+        do Screen.drawPixel(argument_1 + 17, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 4, argument_2 + 26, argument_1 + 12, argument_2 + 26);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 26, argument_1 + 25, argument_2 + 26);
+        return;
+    }
+
+    method void draw_wRook(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_bRook(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawLine(argument_1 + 8, argument_2 + 3, argument_1 + 11, argument_2 + 3);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 3, argument_1 + 16, argument_2 + 3);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 3, argument_1 + 21, argument_2 + 3);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 4, argument_1 + 8, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 11, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 13, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 16, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 18, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 21, argument_2 + 4, argument_1 + 21, argument_2 + 6);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 5, argument_1 + 13, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 16, argument_2 + 5, argument_1 + 18, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 7, argument_1 + 9, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 7, argument_1 + 21, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 20, argument_2 + 8);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 9, argument_1 + 20, argument_2 + 9);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 10, argument_1 + 10, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 19, argument_2 + 10, argument_1 + 19, argument_2 + 19);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 20);
+        do Screen.drawPixel(argument_1 + 20, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 21, argument_1 + 9, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 21, argument_1 + 18, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 21, argument_1 + 23, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 22, argument_1 + 6, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 23, argument_1 + 21, argument_2 + 23);
+        do Screen.drawLine(argument_1 + 23, argument_2 + 22, argument_1 + 23, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 26, argument_1 + 23, argument_2 + 26);
+        return;
+    }
+
+    method void draw_wQueen(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_bQueen(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawLine(argument_1 + 3, argument_2 + 3, argument_1 + 3, argument_2 + 15);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 3, argument_1 + 9, argument_2 + 8);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 3, argument_1 + 20, argument_2 + 8);
+        do Screen.drawLine(argument_1 + 26, argument_2 + 3, argument_1 + 26, argument_2 + 15);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 6, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 7, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 8, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 10, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 11, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 13, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 14, argument_2 + 8, argument_1 + 15, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 16, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 17, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 18, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 19, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 21, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 22, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 23, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 24, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 25, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 14, argument_2 + 10, argument_1 + 15, argument_2 + 10);
+        do Screen.drawPixel(argument_1 + 13, argument_2 + 11);
+        do Screen.drawPixel(argument_1 + 16, argument_2 + 11);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 12);
+        do Screen.drawPixel(argument_1 + 17, argument_2 + 12);
+        do Screen.drawPixel(argument_1 + 13, argument_2 + 13);
+        do Screen.drawPixel(argument_1 + 16, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 14, argument_2 + 14, argument_1 + 15, argument_2 + 14);
+        do Screen.drawLine(argument_1 + 4, argument_2 + 16, argument_1 + 4, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 25, argument_2 + 16, argument_1 + 25, argument_2 + 17);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 18);
+        do Screen.drawPixel(argument_1 + 24, argument_2 + 18);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 19, argument_1 + 6, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 23, argument_2 + 19, argument_1 + 23, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 20, argument_1 + 20, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 7, argument_2 + 21, argument_1 + 7, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 21, argument_1 + 22, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 24, argument_1 + 21, argument_2 + 24);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 26, argument_1 + 21, argument_2 + 26);
+        return;
+    }
+
+    method void draw_wKing(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_bKing(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawRectangle(argument_1 + 14, argument_2 + 3, argument_1 + 15, argument_2 + 4);
+        do Screen.drawRectangle(argument_1 + 11, argument_2 + 5, argument_1 + 18, argument_2 + 6);
+        do Screen.drawRectangle(argument_1 + 14, argument_2 + 7, argument_1 + 15, argument_2 + 8);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 9, argument_1 + 16, argument_2 + 9);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 10);
+        do Screen.drawLine(argument_1 + 14, argument_2 + 10, argument_1 + 15, argument_2 + 10);
+        do Screen.drawPixel(argument_1 + 17, argument_2 + 10);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 11, argument_1 + 6, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 11, argument_1 + 11, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 11, argument_1 + 18, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 23, argument_2 + 11, argument_1 + 24, argument_2 + 11);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 12);
+        do Screen.drawPixel(argument_1 + 7, argument_2 + 12);
+        do Screen.drawPixel(argument_1 + 22, argument_2 + 12);
+        do Screen.drawPixel(argument_1 + 25, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 13, argument_1 + 3, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 26, argument_2 + 13, argument_1 + 26, argument_2 + 17);
+        do Screen.drawPixel(argument_1 + 8, argument_2 + 13);
+        do Screen.drawPixel(argument_1 + 10, argument_2 + 13);
+        do Screen.drawPixel(argument_1 + 19, argument_2 + 13);
+        do Screen.drawPixel(argument_1 + 21, argument_2 + 13);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 14);
+        do Screen.drawPixel(argument_1 + 20, argument_2 + 14);
+        do Screen.drawPixel(argument_1 + 10, argument_2 + 15);
+        do Screen.drawPixel(argument_1 + 19, argument_2 + 15);
+        do Screen.drawPixel(argument_1 + 11, argument_2 + 16);
+        do Screen.drawPixel(argument_1 + 18, argument_2 + 16);
+        do Screen.drawPixel(argument_1 + 12, argument_2 + 17);
+        do Screen.drawPixel(argument_1 + 17, argument_2 + 17);
+        do Screen.drawPixel(argument_1 + 13, argument_2 + 18);
+        do Screen.drawPixel(argument_1 + 16, argument_2 + 18);
+        do Screen.drawLine(argument_1 + 4, argument_2 + 18, argument_1 + 4, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 25, argument_2 + 18, argument_1 + 25, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 21, argument_1 + 5, argument_2 + 22);
+        do Screen.drawLine(argument_1 + 24, argument_2 + 21, argument_1 + 24, argument_2 + 22);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 23, argument_1 + 6, argument_2 + 24);
+        do Screen.drawLine(argument_1 + 23, argument_2 + 23, argument_1 + 23, argument_2 + 24);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 24, argument_1 + 21, argument_2 + 24);
+        do Screen.drawPixel(argument_1 + 7, argument_2 + 25);
+        do Screen.drawPixel(argument_1 + 22, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 7, argument_2 + 26, argument_1 + 22, argument_2 + 26);
+        return;
+    }
+
+    method void draw_bPawn(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_wPawn(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawLine(argument_1 + 13, argument_2 + 5, argument_1 + 16, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 6, argument_1 + 17, argument_2 + 6);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 7, argument_1 + 18, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 8, argument_1 + 19, argument_2 + 8);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 9, argument_1 + 18, argument_2 + 9);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 10, argument_1 + 17, argument_2 + 10);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 11, argument_1 + 12, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 11, argument_1 + 20, argument_2 + 11);
+        do Screen.drawRectangle(argument_1 + 8, argument_2 + 12, argument_1 + 21, argument_2 + 13);
+        do Screen.drawRectangle(argument_1 + 12, argument_2 + 14, argument_1 + 17, argument_2 + 17);
+        do Screen.drawRectangle(argument_1 + 11, argument_2 + 18, argument_1 + 18, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 20, argument_1 + 19, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 21, argument_1 + 20, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 7, argument_2 + 22, argument_1 + 22, argument_2 + 22);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 23, argument_1 + 8, argument_2 + 23);
+        do Screen.drawLine(argument_1 + 21, argument_2 + 23, argument_1 + 23, argument_2 + 23);
+        do Screen.drawRectangle(argument_1 + 5, argument_2 + 24, argument_1 + 24, argument_2 + 26);
+        return;
+    }
+
+    method void draw_bKnight(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_wKnight(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawLine(argument_1 + 14, argument_2 + 3, argument_1 + 15, argument_2 + 3);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 4, argument_1 + 20, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 5, argument_1 + 21, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 6, argument_1 + 22, argument_2 + 6);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 7, argument_1 + 10, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 7, argument_1 + 22, argument_2 + 7);
+        do Screen.drawRectangle(argument_1 + 7, argument_2 + 8, argument_1 + 23, argument_2 + 9);
+        do Screen.drawRectangle(argument_1 + 6, argument_2 + 10, argument_1 + 23, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 12, argument_1 + 23, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 13, argument_1 + 6, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 13, argument_1 + 10, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 14, argument_1 + 9, argument_2 + 14);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 15, argument_1 + 8, argument_2 + 15);
+        do Screen.drawRectangle(argument_1 + 13, argument_2 + 13, argument_1 + 22, argument_2 + 14);
+        do Screen.drawRectangle(argument_1 + 12, argument_2 + 15, argument_1 + 22, argument_2 + 16);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 17, argument_1 + 22, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 18, argument_1 + 22, argument_2 + 18);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 19, argument_1 + 22, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 20, argument_1 + 22, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 21, argument_1 + 8, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 21, argument_1 + 24, argument_2 + 21);
+        do Screen.drawRectangle(argument_1 + 5, argument_2 + 22, argument_1 + 24, argument_2 + 26);
+        return;
+    }
+
+    method void draw_bBishop(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_wBishop(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawLine(argument_1 + 14, argument_2 + 3, argument_1 + 15, argument_2 + 3);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 4, argument_1 + 16, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 5, argument_1 + 17, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 6, argument_1 + 18, argument_2 + 6);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 7, argument_1 + 13, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 16, argument_2 + 7, argument_1 + 19, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 8, argument_1 + 12, argument_2 + 8);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 8, argument_1 + 20, argument_2 + 8);
+        do Screen.drawRectangle(argument_1 + 8, argument_2 + 9, argument_1 + 12, argument_2 + 10);
+        do Screen.drawRectangle(argument_1 + 17, argument_2 + 9, argument_1 + 21, argument_2 + 10);
+        do Screen.drawPixel(argument_1 + 13, argument_2 + 10);
+        do Screen.drawPixel(argument_1 + 16, argument_2 + 10);
+        do Screen.drawRectangle(argument_1 + 9, argument_2 + 11, argument_1 + 13, argument_2 + 12);
+        do Screen.drawRectangle(argument_1 + 16, argument_2 + 11, argument_1 + 20, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 13, argument_1 + 19, argument_2 + 13);
+        do Screen.drawRectangle(argument_1 + 12, argument_2 + 14, argument_1 + 17, argument_2 + 16);
+        do Screen.drawRectangle(argument_1 + 10, argument_2 + 17, argument_1 + 19, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 20, argument_1 + 10, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 19, argument_2 + 20, argument_1 + 20, argument_2 + 20);
+        do Screen.drawRectangle(argument_1 + 5, argument_2 + 21, argument_1 + 24, argument_2 + 22);
+        do Screen.drawLine(argument_1 + 4, argument_2 + 23, argument_1 + 25, argument_2 + 23);
+        do Screen.drawLine(argument_1 + 4, argument_2 + 24, argument_1 + 13, argument_2 + 24);
+        do Screen.drawLine(argument_1 + 16, argument_2 + 24, argument_1 + 25, argument_2 + 24);
+        do Screen.drawRectangle(argument_1 + 4, argument_2 + 25, argument_1 + 12, argument_2 + 26);
+        do Screen.drawRectangle(argument_1 + 17, argument_2 + 25, argument_1 + 25, argument_2 + 26);
+        return;
+    }
+
+    method void draw_bRook(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_wRook(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawRectangle(argument_1 + 8, argument_2 + 3, argument_1 + 11, argument_2 + 4);
+        do Screen.drawRectangle(argument_1 + 13, argument_2 + 3, argument_1 + 16, argument_2 + 4);
+        do Screen.drawRectangle(argument_1 + 18, argument_2 + 3, argument_1 + 21, argument_2 + 4);
+        do Screen.drawRectangle(argument_1 + 8, argument_2 + 5, argument_1 + 21, argument_2 + 7);
+        do Screen.drawRectangle(argument_1 + 9, argument_2 + 8, argument_1 + 20, argument_2 + 9);
+        do Screen.drawPixel(argument_1 + 10, argument_2 + 10);
+        do Screen.drawPixel(argument_1 + 19, argument_2 + 10);
+        do Screen.drawRectangle(argument_1 + 10, argument_2 + 11, argument_1 + 19, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 20, argument_1 + 20, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 21, argument_1 + 9, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 21, argument_1 + 23, argument_2 + 21);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 22, argument_1 + 23, argument_2 + 22);
+        do Screen.drawPixel(argument_1 + 6, argument_2 + 23);
+        do Screen.drawPixel(argument_1 + 23, argument_2 + 23);
+        do Screen.drawRectangle(argument_1 + 6, argument_2 + 24, argument_1 + 23, argument_2 + 26);
+        return;
+    }
+
+    method void draw_bQueen(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_wQueen(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 9, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 20, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 26, argument_2 + 3);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 4, argument_1 + 4, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 4, argument_1 + 10, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 19, argument_2 + 4, argument_1 + 20, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 25, argument_2 + 4, argument_1 + 26, argument_2 + 4);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 5, argument_1 + 5, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 5, argument_1 + 11, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 5, argument_1 + 20, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 24, argument_2 + 5, argument_1 + 26, argument_2 + 5);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 6, argument_1 + 6, argument_2 + 6);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 6, argument_1 + 12, argument_2 + 6);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 6, argument_1 + 20, argument_2 + 6);
+        do Screen.drawLine(argument_1 + 23, argument_2 + 6, argument_1 + 26, argument_2 + 6);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 7, argument_1 + 7, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 7, argument_1 + 13, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 16, argument_2 + 7, argument_1 + 20, argument_2 + 7);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 7, argument_1 + 26, argument_2 + 7);
+        do Screen.drawRectangle(argument_1 + 3, argument_2 + 8, argument_1 + 26, argument_2 + 9);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 10, argument_1 + 13, argument_2 + 10);
+        do Screen.drawLine(argument_1 + 16, argument_2 + 10, argument_1 + 26, argument_2 + 10);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 11, argument_1 + 12, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 14, argument_2 + 11, argument_1 + 15, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 11, argument_1 + 26, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 12, argument_1 + 11, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 12, argument_1 + 16, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 12, argument_1 + 26, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 13, argument_1 + 12, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 14, argument_2 + 13, argument_1 + 15, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 17, argument_2 + 13, argument_1 + 26, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 14, argument_1 + 13, argument_2 + 14);
+        do Screen.drawLine(argument_1 + 16, argument_2 + 14, argument_1 + 26, argument_2 + 14);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 15, argument_1 + 26, argument_2 + 15);
+        do Screen.drawRectangle(argument_1 + 4, argument_2 + 16, argument_1 + 25, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 18, argument_1 + 24, argument_2 + 18);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 19, argument_1 + 23, argument_2 + 19);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 20, argument_1 + 8, argument_2 + 20);
+        do Screen.drawLine(argument_1 + 21, argument_2 + 20, argument_1 + 23, argument_2 + 20);
+        do Screen.drawRectangle(argument_1 + 7, argument_2 + 21, argument_1 + 22, argument_2 + 24);
+        do Screen.drawPixel(argument_1 + 7, argument_2 + 25);
+        do Screen.drawPixel(argument_1 + 22, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 8, argument_2 + 26, argument_1 + 21, argument_2 + 26);
+        return;
+    }
+
+    method void draw_bKing(int argument_0, int argument_1, int argument_2, int argument_3) {
+        if (argument_3) {
+        	do Screen.setColor(0);
+        	do draw_wKing(argument_1, argument_2, 0);
+        	do Screen.setColor(~(0));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawRectangle(argument_1 + 14, argument_2 + 3, argument_1 + 15, argument_2 + 4);
+        do Screen.drawRectangle(argument_1 + 11, argument_2 + 5, argument_1 + 18, argument_2 + 6);
+        do Screen.drawRectangle(argument_1 + 14, argument_2 + 7, argument_1 + 15, argument_2 + 8);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 9, argument_1 + 16, argument_2 + 9);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 10, argument_1 + 17, argument_2 + 10);
+        do Screen.drawLine(argument_1 + 5, argument_2 + 11, argument_1 + 6, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 11, argument_1 + 13, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 16, argument_2 + 11, argument_1 + 18, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 23, argument_2 + 11, argument_1 + 24, argument_2 + 11);
+        do Screen.drawLine(argument_1 + 4, argument_2 + 12, argument_1 + 7, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 12, argument_1 + 18, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 12, argument_1 + 25, argument_2 + 12);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 13, argument_1 + 8, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 13, argument_1 + 19, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 21, argument_2 + 13, argument_1 + 26, argument_2 + 13);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 14, argument_1 + 7, argument_2 + 14);
+        do Screen.drawLine(argument_1 + 9, argument_2 + 14, argument_1 + 20, argument_2 + 14);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 14, argument_1 + 26, argument_2 + 14);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 15, argument_1 + 8, argument_2 + 15);
+        do Screen.drawLine(argument_1 + 10, argument_2 + 15, argument_1 + 19, argument_2 + 15);
+        do Screen.drawLine(argument_1 + 21, argument_2 + 15, argument_1 + 26, argument_2 + 15);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 16, argument_1 + 9, argument_2 + 16);
+        do Screen.drawLine(argument_1 + 11, argument_2 + 16, argument_1 + 18, argument_2 + 16);
+        do Screen.drawLine(argument_1 + 20, argument_2 + 16, argument_1 + 26, argument_2 + 16);
+        do Screen.drawLine(argument_1 + 3, argument_2 + 17, argument_1 + 10, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 12, argument_2 + 17, argument_1 + 17, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 19, argument_2 + 17, argument_1 + 26, argument_2 + 17);
+        do Screen.drawLine(argument_1 + 4, argument_2 + 18, argument_1 + 11, argument_2 + 18);
+        do Screen.drawLine(argument_1 + 13, argument_2 + 18, argument_1 + 16, argument_2 + 18);
+        do Screen.drawLine(argument_1 + 18, argument_2 + 18, argument_1 + 25, argument_2 + 18);
+        do Screen.drawRectangle(argument_1 + 4, argument_2 + 19, argument_1 + 25, argument_2 + 20);
+        do Screen.drawRectangle(argument_1 + 5, argument_2 + 21, argument_1 + 24, argument_2 + 22);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 23, argument_1 + 7, argument_2 + 23);
+        do Screen.drawLine(argument_1 + 22, argument_2 + 23, argument_1 + 23, argument_2 + 23);
+        do Screen.drawLine(argument_1 + 6, argument_2 + 24, argument_1 + 23, argument_2 + 24);
+        do Screen.drawPixel(argument_1 + 7, argument_2 + 25);
+        do Screen.drawPixel(argument_1 + 22, argument_2 + 25);
+        do Screen.drawLine(argument_1 + 7, argument_2 + 26, argument_1 + 22, argument_2 + 26);
+        return;
+    }
+
+    method void draw_a(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 8);
+        return;
+    }
+
+    method void draw_b(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        return;
+    }
+
+    method void draw_c(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        return;
+    }
+
+    method void draw_d(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        return;
+    }
+
+    method void draw_e(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        return;
+    }
+
+    method void draw_f(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        return;
+    }
+
+    method void draw_g(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 9);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 9);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 9);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 9);
+        return;
+    }
+
+    method void draw_h(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 8);
+        return;
+    }
+
+    method void draw_1(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 8);
+        return;
+    }
+
+    method void draw_2(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 8);
+        return;
+    }
+
+    method void draw_3(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        return;
+    }
+
+    method void draw_4(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 8);
+        return;
+    }
+
+    method void draw_5(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        return;
+    }
+
+    method void draw_6(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        return;
+    }
+
+    method void draw_7(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        return;
+    }
+
+    method void draw_8(int argument_0, int argument_1, int argument_2) {
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 1);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 2);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 3);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 4);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 5);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 6);
+        do Screen.drawPixel(argument_1 + 0, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 5, argument_2 + 7);
+        do Screen.drawPixel(argument_1 + 1, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 2, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 3, argument_2 + 8);
+        do Screen.drawPixel(argument_1 + 4, argument_2 + 8);
+        return;
+    }
+
+}

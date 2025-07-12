@@ -1,0 +1,174 @@
+class BoardState {
+    field int field_0;
+    field int field_1;
+    field int field_2;
+    field int field_3;
+    field int field_4;
+    field int field_5;
+    field int field_6;
+    field int field_7;
+    field int field_8;
+    field int field_9;
+    field int field_10;
+    field int field_11;
+    constructor void new(int argument_0) {
+        let field_9 = Array.new(argument_0);
+        let field_10 = 0;
+        let field_8 = Array.new(2);
+        do resetKillers();
+        return;
+    }
+
+    method void dispose(int argument_0) {
+        do Array.dispose(field_8);
+        do Array.dispose(field_9);
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method int getEnPassantSq(int argument_0) {
+        return field_1;
+    }
+
+    method int getFiftyMoveCount(int argument_0) {
+        return field_2;
+    }
+
+    method int getCastlingRights(int argument_0) {
+        return field_0;
+    }
+
+    method int getCapturedPiece(int argument_0) {
+        return field_3;
+    }
+
+    method int getSideToMoveInCheck(int argument_0) {
+        return field_4;
+    }
+
+    method int getwMaterial(int argument_0) {
+        return field_6;
+    }
+
+    method int getbMaterial(int argument_0) {
+        return field_7;
+    }
+
+    method int getfNullMove(int argument_0) {
+        return field_5;
+    }
+
+    method int getKillerMoves(int argument_0) {
+        return field_8;
+    }
+
+    method int getPv(int argument_0) {
+        return field_9;
+    }
+
+    method int getPvCount(int argument_0) {
+        return field_10;
+    }
+
+    method int getPvMove(int argument_0) {
+        return field_11;
+    }
+
+    method void setPvMove(int argument_0, int argument_1) {
+        let field_11 = argument_1;
+        return;
+    }
+
+    method void resetPvCount(int argument_0) {
+        let field_10 = 0;
+        return;
+    }
+
+    method void updatePv(int argument_0, int argument_1, int argument_2) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        let field_9[0] = argument_1;
+        
+        let local_2 = argument_2.getPv();
+        let local_1 = argument_2.getPvCount();
+        while (local_0 < local_1) {
+        	let field_9[local_0 + 1] = local_2[local_0];
+        	
+        	let local_0 = local_0 + 1;
+        }
+        let field_10 = local_1 + 1;
+        return;
+    }
+
+    method void setSideToMoveInCheck(int argument_0, int argument_1) {
+        let field_4 = argument_1;
+        return;
+    }
+
+    method void resetState(int argument_0) {
+        let field_0 = 15;
+        let field_1 = -(1);
+        let field_2 = 0;
+        let field_3 = 0;
+        let field_4 = 0;
+        let field_5 = 0;
+        let field_11 = 0;
+        return;
+    }
+
+    method void resetMaterial(int argument_0, int argument_1, int argument_2) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        let local_2 = argument_1.getCount();
+        let local_0 = argument_1.getPieces();
+        let field_6 = 0;
+        while (local_1 < local_2) {
+        	let local_3 = local_0[local_1];
+        	let field_6 = ( field_6 + Board.matValue(local_3.getValue()));
+        	let local_1 = local_1 + 1;
+        }
+        let local_1 = 0;
+        let local_2 = argument_2.getCount();
+        let local_0 = argument_2.getPieces();
+        let field_7 = 0;
+        while (local_1 < local_2) {
+        	let local_3 = local_0[local_1];
+        	let field_7 = ( field_7 + Board.matValue(( local_3.getValue() & 7)));
+        	let local_1 = local_1 + 1;
+        }
+        return;
+    }
+
+    method void setState(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4, int argument_5, int argument_6, int argument_7) {
+        let field_2 = argument_1;
+        let field_1 = argument_2;
+        let field_0 = argument_3;
+        let field_3 = argument_4;
+        let field_6 = argument_5;
+        let field_7 = argument_6;
+        let field_5 = argument_7;
+        return;
+    }
+
+    method void storeKiller(int argument_0, int argument_1) {
+        if (~(( ( argument_1 = field_8[0]) | ( argument_1 = field_8[1])))) {
+        	let field_8[1] = field_8[0];
+        	
+        	let field_8[0] = argument_1;
+        	
+        }
+        return;
+    }
+
+    method void resetKillers(int argument_0) {
+        let field_8[0] = 0;
+        
+        let field_8[1] = 0;
+        
+        return;
+    }
+
+}

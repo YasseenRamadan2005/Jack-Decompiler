@@ -1,0 +1,930 @@
+class Game {
+    static int static_0;
+    static int static_1;
+    static int static_2;
+    static int static_3;
+    static int static_4;
+    static int static_5;
+    static int static_6;
+    static int static_7;
+    static int static_8;
+    static int static_9;
+    static int static_10;
+    static int static_11;
+    static int static_12;
+    static int static_13;
+    static int static_14;
+    static int static_15;
+    static int static_16;
+    static int static_17;
+    static int static_18;
+    static int static_19;
+    static int static_20;
+    static int static_21;
+    static int static_22;
+    static int static_23;
+    static int static_24;
+    static int static_25;
+    static int static_26;
+    static int static_27;
+    static int static_28;
+    static int static_29;
+    static int static_30;
+    static int static_31;
+    static int static_32;
+    field int field_0;
+    field int field_1;
+    field int field_2;
+    field int field_3;
+    field int field_4;
+    field int field_5;
+    field int field_6;
+    field int field_7;
+    field int field_8;
+    field int field_9;
+    field int field_10;
+    field int field_11;
+    field int field_12;
+    field int field_13;
+    field int field_14;
+    field int field_15;
+    field int field_16;
+    field int field_17;
+    function void init() {
+        
+        let static_2 = 32767;
+        let static_3 = 30000;
+        let static_4 = 40;
+        let static_5 = 100;
+        let static_6 = 0;
+        let static_7 = 1;
+        let static_8 = 2;
+        let static_0 = 1;
+        let static_1 = -(1);
+        let static_9 = "Welcome to CHESS!";
+        let static_10 = "WHITE: ";
+        let static_11 = "BLACK: ";
+        let static_12 = "you";
+        let static_13 = "computer (level ";
+        let static_14 = "Enter your move: ";
+        let static_15 = "WHITE plays..... ";
+        let static_16 = "BLACK plays..... ";
+        let static_17 = "Choose white or black (W/B): ";
+        let static_18 = "Choose game level 1 - 5 (1 easiest ... 5 hardest): ";
+        let static_19 = "INSTRUCTIONS:";
+        let static_20 = "When entering a move, use 4 character format,";
+        let static_21 = "e.g. E2E4 or G8F6";
+        let static_22 = "or enter Q to quit a game early.";
+        let static_23 = "You will be WHITE. Press any key to continue...";
+        let static_24 = "You will be BLACK. Press any key to continue...";
+        let static_25 = "WHITE is thinking...";
+        let static_26 = "BLACK is thinking...";
+        let static_27 = "WHITE wins!";
+        let static_28 = "BLACK wins!";
+        let static_29 = "Draw by stalemate. Tie game!";
+        let static_30 = "Draw by fifty move rule. Tie game!";
+        let static_31 = "Draw by threefold repetition. Tie game!";
+        let static_32 = "Promote to Q/R/B/N: ";
+        return;
+    }
+
+    function void final() {
+        
+        do String.dispose(static_9);
+        do String.dispose(static_10);
+        do String.dispose(static_11);
+        do String.dispose(static_12);
+        do String.dispose(static_13);
+        do String.dispose(static_14);
+        do String.dispose(static_15);
+        do String.dispose(static_16);
+        do String.dispose(static_17);
+        do String.dispose(static_18);
+        do String.dispose(static_19);
+        do String.dispose(static_20);
+        do String.dispose(static_21);
+        do String.dispose(static_22);
+        do String.dispose(static_23);
+        do String.dispose(static_24);
+        do String.dispose(static_25);
+        do String.dispose(static_26);
+        do String.dispose(static_27);
+        do String.dispose(static_28);
+        do String.dispose(static_29);
+        do String.dispose(static_30);
+        do String.dispose(static_31);
+        do String.dispose(static_32);
+        return;
+    }
+
+    constructor int new() {
+        var int local_0;
+        let field_2 = LFSR32Rand.new();
+        let field_7 = Array.new(static_4);
+        let field_14 = Array.new(static_4);
+        while (local_0 < static_4) {
+        	let field_7[local_0] = MoveList.new(static_5, ~(0));
+        	
+        	let field_14[local_0] = BoardState.new(static_4 - local_0);
+        	
+        	let local_0 = local_0 + 1;
+        }
+        let field_6 = Board.new(field_14);
+        let field_4 = Book.new();
+        let field_8 = UIBoard.new();
+        let field_15 = "1234";
+        let field_16 = Array.new(2);
+        return this;
+    }
+
+    method void dispose(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        do field_2.dispose();
+        do field_6.dispose();
+        while (local_0 < static_4) {
+        	let local_1 = field_7[local_0];
+        	do local_1.dispose();
+        	let local_2 = field_14[local_0];
+        	do local_2.dispose();
+        	let local_0 = local_0 + 1;
+        }
+        do field_4.dispose();
+        do Array.dispose(field_7);
+        do Array.dispose(field_14);
+        do field_8.dispose();
+        do String.dispose(field_15);
+        do Array.dispose(field_16);
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    function int getPromoteStr() {
+        
+        return static_32;
+    }
+
+    method void clearBoard(int argument_0) {
+        var int local_0;
+        var int local_1;
+        do field_4.resetWindow();
+        do field_6.initBoard(field_14);
+        do field_6.clearMoveHistory();
+        while (local_0 < static_4) {
+        	let local_1 = field_14[local_0];
+        	do local_1.resetKillers();
+        	do local_1.resetPvCount();
+        	let local_0 = local_0 + 1;
+        }
+        return;
+    }
+
+    method void splitPv(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        let local_2 = field_14[0];
+        let local_3 = local_2.getPv();
+        let local_1 = local_2.getPvCount();
+        while (local_0 < local_1) {
+        	let local_2 = field_14[local_0];
+        	do local_2.setPvMove(local_3[local_0]);
+        	let local_0 = local_0 + 1;
+        }
+        while (local_0 < static_4) {
+        	let local_2 = field_14[local_0];
+        	do local_2.setPvMove(0);
+        	let local_0 = local_0 + 1;
+        }
+        return;
+    }
+
+    method void run(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        let local_7 = field_14[0];
+        do outputWelcome();
+        do initGameSettings();
+        do field_8.drawBoard(field_6, field_9);
+        do outputPlayerList();
+        let local_5 = field_7[0];
+        if (( field_9 = field_6.getTurn())) {
+        	do field_6.genLegalMoves(field_7);
+        	let local_0 = getHumanMove(local_5);
+        	if (local_0 = 0) {
+        		return;
+        	}
+        	do field_6.doRealMove(local_0);
+        	do field_8.doUIMove(local_0, field_9, field_6);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Output.println();
+        let field_17 = field_17 + 1;
+        let local_6 = field_6.getMoveHistory();
+        while (~(0)) {
+        	if (field_9 = static_0) {
+        		do Output.printString(static_26);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END2}
+        	}
+        	do Output.printString(static_25);
+        	if (field_10 = 1) {
+        		do randomMoveSearch();
+        		let local_0 = field_16[0];
+        		let local_1 = field_16[1];
+        		if (( local_0 = -(1))) {
+        			do clearMovePanel(field_17);
+        			if (local_1 = static_6) {
+        				do OutputPlayerDrawByStalemate();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END5}
+        			}
+        			if (local_1 = static_7) {
+        				do OutputPlayerDrawByFifty();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END6}
+        			}
+        			if (local_1 = static_8) {
+        				do OutputPlayerDrawByRep();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END7}
+        			}
+        			do outputPlayerWins();
+        			return;
+        		}
+        		do field_6.doRealMove(local_0);
+        		do field_8.doUIMove(local_0, -(field_6.getTurn()), field_6);
+        		do clearMovePanel(3);
+        		if (field_9 = static_0) {
+        			do Output.printString(static_16);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END8}
+        		}
+        		do Output.printString(static_15);
+        		do Output.printString(Board.convertMoveToUIMoveStr(local_0, field_15));
+        		do Output.println();
+        		let field_17 = field_17 + 1;
+        		do field_6.genLegalMoves(field_7);
+        		if (( local_5.getCount() = 0)) {
+        			do Output.println();
+        			if (local_7.getSideToMoveInCheck()) {
+        				do outputPlayerWins();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END10}
+        			}
+        			do OutputPlayerDrawByStalemate();
+        			return;
+        		}
+        		if (( local_7.getFiftyMoveCount() = 100)) {
+        			do Output.println();
+        			do OutputPlayerDrawByFifty();
+        			return;
+        		}
+        // Unhandled VM instruction: GotoInstruction{label='IF_END3}
+        	}
+        	let local_0 = 0;
+        	if (field_5) {
+        		let local_0 = field_4.getBookMove(local_6, field_2);
+        		if (local_0 = 0) {
+        			let field_5 = 0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END13}
+        		}
+        		do field_6.doRealMove(local_0);
+        		do field_8.doUIMove(local_0, -(field_6.getTurn()), field_6);
+        		do clearMovePanel(3);
+        		if (field_9 = static_0) {
+        			do Output.printString(static_16);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END14}
+        		}
+        		do Output.printString(static_15);
+        		do Output.printString(Board.convertMoveToUIMoveStr(local_0, field_15));
+        		do Output.println();
+        		let field_17 = field_17 + 1;
+        		do field_6.genLegalMoves(field_7);
+        	}
+        	if (local_0 = 0) {
+        		let field_0 = 0;
+        		let field_1 = 0;
+        		do local_7.resetPvCount();
+        		do local_7.setPvMove(0);
+        		let local_2 = 1;
+        		let local_3 = -(static_2);
+        		let local_4 = static_2;
+        		let local_8 = 0;
+        		while (~(local_8)) {
+        			do splitPv();
+        			do alphaBetaRoot(local_2, local_3, local_4);
+        			let local_0 = field_16[0];
+        			let local_1 = field_16[1];
+        			if (local_0 = 0) {
+        				do splitPv();
+        				do alphaBetaRoot(local_2, -(static_2), static_2);
+        				let local_0 = field_16[0];
+        				let local_1 = field_16[1];
+        			}
+        			if (( local_0 = -(1))) {
+        				do clearMovePanel(field_17);
+        				if (local_1 = static_6) {
+        					do OutputPlayerDrawByStalemate();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END18}
+        				}
+        				if (local_1 = static_7) {
+        					do OutputPlayerDrawByFifty();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END19}
+        				}
+        				if (local_1 = static_8) {
+        					do OutputPlayerDrawByRep();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END20}
+        				}
+        				do outputPlayerWins();
+        				return;
+        			}
+        			if (( local_1 = static_3 - 1)) {
+        				do field_6.doRealMove(local_0);
+        				do field_8.doUIMove(local_0, -(field_6.getTurn()), field_6);
+        				do clearMovePanel(3);
+        				if (field_9 = static_0) {
+        					do Output.printString(static_16);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END22}
+        				}
+        				do Output.printString(static_15);
+        				do Output.printString(Board.convertMoveToUIMoveStr(local_0, field_15));
+        				do Output.println();
+        				do Output.println();
+        				do outputPlayerWins();
+        				return;
+        			}
+        			if (( local_1 > static_3 - local_2)) {
+        				let local_8 = ~(0);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END23}
+        			}
+        			if (field_12 = 0) {
+        				if (local_2 = field_11) {
+        					let local_8 = ~(0);
+        				}
+        // Unhandled VM instruction: GotoInstruction{label='IF_END24}
+        			}
+        			if (( ( ( field_0 > field_12 & field_1 = field_13) | field_1 > field_13) | local_2 = field_11)) {
+        				let local_8 = ~(0);
+        			}
+        			if (~(local_8)) {
+        				let local_3 = local_1 - 50;
+        				let local_4 = local_1 + 50;
+        				let local_2 = local_2 + 1;
+        			}
+        		}
+        		do field_6.doRealMove(local_0);
+        		do field_8.doUIMove(local_0, -(field_6.getTurn()), field_6);
+        		do clearMovePanel(3);
+        		if (field_9 = static_0) {
+        			do Output.printString(static_16);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END28}
+        		}
+        		do Output.printString(static_15);
+        		do Output.printString(Board.convertMoveToUIMoveStr(local_0, field_15));
+        		do Output.println();
+        		let field_17 = field_17 + 1;
+        		do field_6.genLegalMoves(field_7);
+        		if (( local_5.getCount() = 0)) {
+        			do Output.println();
+        			do OutputPlayerDrawByStalemate();
+        			return;
+        		}
+        		if (( local_7.getFiftyMoveCount() = 100)) {
+        			do Output.println();
+        			do OutputPlayerDrawByFifty();
+        			return;
+        		}
+        		if (field_6.drawByRep3()) {
+        			do Output.println();
+        			do OutputPlayerDrawByRep();
+        			return;
+        		}
+        	}
+        	let local_0 = getHumanMove(local_5);
+        	if (local_0 = 0) {
+        		return;
+        	}
+        	do field_6.doRealMove(local_0);
+        	do field_8.doUIMove(local_0, -(field_6.getTurn()), field_6);
+        }
+        return;
+    }
+
+    method void clearMovePanel(int argument_0, int argument_1) {
+        do Screen.setColor(0);
+        do Screen.drawRectangle(0, Math.multiply(argument_1, 11), Math.multiply(32, 8), 255);
+        do Screen.setColor(~(0));
+        do Output.moveCursor(argument_1, 0);
+        let field_17 = argument_1;
+        return;
+    }
+
+    method void randomMoveSearch(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        do field_6.genLegalMoves(field_7);
+        let local_3 = field_7[0];
+        let local_2 = local_3.getCount();
+        let local_4 = field_14[0];
+        if (local_2 = 0) {
+        	let field_16[0] = -(1);
+        	
+        	if (local_4.getSideToMoveInCheck()) {
+        		let field_16[1] = -(static_3);
+        		
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        	}
+        	let field_16[1] = static_6;
+        	
+        	return;
+        }
+        if (field_6.drawByRep3()) {
+        	let field_16[0] = -(1);
+        	
+        	let field_16[1] = static_8;
+        	
+        	return;
+        }
+        if (( local_4.getFiftyMoveCount() = 100)) {
+        	let field_16[0] = -(1);
+        	
+        	let field_16[1] = static_7;
+        	
+        	return;
+        }
+        let local_0 = local_3.getMoves();
+        let local_1 = field_2.randRange(0, local_2 - 1);
+        let field_16[0] = local_0[local_1];
+        
+        let field_16[1] = 0;
+        
+        return;
+    }
+
+    method void alphaBetaRoot(int argument_0, int argument_1, int argument_2, int argument_3) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        var int local_9;
+        var int local_10;
+        if (field_0 = 32767) {
+        	let field_0 = 1;
+        	let field_1 = field_1 + 1;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        let field_0 = field_0 + 1;
+        let local_9 = field_14[local_5];
+        if (field_6.drawByRep3()) {
+        	do local_9.resetPvCount();
+        	let field_16[0] = -(1);
+        	
+        	let field_16[1] = static_8;
+        	
+        	return;
+        }
+        if (argument_1 > 2) {
+        	if (~(local_9.getSideToMoveInCheck())) {
+        		if (~(field_6.matIsLow(local_9))) {
+        			do field_6.doNullMove();
+        			let local_2 = -(alphaBeta(argument_1 - 3, local_5 + 1, -(argument_3), ( -(argument_3) + 1)));
+        			do field_6.undoNullMove();
+        			if (~(local_2 < argument_3)) {
+        				let field_16[0] = 0;
+        				
+        				let field_16[1] = argument_3;
+        				
+        				return;
+        			}
+        		}
+        	}
+        }
+        let local_8 = 0;
+        let local_10 = field_14[local_5 + 1];
+        let local_7 = field_7[local_5];
+        do field_6.genPseudoLegalMoves(local_7);
+        let local_6 = local_7.getMoves();
+        let local_4 = local_7.getCount();
+        if (~(( local_9.getPvMove() = 0))) {
+        	do local_7.rankPvMove(local_9);
+        	do local_9.setPvMove(0);
+        }
+        do local_7.rankKillers(local_9);
+        while (local_1 < local_4) {
+        	if (local_1 < 10) {
+        		do local_7.moveBestRankedMoveToPos(local_1);
+        	}
+        	let local_0 = local_6[local_1];
+        	do field_6.doMove(local_0);
+        	if (field_6.inCheck(-(field_6.getTurn()))) {
+        		do field_6.undoMove(local_0);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END8}
+        	}
+        	if (~(local_8)) {
+        		if (( local_9.getFiftyMoveCount() = 100)) {
+        			do local_9.resetPvCount();
+        			do field_6.undoMove(local_0);
+        			let field_16[0] = -(1);
+        			
+        			let field_16[1] = static_7;
+        			
+        			return;
+        		}
+        		let local_8 = ~(0);
+        	}
+        	do local_10.setSideToMoveInCheck(field_6.inCheck(field_6.getTurn()));
+        	let local_2 = -(alphaBeta(argument_1 - 1, local_5 + 1, -(argument_3), -(argument_2)));
+        	do field_6.undoMove(local_0);
+        	if (~(local_2 < argument_3)) {
+        		let field_16[0] = 0;
+        		
+        		let field_16[1] = argument_3;
+        		
+        		if (( local_0 & 16384 = 0)) {
+        			do local_9.storeKiller(local_0);
+        		}
+        		return;
+        	}
+        	if (local_2 > argument_2) {
+        		let argument_2 = local_2;
+        		let local_3 = local_0;
+        		do local_9.updatePv(local_0, local_10);
+        	}
+        	let local_1 = local_1 + 1;
+        }
+        if (~(local_8)) {
+        	do local_9.resetPvCount();
+        	let field_16[0] = -(1);
+        	
+        	if (local_9.getSideToMoveInCheck()) {
+        		let field_16[1] = -(static_3);
+        		
+        // Unhandled VM instruction: GotoInstruction{label='IF_END15}
+        	}
+        	let field_16[1] = static_6;
+        	
+        	return;
+        }
+        let field_16[0] = local_3;
+        
+        let field_16[1] = argument_2;
+        
+        return;
+    }
+
+    method int alphaBeta(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        if (argument_1 = 0) {
+        	return qSearch(argument_2, argument_3, argument_4);
+        }
+        if (field_0 = 32767) {
+        	let field_0 = 1;
+        	let field_1 = field_1 + 1;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        }
+        let field_0 = field_0 + 1;
+        let local_7 = field_14[argument_2];
+        if (field_6.drawByRep2()) {
+        	do local_7.resetPvCount();
+        	return 0;
+        }
+        if (argument_1 > 2) {
+        	if (~(local_7.getfNullMove())) {
+        		if (~(local_7.getSideToMoveInCheck())) {
+        			if (~(field_6.matIsLow(local_7))) {
+        				do field_6.doNullMove();
+        				let local_2 = -(alphaBeta(argument_1 - 3, argument_2 + 1, -(argument_4), ( -(argument_4) + 1)));
+        				do field_6.undoNullMove();
+        				if (~(local_2 < argument_4)) {
+        					return argument_4;
+        				}
+        			}
+        		}
+        	}
+        }
+        let local_6 = 0;
+        let local_8 = field_14[argument_2 + 1];
+        let local_5 = field_7[argument_2];
+        do field_6.genPseudoLegalMoves(local_5);
+        let local_4 = local_5.getMoves();
+        let local_3 = local_5.getCount();
+        if (~(( local_7.getPvMove() = 0))) {
+        	do local_5.rankPvMove(local_7);
+        	do local_7.setPvMove(0);
+        }
+        do local_5.rankKillers(local_7);
+        while (local_1 < local_3) {
+        	if (local_1 < 10) {
+        		do local_5.moveBestRankedMoveToPos(local_1);
+        	}
+        	let local_0 = local_4[local_1];
+        	do field_6.doMove(local_0);
+        	if (field_6.inCheck(-(field_6.getTurn()))) {
+        		do field_6.undoMove(local_0);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END10}
+        	}
+        	if (~(local_6)) {
+        		if (( local_7.getFiftyMoveCount() = 100)) {
+        			do local_7.resetPvCount();
+        			do field_6.undoMove(local_0);
+        			return 0;
+        		}
+        		let local_6 = ~(0);
+        	}
+        	do local_8.setSideToMoveInCheck(field_6.inCheck(field_6.getTurn()));
+        	let local_2 = -(alphaBeta(argument_1 - 1, argument_2 + 1, -(argument_4), -(argument_3)));
+        	do field_6.undoMove(local_0);
+        	if (~(local_2 < argument_4)) {
+        		if (( local_0 & 16384 = 0)) {
+        			do local_7.storeKiller(local_0);
+        		}
+        		return argument_4;
+        	}
+        	if (local_2 > argument_3) {
+        		let argument_3 = local_2;
+        		do local_7.updatePv(local_0, local_8);
+        	}
+        	let local_1 = local_1 + 1;
+        }
+        if (~(local_6)) {
+        	do local_7.resetPvCount();
+        	if (local_7.getSideToMoveInCheck()) {
+        		return ( -(static_3) + argument_2);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END17}
+        	}
+        	return 0;
+        }
+        return argument_3;
+    }
+
+    method int qSearch(int argument_0, int argument_1, int argument_2, int argument_3) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        if (field_0 = 32767) {
+        	let field_0 = 1;
+        	let field_1 = field_1 + 1;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        let field_0 = field_0 + 1;
+        let local_6 = field_14[argument_1];
+        do local_6.resetPvCount();
+        let local_2 = field_6.eval(argument_2, argument_3);
+        if (( argument_1 = static_4 - 1)) {
+        	return local_2;
+        }
+        if (~(local_2 < argument_3)) {
+        	return argument_3;
+        }
+        if (local_2 > argument_2) {
+        	let argument_2 = local_2;
+        }
+        let local_5 = field_7[argument_1];
+        do field_6.genPseudoLegalQMoves(local_5);
+        let local_4 = local_5.getMoves();
+        let local_3 = local_5.getCount();
+        while (local_1 < local_3) {
+        	if (local_1 < 5) {
+        		do local_5.moveBestRankedMoveToPos(local_1);
+        	}
+        	let local_0 = local_4[local_1];
+        	if (field_6.moveCapturesKing(local_0)) {
+        		return argument_3;
+        	}
+        	do field_6.doQMove(local_0);
+        	let local_2 = -(qSearch(argument_1 + 1, -(argument_3), -(argument_2)));
+        	do field_6.undoQMove(local_0);
+        	if (~(local_2 < argument_3)) {
+        		return argument_3;
+        	}
+        	if (local_2 > argument_2) {
+        		let argument_2 = local_2;
+        	}
+        	let local_1 = local_1 + 1;
+        }
+        return argument_2;
+    }
+
+    method void initGameSettings(int argument_0) {
+        var int local_0;
+        var int local_1;
+        let local_0 = 0;
+        do Output.printString(static_17);
+        while (~(local_0)) {
+        	let local_1 = Keyboard.readChar();
+        	if (local_1 = 87) {
+        		let local_0 = ~(0);
+        		let field_9 = static_0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        	}
+        	if (local_1 = 66) {
+        		let local_0 = ~(0);
+        		let field_9 = static_1;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        	}
+        	do Output.backSpace();
+        }
+        let local_0 = 0;
+        do Output.println();
+        do Output.println();
+        do Output.printString(static_18);
+        while (~(local_0)) {
+        	let local_1 = Keyboard.readChar();
+        	if (( local_1 > 48 & local_1 < 54)) {
+        		let local_0 = ~(0);
+        		let field_10 = local_1 - 48;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END2}
+        	}
+        	do Output.backSpace();
+        }
+        if (field_10 = 1) {
+        	let field_11 = 0;
+        	let field_12 = 0;
+        	let field_13 = 0;
+        	let field_5 = 0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END3}
+        }
+        let field_5 = field_6.isStandardConfig();
+        if (field_10 = 2) {
+        	let field_11 = 2;
+        	let field_12 = 0;
+        	let field_13 = 0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END4}
+        }
+        let field_11 = 25;
+        if (field_10 = 3) {
+        	let field_12 = 5000;
+        	let field_13 = 0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END5}
+        }
+        if (field_10 = 4) {
+        	let field_12 = 25000;
+        	let field_13 = 0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END6}
+        }
+        let field_12 = 17233;
+        let field_13 = 1;
+        do Output.println();
+        do Output.println();
+        if (field_9 = static_0) {
+        	do Output.printString(static_23);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END7}
+        }
+        do Output.printString(static_24);
+        do Screen.drawLine(0, Math.multiply(14, 11), 511, Math.multiply(14, 11));
+        do Output.println();
+        do Output.println();
+        do Output.println();
+        do Output.println();
+        do Output.println();
+        do Output.println();
+        do Output.println();
+        do Output.println();
+        do Output.println();
+        do Output.printString(static_19);
+        do Output.println();
+        do Output.println();
+        do Output.printString(static_20);
+        do Output.println();
+        do Output.println();
+        do Output.printString(static_21);
+        do Output.println();
+        do Output.println();
+        do Output.printString(static_22);
+        let field_3 = 0;
+        while (( Keyboard.keyPressed() = 0)) {
+        	let field_3 = field_3 + 1;
+        }
+        while (~(( Keyboard.keyPressed() = 0))) {
+        }
+        do field_2.seed(field_3, 12345);
+        do Screen.clearScreen();
+        do Output.moveCursor(0, 0);
+        let field_17 = 0;
+        return;
+    }
+
+    method int getHumanMove(int argument_0, int argument_1) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        do Output.println();
+        let field_17 = field_17 + 1;
+        let local_1 = 0;
+        while (~(local_1)) {
+        	let local_0 = Keyboard.readLine(static_14);
+        	if (( String.length(local_0) = 1)) {
+        		if (( String.charAt(local_0, 0) = 81)) {
+        			do String.dispose(local_0);
+        			return 0;
+        		}
+        	}
+        	if (( String.length(local_0) = 4)) {
+        		if (isFile(String.charAt(local_0, 0))) {
+        			if (isRank(String.charAt(local_0, 1))) {
+        				if (isFile(String.charAt(local_0, 2))) {
+        					if (isRank(String.charAt(local_0, 3))) {
+        						let local_2 = field_6.convertUIMoveStrToMove(local_0, argument_1);
+        						let local_1 = ~(local_2 = 0);
+        					}
+        				}
+        			}
+        		}
+        	}
+        	if (~(local_1)) {
+        		do clearMovePanel(field_17);
+        	}
+        	do String.dispose(local_0);
+        }
+        do Output.println();
+        let field_17 = field_17 + 2;
+        return local_2;
+    }
+
+    method int isFile(int argument_0, int argument_1) {
+        return ( argument_1 > 64 & argument_1 < 73);
+    }
+
+    method int isRank(int argument_0, int argument_1) {
+        return ( argument_1 > 48 & argument_1 < 57);
+    }
+
+    method void outputWelcome(int argument_0) {
+        do Output.printString(static_9);
+        do Output.println();
+        do Output.println();
+        return;
+    }
+
+    method void outputPlayerList(int argument_0) {
+        do Output.printString(static_10);
+        if (field_9 = static_0) {
+        	do Output.printString(static_12);
+        	do Output.println();
+        	do Output.printString(static_11);
+        	do Output.printString(static_13);
+        	do Output.printInt(field_10);
+        	do Output.printChar(41);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Output.printString(static_13);
+        do Output.printInt(field_10);
+        do Output.printChar(41);
+        do Output.println();
+        do Output.printString(static_11);
+        do Output.printString(static_12);
+        do Output.println();
+        let field_17 = field_17 + 2;
+        return;
+    }
+
+    method void outputPlayerWins(int argument_0) {
+        if (( field_6.getTurn() = static_0)) {
+        	do Output.printString(static_28);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Output.printString(static_27);
+        return;
+    }
+
+    method void OutputPlayerDrawByStalemate(int argument_0) {
+        do Output.printString(static_29);
+        return;
+    }
+
+    method void OutputPlayerDrawByFifty(int argument_0) {
+        do Output.printString(static_30);
+        return;
+    }
+
+    method void OutputPlayerDrawByRep(int argument_0) {
+        do Output.printString(static_31);
+        return;
+    }
+
+}

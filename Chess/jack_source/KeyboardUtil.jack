@@ -1,0 +1,20 @@
+class KeyboardUtil {
+    function int readCharYesNo() {
+        var int local_0;
+        
+        while (~(0)) {
+        	let local_0 = Keyboard.readChar();
+        	if (local_0 = 89) {
+        		return ~(0);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        	}
+        	if (local_0 = 78) {
+        		return 0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        	}
+        	do Output.backSpace();
+        }
+        return 0;
+    }
+
+}

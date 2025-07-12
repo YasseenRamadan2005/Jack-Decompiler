@@ -1,0 +1,540 @@
+class Book {
+    static int static_0;
+    static int static_1;
+    static int static_2;
+    static int static_3;
+    static int static_4;
+    static int static_5;
+    static int static_6;
+    static int static_7;
+    static int static_8;
+    static int static_9;
+    static int static_10;
+    static int static_11;
+    static int static_12;
+    static int static_13;
+    static int static_14;
+    static int static_15;
+    static int static_16;
+    static int static_17;
+    static int static_18;
+    static int static_19;
+    static int static_20;
+    static int static_21;
+    static int static_22;
+    static int static_23;
+    static int static_24;
+    static int static_25;
+    static int static_26;
+    static int static_27;
+    static int static_28;
+    field int field_0;
+    field int field_1;
+    function void init() {
+        var int local_0;
+        
+        let static_2 = 4762;
+        let static_3 = 4827;
+        let static_4 = 4892;
+        let static_5 = 1828;
+        let static_6 = 82;
+        let static_7 = 75;
+        let static_8 = 405;
+        let static_9 = 353;
+        let static_10 = 346;
+        let static_11 = 18211;
+        let static_12 = 17755;
+        let static_13 = 7330;
+        let static_14 = 7395;
+        let static_15 = 7460;
+        let static_16 = 3112;
+        let static_17 = 3242;
+        let static_18 = 3307;
+        let static_19 = 3372;
+        let static_20 = 3502;
+        let static_21 = 3690;
+        let static_22 = 2915;
+        let static_23 = 4013;
+        let static_24 = 3938;
+        let static_25 = 18587;
+        let static_26 = 18650;
+        let static_27 = 18652;
+        let static_28 = 20195;
+        let static_1 = 0;
+        let static_0 = Array.new(24);
+        let local_0 = Array.new(3);
+        let local_0[0] = static_2;
+        
+        let local_0[1] = static_13;
+        
+        let local_0[2] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(3);
+        let local_0[0] = static_2;
+        
+        let local_0[1] = static_15;
+        
+        let local_0[2] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(5);
+        let local_0[0] = static_3;
+        
+        let local_0[1] = static_14;
+        
+        let local_0[2] = static_2;
+        
+        let local_0[3] = static_19;
+        
+        let local_0[4] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(5);
+        let local_0[0] = static_3;
+        
+        let local_0[1] = static_14;
+        
+        let local_0[2] = static_2;
+        
+        let local_0[3] = static_26;
+        
+        let local_0[4] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(5);
+        let local_0[0] = static_3;
+        
+        let local_0[1] = static_14;
+        
+        let local_0[2] = static_2;
+        
+        let local_0[3] = static_17;
+        
+        let local_0[4] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(5);
+        let local_0[0] = static_3;
+        
+        let local_0[1] = static_23;
+        
+        let local_0[2] = static_2;
+        
+        let local_0[3] = static_19;
+        
+        let local_0[4] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(10);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_13;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_18;
+        
+        let local_0[4] = static_3;
+        
+        let local_0[5] = static_25;
+        
+        let local_0[6] = static_12;
+        
+        let local_0[7] = static_23;
+        
+        let local_0[8] = static_6;
+        
+        let local_0[9] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(8);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_13;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_21;
+        
+        let local_0[4] = static_3;
+        
+        let local_0[5] = static_25;
+        
+        let local_0[6] = static_12;
+        
+        let local_0[7] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(8);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_13;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_19;
+        
+        let local_0[4] = static_3;
+        
+        let local_0[5] = static_25;
+        
+        let local_0[6] = static_12;
+        
+        let local_0[7] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(7);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_15;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_21;
+        
+        let local_0[4] = static_9;
+        
+        let local_0[5] = static_16;
+        
+        let local_0[6] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(7);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_15;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_21;
+        
+        let local_0[4] = static_9;
+        
+        let local_0[5] = static_18;
+        
+        let local_0[6] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(7);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_15;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_21;
+        
+        let local_0[4] = static_9;
+        
+        let local_0[5] = static_23;
+        
+        let local_0[6] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(7);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_15;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_21;
+        
+        let local_0[4] = static_10;
+        
+        let local_0[5] = static_24;
+        
+        let local_0[6] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(7);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_15;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_21;
+        
+        let local_0[4] = static_10;
+        
+        let local_0[5] = static_23;
+        
+        let local_0[6] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(7);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_15;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_21;
+        
+        let local_0[4] = static_6;
+        
+        let local_0[5] = static_23;
+        
+        let local_0[6] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(6);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_15;
+        
+        let local_0[2] = static_8;
+        
+        let local_0[3] = static_21;
+        
+        let local_0[4] = static_3;
+        
+        let local_0[5] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(6);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_19;
+        
+        let local_0[2] = static_3;
+        
+        let local_0[3] = static_14;
+        
+        let local_0[4] = static_6;
+        
+        let local_0[5] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(6);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_19;
+        
+        let local_0[2] = static_3;
+        
+        let local_0[3] = static_14;
+        
+        let local_0[4] = static_7;
+        
+        let local_0[5] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(7);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_17;
+        
+        let local_0[2] = static_3;
+        
+        let local_0[3] = static_14;
+        
+        let local_0[4] = static_6;
+        
+        let local_0[5] = static_27;
+        
+        let local_0[6] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(5);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_14;
+        
+        let local_0[2] = static_11;
+        
+        let local_0[3] = static_28;
+        
+        let local_0[4] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(5);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_14;
+        
+        let local_0[2] = static_11;
+        
+        let local_0[3] = static_23;
+        
+        let local_0[4] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(7);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_18;
+        
+        let local_0[2] = static_3;
+        
+        let local_0[3] = static_23;
+        
+        let local_0[4] = static_6;
+        
+        let local_0[5] = static_20;
+        
+        let local_0[6] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(5);
+        let local_0[0] = static_4;
+        
+        let local_0[1] = static_23;
+        
+        let local_0[2] = static_5;
+        
+        let local_0[3] = static_22;
+        
+        let local_0[4] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        let local_0 = Array.new(4);
+        let local_0[0] = static_8;
+        
+        let local_0[1] = static_14;
+        
+        let local_0[2] = static_2;
+        
+        let local_0[3] = 0;
+        
+        let static_0[static_1] = local_0;
+        
+        let static_1 = static_1 + 1;
+        return;
+    }
+
+    function void final() {
+        var int local_0;
+        var int local_1;
+        
+        while (local_0 < static_1) {
+        	let local_1 = static_0[local_0];
+        	do Array.dispose(local_1);
+        	let local_0 = local_0 + 1;
+        }
+        do Array.dispose(static_0);
+        return;
+    }
+
+    constructor int new() {
+        do resetWindow();
+        return this;
+    }
+
+    method void dispose(int argument_0) {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void resetWindow(int argument_0) {
+        let field_0 = 0;
+        let field_1 = static_1 - 1;
+        return;
+    }
+
+    method int getBookMove(int argument_0, int argument_1, int argument_2) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        let local_4 = argument_1.getMoves();
+        let local_2 = argument_1.getCount();
+        if (local_2 = 0) {
+        	let local_3 = argument_2.randRange(field_0, field_1);
+        	let local_5 = static_0[local_3];
+        	return local_5[0];
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        let local_0 = field_0;
+        let local_1 = field_1;
+        let local_6 = 0;
+        let local_8 = 0;
+        while (( ~(local_0 > local_1) & ~(local_8))) {
+        	let local_5 = static_0[local_0];
+        	if (local_2 = 1) {
+        		let local_7 = ( local_5[0] = local_4[0]);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        	}
+        	let local_7 = 0;
+        	if (~(( local_5[local_2 - 2] = 0))) {
+        		if (~(( local_5[local_2 - 1] = 0))) {
+        			let local_7 = ( ( local_5[local_2 - 1] = local_4[local_2 - 1]) & ( local_5[local_2 - 2] = local_4[local_2 - 2]));
+        		}
+        	}
+        	if (local_7) {
+        		if (local_6) {
+        			let field_1 = local_0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END5}
+        		}
+        		let field_0 = local_0;
+        		let field_1 = local_0;
+        		let local_6 = ~(0);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END4}
+        	}
+        	if (local_6) {
+        		let local_8 = ~(0);
+        	}
+        	let local_0 = local_0 + 1;
+        }
+        if (local_6) {
+        	let local_3 = argument_2.randRange(field_0, field_1);
+        	let local_5 = static_0[local_3];
+        	return local_5[local_2];
+        }
+        return 0;
+    }
+
+}
