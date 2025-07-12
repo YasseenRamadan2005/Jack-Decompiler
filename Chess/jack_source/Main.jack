@@ -1,2 +1,37 @@
 class Main {
+    function void main() {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        
+        do Board.init();
+        do Game.init();
+        do MoveList.init();
+        do Book.init();
+        do UIBoard.init();
+        let local_1 = "Play again (Y/N)? ";
+        let local_2 = ~(0);
+        let local_0 = Game.new();
+        while (local_2) {
+        	do local_0.run();
+        	do Output.println();
+        	do Output.println();
+        	do Output.printString(local_1);
+        	let local_2 = KeyboardUtil.readCharYesNo();
+        	if (local_2) {
+        		do Screen.clearScreen();
+        		do Output.moveCursor(0, 0);
+        		do local_0.clearBoard();
+        	}
+        }
+        do local_1.dispose();
+        do local_0.dispose();
+        do Board.final();
+        do Game.final();
+        do MoveList.final();
+        do Book.final();
+        do UIBoard.final();
+        return;
+    }
+
 }

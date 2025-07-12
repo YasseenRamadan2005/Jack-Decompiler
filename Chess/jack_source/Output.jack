@@ -1,0 +1,304 @@
+class Output {
+    static int static_0;
+    static int static_1;
+    static int static_2;
+    static int static_3;
+    static int static_4;
+    static int static_5;
+    static int static_6;
+    function void init() {
+        
+        let static_4 = 16384;
+        let static_2 = ~(0);
+        let static_1 = 32;
+        let static_0 = 0;
+        let static_3 = String.new(6);
+        do Output.initMap();
+        do Output.createShiftedMap();
+        return;
+    }
+
+    function void initMap() {
+        
+        let static_5 = Array.new(127);
+        do Output.create(0, 63, 63, 63, 63, 63, 63, 63, 63, 63, 0, 0);
+        do Output.create(32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        do Output.create(33, 12, 30, 30, 30, 12, 12, 0, 12, 12, 0, 0);
+        do Output.create(34, 54, 54, 20, 0, 0, 0, 0, 0, 0, 0, 0);
+        do Output.create(35, 0, 18, 18, 63, 18, 18, 63, 18, 18, 0, 0);
+        do Output.create(36, 12, 30, 51, 3, 30, 48, 51, 30, 12, 12, 0);
+        do Output.create(37, 0, 0, 35, 51, 24, 12, 6, 51, 49, 0, 0);
+        do Output.create(38, 12, 30, 30, 12, 54, 27, 27, 27, 54, 0, 0);
+        do Output.create(39, 12, 12, 6, 0, 0, 0, 0, 0, 0, 0, 0);
+        do Output.create(40, 24, 12, 6, 6, 6, 6, 6, 12, 24, 0, 0);
+        do Output.create(41, 6, 12, 24, 24, 24, 24, 24, 12, 6, 0, 0);
+        do Output.create(42, 0, 0, 0, 51, 30, 63, 30, 51, 0, 0, 0);
+        do Output.create(43, 0, 0, 0, 12, 12, 63, 12, 12, 0, 0, 0);
+        do Output.create(44, 0, 0, 0, 0, 0, 0, 0, 12, 12, 6, 0);
+        do Output.create(45, 0, 0, 0, 0, 0, 63, 0, 0, 0, 0, 0);
+        do Output.create(46, 0, 0, 0, 0, 0, 0, 0, 12, 12, 0, 0);
+        do Output.create(47, 0, 0, 32, 48, 24, 12, 6, 3, 1, 0, 0);
+        do Output.create(48, 12, 30, 51, 51, 51, 51, 51, 30, 12, 0, 0);
+        do Output.create(49, 12, 14, 15, 12, 12, 12, 12, 12, 63, 0, 0);
+        do Output.create(50, 30, 51, 48, 24, 12, 6, 3, 51, 63, 0, 0);
+        do Output.create(51, 30, 51, 48, 48, 28, 48, 48, 51, 30, 0, 0);
+        do Output.create(52, 16, 24, 28, 26, 25, 63, 24, 24, 60, 0, 0);
+        do Output.create(53, 63, 3, 3, 31, 48, 48, 48, 51, 30, 0, 0);
+        do Output.create(54, 28, 6, 3, 3, 31, 51, 51, 51, 30, 0, 0);
+        do Output.create(55, 63, 49, 48, 48, 24, 12, 12, 12, 12, 0, 0);
+        do Output.create(56, 30, 51, 51, 51, 30, 51, 51, 51, 30, 0, 0);
+        do Output.create(57, 30, 51, 51, 51, 62, 48, 48, 24, 14, 0, 0);
+        do Output.create(58, 0, 0, 12, 12, 0, 0, 12, 12, 0, 0, 0);
+        do Output.create(59, 0, 0, 12, 12, 0, 0, 12, 12, 6, 0, 0);
+        do Output.create(60, 0, 0, 24, 12, 6, 3, 6, 12, 24, 0, 0);
+        do Output.create(61, 0, 0, 0, 63, 0, 0, 63, 0, 0, 0, 0);
+        do Output.create(62, 0, 0, 3, 6, 12, 24, 12, 6, 3, 0, 0);
+        do Output.create(64, 30, 51, 51, 59, 59, 59, 27, 3, 30, 0, 0);
+        do Output.create(63, 30, 51, 51, 24, 12, 12, 0, 12, 12, 0, 0);
+        do Output.create(65, 12, 30, 51, 51, 63, 51, 51, 51, 51, 0, 0);
+        do Output.create(66, 31, 51, 51, 51, 31, 51, 51, 51, 31, 0, 0);
+        do Output.create(67, 28, 54, 35, 3, 3, 3, 35, 54, 28, 0, 0);
+        do Output.create(68, 15, 27, 51, 51, 51, 51, 51, 27, 15, 0, 0);
+        do Output.create(69, 63, 51, 35, 11, 15, 11, 35, 51, 63, 0, 0);
+        do Output.create(70, 63, 51, 35, 11, 15, 11, 3, 3, 3, 0, 0);
+        do Output.create(71, 28, 54, 35, 3, 59, 51, 51, 54, 44, 0, 0);
+        do Output.create(72, 51, 51, 51, 51, 63, 51, 51, 51, 51, 0, 0);
+        do Output.create(73, 30, 12, 12, 12, 12, 12, 12, 12, 30, 0, 0);
+        do Output.create(74, 60, 24, 24, 24, 24, 24, 27, 27, 14, 0, 0);
+        do Output.create(75, 51, 51, 51, 27, 15, 27, 51, 51, 51, 0, 0);
+        do Output.create(76, 3, 3, 3, 3, 3, 3, 35, 51, 63, 0, 0);
+        do Output.create(77, 33, 51, 63, 63, 51, 51, 51, 51, 51, 0, 0);
+        do Output.create(78, 51, 51, 55, 55, 63, 59, 59, 51, 51, 0, 0);
+        do Output.create(79, 30, 51, 51, 51, 51, 51, 51, 51, 30, 0, 0);
+        do Output.create(80, 31, 51, 51, 51, 31, 3, 3, 3, 3, 0, 0);
+        do Output.create(81, 30, 51, 51, 51, 51, 51, 63, 59, 30, 48, 0);
+        do Output.create(82, 31, 51, 51, 51, 31, 27, 51, 51, 51, 0, 0);
+        do Output.create(83, 30, 51, 51, 6, 28, 48, 51, 51, 30, 0, 0);
+        do Output.create(84, 63, 63, 45, 12, 12, 12, 12, 12, 30, 0, 0);
+        do Output.create(85, 51, 51, 51, 51, 51, 51, 51, 51, 30, 0, 0);
+        do Output.create(86, 51, 51, 51, 51, 51, 30, 30, 12, 12, 0, 0);
+        do Output.create(87, 51, 51, 51, 51, 51, 63, 63, 63, 18, 0, 0);
+        do Output.create(88, 51, 51, 30, 30, 12, 30, 30, 51, 51, 0, 0);
+        do Output.create(89, 51, 51, 51, 51, 30, 12, 12, 12, 30, 0, 0);
+        do Output.create(90, 63, 51, 49, 24, 12, 6, 35, 51, 63, 0, 0);
+        do Output.create(91, 30, 6, 6, 6, 6, 6, 6, 6, 30, 0, 0);
+        do Output.create(92, 0, 0, 1, 3, 6, 12, 24, 48, 32, 0, 0);
+        do Output.create(93, 30, 24, 24, 24, 24, 24, 24, 24, 30, 0, 0);
+        do Output.create(94, 8, 28, 54, 0, 0, 0, 0, 0, 0, 0, 0);
+        do Output.create(95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 0);
+        do Output.create(96, 6, 12, 24, 0, 0, 0, 0, 0, 0, 0, 0);
+        do Output.create(97, 0, 0, 0, 14, 24, 30, 27, 27, 54, 0, 0);
+        do Output.create(98, 3, 3, 3, 15, 27, 51, 51, 51, 30, 0, 0);
+        do Output.create(99, 0, 0, 0, 30, 51, 3, 3, 51, 30, 0, 0);
+        do Output.create(100, 48, 48, 48, 60, 54, 51, 51, 51, 30, 0, 0);
+        do Output.create(101, 0, 0, 0, 30, 51, 63, 3, 51, 30, 0, 0);
+        do Output.create(102, 28, 54, 38, 6, 15, 6, 6, 6, 15, 0, 0);
+        do Output.create(103, 0, 0, 30, 51, 51, 51, 62, 48, 51, 30, 0);
+        do Output.create(104, 3, 3, 3, 27, 55, 51, 51, 51, 51, 0, 0);
+        do Output.create(105, 12, 12, 0, 14, 12, 12, 12, 12, 30, 0, 0);
+        do Output.create(106, 48, 48, 0, 56, 48, 48, 48, 48, 51, 30, 0);
+        do Output.create(107, 3, 3, 3, 51, 27, 15, 15, 27, 51, 0, 0);
+        do Output.create(108, 14, 12, 12, 12, 12, 12, 12, 12, 30, 0, 0);
+        do Output.create(109, 0, 0, 0, 29, 63, 43, 43, 43, 43, 0, 0);
+        do Output.create(110, 0, 0, 0, 29, 51, 51, 51, 51, 51, 0, 0);
+        do Output.create(111, 0, 0, 0, 30, 51, 51, 51, 51, 30, 0, 0);
+        do Output.create(112, 0, 0, 0, 30, 51, 51, 51, 31, 3, 3, 0);
+        do Output.create(113, 0, 0, 0, 30, 51, 51, 51, 62, 48, 48, 0);
+        do Output.create(114, 0, 0, 0, 29, 55, 51, 3, 3, 7, 0, 0);
+        do Output.create(115, 0, 0, 0, 30, 51, 6, 24, 51, 30, 0, 0);
+        do Output.create(116, 4, 6, 6, 15, 6, 6, 6, 54, 28, 0, 0);
+        do Output.create(117, 0, 0, 0, 27, 27, 27, 27, 27, 54, 0, 0);
+        do Output.create(118, 0, 0, 0, 51, 51, 51, 51, 30, 12, 0, 0);
+        do Output.create(119, 0, 0, 0, 51, 51, 51, 63, 63, 18, 0, 0);
+        do Output.create(120, 0, 0, 0, 51, 30, 12, 12, 30, 51, 0, 0);
+        do Output.create(121, 0, 0, 0, 51, 51, 51, 62, 48, 24, 15, 0);
+        do Output.create(122, 0, 0, 0, 63, 27, 12, 6, 51, 63, 0, 0);
+        do Output.create(123, 56, 12, 12, 12, 7, 12, 12, 12, 56, 0, 0);
+        do Output.create(124, 12, 12, 12, 12, 12, 12, 12, 12, 12, 0, 0);
+        do Output.create(125, 7, 12, 12, 12, 56, 12, 12, 12, 7, 0, 0);
+        do Output.create(126, 38, 45, 25, 0, 0, 0, 0, 0, 0, 0, 0);
+        return;
+    }
+
+    function void create(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4, int argument_5, int argument_6, int argument_7, int argument_8, int argument_9, int argument_10, int argument_11) {
+        var int local_0;
+        
+        let local_0 = Array.new(11);
+        let static_5[argument_0] = local_0;
+        
+        let local_0[0] = argument_1;
+        
+        let local_0[1] = argument_2;
+        
+        let local_0[2] = argument_3;
+        
+        let local_0[3] = argument_4;
+        
+        let local_0[4] = argument_5;
+        
+        let local_0[5] = argument_6;
+        
+        let local_0[6] = argument_7;
+        
+        let local_0[7] = argument_8;
+        
+        let local_0[8] = argument_9;
+        
+        let local_0[9] = argument_10;
+        
+        let local_0[10] = argument_11;
+        
+        return;
+    }
+
+    function void createShiftedMap() {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        
+        let static_6 = Array.new(127);
+        let local_2 = 0;
+        while (local_2 < 127) {
+        	let local_0 = static_5[local_2];
+        	let local_1 = Array.new(11);
+        	let static_6[local_2] = local_1;
+        	
+        	let local_3 = 0;
+        	while (local_3 < 11) {
+        		let local_1[local_3] = Math.multiply(local_0[local_3], 256);
+        		
+        		let local_3 = local_3 + 1;
+        	}
+        	if (local_2 = 0) {
+        		let local_2 = 32;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        	}
+        	let local_2 = local_2 + 1;
+        }
+        return;
+    }
+
+    function int getMap(int argument_0) {
+        var int local_0;
+        
+        if (( argument_0 < 32 | argument_0 > 126)) {
+        	let argument_0 = 0;
+        }
+        if (static_2) {
+        	let local_0 = static_5[argument_0];
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        }
+        let local_0 = static_6[argument_0];
+        return local_0;
+    }
+
+    function void drawChar(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        
+        let local_2 = Output.getMap(argument_0);
+        let local_0 = static_1;
+        while (local_1 < 11) {
+        	if (static_2) {
+        		let local_3 = ( static_4[local_0] & -(256));
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        	}
+        	let local_3 = ( static_4[local_0] & 255);
+        	let static_4[local_0] = ( local_2[local_1] | local_3);
+        	
+        	let local_0 = local_0 + 32;
+        	let local_1 = local_1 + 1;
+        }
+        return;
+    }
+
+    function void moveCursor(int argument_0, int argument_1) {
+        
+        if (( ( ( argument_0 < 0 | argument_0 > 22) | argument_1 < 0) | argument_1 > 63)) {
+        	do Sys.error(20);
+        }
+        let static_0 = Math.divide(argument_1, 2);
+        let static_1 = ( ( 32 + Math.multiply(argument_0, 352)) + static_0);
+        let static_2 = ( argument_1 = Math.multiply(static_0, 2));
+        do Output.drawChar(32);
+        return;
+    }
+
+    function void printChar(int argument_0) {
+        
+        if (( argument_0 = String.newLine())) {
+        	do Output.println();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        if (( argument_0 = String.backSpace())) {
+        	do Output.backSpace();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        }
+        do Output.drawChar(argument_0);
+        if (~(static_2)) {
+        	let static_0 = static_0 + 1;
+        	let static_1 = static_1 + 1;
+        }
+        if (static_0 = 32) {
+        	do Output.println();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END3}
+        }
+        let static_2 = ~(static_2);
+        return;
+    }
+
+    function void printString(int argument_0) {
+        var int local_0;
+        var int local_1;
+        
+        let local_1 = argument_0.length();
+        while (local_0 < local_1) {
+        	do Output.printChar(argument_0.charAt(local_0));
+        	let local_0 = local_0 + 1;
+        }
+        return;
+    }
+
+    function void printInt(int argument_0) {
+        
+        do static_3.setInt(argument_0);
+        do Output.printString(static_3);
+        return;
+    }
+
+    function void println() {
+        
+        let static_1 = ( static_1 + 352 - static_0);
+        let static_0 = 0;
+        let static_2 = ~(0);
+        if (static_1 = 8128) {
+        	let static_1 = 32;
+        }
+        return;
+    }
+
+    function void backSpace() {
+        
+        if (static_2) {
+        	if (static_0 > 0) {
+        		let static_0 = static_0 - 1;
+        		let static_1 = static_1 - 1;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        	}
+        	let static_0 = 31;
+        	if (static_1 = 32) {
+        		let static_1 = 8128;
+        	}
+        	let static_1 = static_1 - 321;
+        	let static_2 = 0;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        let static_2 = ~(0);
+        do Output.drawChar(32);
+        return;
+    }
+
+}

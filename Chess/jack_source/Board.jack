@@ -317,34 +317,34 @@ class Board {
 
     function void final() {
         
-        do Array.dispose(static_30);
-        do Array.dispose(static_31);
-        do Array.dispose(static_32);
-        do Array.dispose(static_33);
-        do Array.dispose(static_34);
-        do Array.dispose(static_35);
-        do Array.dispose(static_51);
-        do Array.dispose(static_52);
-        do Array.dispose(static_53);
-        do Array.dispose(static_54);
-        do Array.dispose(static_55);
-        do Array.dispose(static_58);
-        do Array.dispose(static_59);
-        do Array.dispose(static_60);
-        do Array.dispose(static_61);
-        do Array.dispose(static_62);
-        do Array.dispose(static_63);
-        do Array.dispose(static_64);
-        do Array.dispose(static_65);
-        do Array.dispose(static_66);
-        do Array.dispose(static_67);
-        do Array.dispose(static_68);
-        do Array.dispose(static_69);
-        do Array.dispose(static_70);
-        do Array.dispose(static_71);
-        do Array.dispose(static_72);
-        do Array.dispose(static_73);
-        do Array.dispose(static_74);
+        do static_30.dispose();
+        do static_31.dispose();
+        do static_32.dispose();
+        do static_33.dispose();
+        do static_34.dispose();
+        do static_35.dispose();
+        do static_51.dispose();
+        do static_52.dispose();
+        do static_53.dispose();
+        do static_54.dispose();
+        do static_55.dispose();
+        do static_58.dispose();
+        do static_59.dispose();
+        do static_60.dispose();
+        do static_61.dispose();
+        do static_62.dispose();
+        do static_63.dispose();
+        do static_64.dispose();
+        do static_65.dispose();
+        do static_66.dispose();
+        do static_67.dispose();
+        do static_68.dispose();
+        do static_69.dispose();
+        do static_70.dispose();
+        do static_71.dispose();
+        do static_72.dispose();
+        do static_73.dispose();
+        do static_74.dispose();
         return;
     }
 
@@ -359,7 +359,7 @@ class Board {
     }
 
     method void dispose(int argument_0) {
-        do Array.dispose(field_1);
+        do field_1.dispose();
         do field_2.dispose();
         do field_3.dispose();
         do field_6.dispose();
@@ -426,11 +426,11 @@ class Board {
         let local_11 = 0;
         let local_4 = argument_2.getCount();
         let local_9 = argument_2.getMoves();
-        let local_0 = ( String.charAt(argument_1, 0) - 65);
-        let local_1 = ( String.charAt(argument_1, 1) - 49);
+        let local_0 = ( argument_1.charAt(0) - 65);
+        let local_1 = ( argument_1.charAt(1) - 49);
         let local_5 = ( Math.multiply(8, local_1) + local_0);
-        let local_0 = ( String.charAt(argument_1, 2) - 65);
-        let local_1 = ( String.charAt(argument_1, 3) - 49);
+        let local_0 = ( argument_1.charAt(2) - 65);
+        let local_1 = ( argument_1.charAt(3) - 49);
         let local_6 = ( Math.multiply(8, local_1) + local_0);
         let local_7 = ( Math.multiply(local_5, 64) | local_6);
         while (local_2 < local_4) {
@@ -494,10 +494,10 @@ class Board {
         let local_2 = Math.divide(local_0, 8);
         let local_5 = local_1 & 7;
         let local_4 = Math.divide(local_1, 8);
-        do String.setCharAt(argument_1, 0, local_3 + 65);
-        do String.setCharAt(argument_1, 1, local_2 + 49);
-        do String.setCharAt(argument_1, 2, local_5 + 65);
-        do String.setCharAt(argument_1, 3, local_4 + 49);
+        do argument_1.setCharAt(0, local_3 + 65);
+        do argument_1.setCharAt(1, local_2 + 49);
+        do argument_1.setCharAt(2, local_5 + 65);
+        do argument_1.setCharAt(3, local_4 + 49);
         return argument_1;
     }
 

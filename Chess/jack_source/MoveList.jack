@@ -28,9 +28,9 @@ class MoveList {
     }
 
     method void dispose(int argument_0) {
-        do Array.dispose(field_0);
+        do field_0.dispose();
         if (~(field_1 = 0)) {
-        	do Array.dispose(field_1);
+        	do field_1.dispose();
         }
         do Memory.deAlloc(this);
         return;

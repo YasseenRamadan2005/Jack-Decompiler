@@ -20,8 +20,8 @@ class BoardState {
     }
 
     method void dispose(int argument_0) {
-        do Array.dispose(field_8);
-        do Array.dispose(field_9);
+        do field_8.dispose();
+        do field_9.dispose();
         do Memory.deAlloc(this);
         return;
     }

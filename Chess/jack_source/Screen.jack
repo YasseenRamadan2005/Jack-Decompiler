@@ -1,0 +1,229 @@
+class Screen {
+    static int static_0;
+    static int static_1;
+    static int static_2;
+    function void init() {
+        var int local_0;
+        
+        let static_1 = 16384;
+        let static_2 = ~(0);
+        let static_0 = Array.new(17);
+        let static_0[0] = 1;
+        
+        while (local_0 < 16) {
+        	let local_0 = local_0 + 1;
+        	let static_0[local_0] = ( static_0[local_0 - 1] + static_0[local_0 - 1]);
+        	
+        }
+        return;
+    }
+
+    function void clearScreen() {
+        var int local_0;
+        
+        while (local_0 < 8192) {
+        	let static_1[local_0] = 0;
+        	
+        	let local_0 = local_0 + 1;
+        }
+        return;
+    }
+
+    function void updateLocation(int argument_0, int argument_1) {
+        
+        if (static_2) {
+        	let static_1[argument_0] = ( static_1[argument_0] | argument_1);
+        	
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        let static_1[argument_0] = ( static_1[argument_0] & ~(argument_1));
+        
+        return;
+    }
+
+    function void setColor(int argument_0) {
+        
+        let static_2 = argument_0;
+        return;
+    }
+
+    function void drawPixel(int argument_0, int argument_1) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        
+        if (( ( ( argument_0 < 0 | argument_0 > 511) | argument_1 < 0) | argument_1 > 255)) {
+        	do Sys.error(7);
+        }
+        let local_0 = Math.divide(argument_0, 16);
+        let local_1 = ( argument_0 - Math.multiply(local_0, 16));
+        let local_2 = ( Math.multiply(argument_1, 32) + local_0);
+        do Screen.updateLocation(local_2, static_0[local_1]);
+        return;
+    }
+
+    function void drawConditional(int argument_0, int argument_1, int argument_2) {
+        
+        if (argument_2) {
+        	do Screen.drawPixel(argument_1, argument_0);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END0}
+        }
+        do Screen.drawPixel(argument_0, argument_1);
+        return;
+    }
+
+    function void drawLine(int argument_0, int argument_1, int argument_2, int argument_3) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        var int local_9;
+        var int local_10;
+        
+        if (( ( ( argument_0 < 0 | argument_2 > 511) | argument_1 < 0) | argument_3 > 255)) {
+        	do Sys.error(8);
+        }
+        let local_3 = Math.abs(argument_2 - argument_0);
+        let local_2 = Math.abs(argument_3 - argument_1);
+        let local_6 = local_3 < local_2;
+        if (( ( local_6 & argument_3 < argument_1) | ( ~(local_6) & argument_2 < argument_0))) {
+        	let local_4 = argument_0;
+        	let argument_0 = argument_2;
+        	let argument_2 = local_4;
+        	let local_4 = argument_1;
+        	let argument_1 = argument_3;
+        	let argument_3 = local_4;
+        }
+        if (local_6) {
+        	let local_4 = local_3;
+        	let local_3 = local_2;
+        	let local_2 = local_4;
+        	let local_1 = argument_1;
+        	let local_0 = argument_0;
+        	let local_8 = argument_3;
+        	let local_7 = argument_0 > argument_2;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END2}
+        }
+        let local_1 = argument_0;
+        let local_0 = argument_1;
+        let local_8 = argument_2;
+        let local_7 = argument_1 > argument_3;
+        let local_5 = ( Math.multiply(2, local_2) - local_3);
+        let local_9 = Math.multiply(2, local_2);
+        let local_10 = Math.multiply(2, local_2 - local_3);
+        do Screen.drawConditional(local_1, local_0, local_6);
+        while (local_1 < local_8) {
+        	if (local_5 < 0) {
+        		let local_5 = local_5 + local_9;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END3}
+        	}
+        	let local_5 = local_5 + local_10;
+        	if (local_7) {
+        		let local_0 = local_0 - 1;
+        // Unhandled VM instruction: GotoInstruction{label='IF_END4}
+        	}
+        	let local_0 = local_0 + 1;
+        	let local_1 = local_1 + 1;
+        	do Screen.drawConditional(local_1, local_0, local_6);
+        }
+        return;
+    }
+
+    function void drawRectangle(int argument_0, int argument_1, int argument_2, int argument_3) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        
+        if (( ( ( ( ( argument_0 > argument_2 | argument_1 > argument_3) | argument_0 < 0) | argument_2 > 511) | argument_1 < 0) | argument_3 > 255)) {
+        	do Sys.error(9);
+        }
+        let local_3 = Math.divide(argument_0, 16);
+        let local_7 = ( argument_0 - Math.multiply(local_3, 16));
+        let local_4 = Math.divide(argument_2, 16);
+        let local_8 = ( argument_2 - Math.multiply(local_4, 16));
+        let local_6 = ~(( static_0[local_7] - 1));
+        let local_5 = ( static_0[local_8 + 1] - 1);
+        let local_0 = ( Math.multiply(argument_1, 32) + local_3);
+        let local_2 = local_4 - local_3;
+        while (~(argument_1 > argument_3)) {
+        	let local_1 = local_0 + local_2;
+        	if (local_2 = 0) {
+        		do Screen.updateLocation(local_0, local_5 & local_6);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        	}
+        	do Screen.updateLocation(local_0, local_6);
+        	let local_0 = local_0 + 1;
+        	while (local_0 < local_1) {
+        		do Screen.updateLocation(local_0, -(1));
+        		let local_0 = local_0 + 1;
+        	}
+        	do Screen.updateLocation(local_1, local_5);
+        	let argument_1 = argument_1 + 1;
+        	let local_0 = ( local_1 + 32 - local_2);
+        }
+        return;
+    }
+
+    function void drawHorizontal(int argument_0, int argument_1, int argument_2) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        var int local_5;
+        var int local_6;
+        var int local_7;
+        var int local_8;
+        var int local_9;
+        var int local_10;
+        
+        let local_7 = Math.min(argument_1, argument_2);
+        let local_8 = Math.max(argument_1, argument_2);
+        if (( ( ( ( argument_0 > -(1)) & argument_0 < 256) & local_7 < 512) & ( local_8 > -(1)))) {
+        	let local_7 = Math.max(local_7, 0);
+        	let local_8 = Math.min(local_8, 511);
+        	let local_1 = Math.divide(local_7, 16);
+        	let local_9 = ( local_7 - Math.multiply(local_1, 16));
+        	let local_2 = Math.divide(local_8, 16);
+        	let local_10 = ( local_8 - Math.multiply(local_2, 16));
+        	let local_5 = ~(( static_0[local_9] - 1));
+        	let local_4 = ( static_0[local_10 + 1] - 1);
+        	let local_0 = ( Math.multiply(argument_0, 32) + local_1);
+        	let local_6 = local_2 - local_1;
+        	let local_3 = local_0 + local_6;
+        	if (local_6 = 0) {
+        		do Screen.updateLocation(local_0, local_4 & local_5);
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        	}
+        	do Screen.updateLocation(local_0, local_5);
+        	let local_0 = local_0 + 1;
+        	while (local_0 < local_3) {
+        		do Screen.updateLocation(local_0, -(1));
+        		let local_0 = local_0 + 1;
+        	}
+        	do Screen.updateLocation(local_3, local_4);
+        }
+        return;
+    }
+
+    function void drawSymetric(int argument_0, int argument_1, int argument_2, int argument_3) {
+        
+        do Screen.drawHorizontal(argument_1 - argument_3, argument_0 + argument_2, argument_0 - argument_2);
+        do Screen.drawHorizontal(argument_1 + argument_3, argument_0 + argument_2, argument_0 - argument_2);
+        do Screen.drawHorizontal(argument_1 - argument_2, argument_0 - argument_3, argument_0 + argument_3);
+        do Screen.drawHorizontal(argument_1 + argument_2, argument_0 - argument_3, argument_0 + argument_3);
+        return;
+    }
+
+}

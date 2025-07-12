@@ -21,7 +21,7 @@ class PieceList {
         	do local_1.dispose();
         	let local_0 = local_0 + 1;
         }
-        do Array.dispose(field_0);
+        do field_0.dispose();
         do Memory.deAlloc(this);
         return;
     }

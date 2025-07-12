@@ -457,10 +457,10 @@ class Book {
         
         while (local_0 < static_1) {
         	let local_1 = static_0[local_0];
-        	do Array.dispose(local_1);
+        	do local_1.dispose();
         	let local_0 = local_0 + 1;
         }
-        do Array.dispose(static_0);
+        do static_0.dispose();
         return;
     }
 

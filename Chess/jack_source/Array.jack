@@ -1,0 +1,15 @@
+class Array {
+    function int new(int argument_0) {
+        
+        if (~(argument_0 > 0)) {
+        	do Sys.error(2);
+        }
+        return Memory.alloc(argument_0);
+    }
+
+    method void dispose(int argument_0) {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+}

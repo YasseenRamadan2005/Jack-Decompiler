@@ -90,30 +90,30 @@ class Game {
 
     function void final() {
         
-        do String.dispose(static_9);
-        do String.dispose(static_10);
-        do String.dispose(static_11);
-        do String.dispose(static_12);
-        do String.dispose(static_13);
-        do String.dispose(static_14);
-        do String.dispose(static_15);
-        do String.dispose(static_16);
-        do String.dispose(static_17);
-        do String.dispose(static_18);
-        do String.dispose(static_19);
-        do String.dispose(static_20);
-        do String.dispose(static_21);
-        do String.dispose(static_22);
-        do String.dispose(static_23);
-        do String.dispose(static_24);
-        do String.dispose(static_25);
-        do String.dispose(static_26);
-        do String.dispose(static_27);
-        do String.dispose(static_28);
-        do String.dispose(static_29);
-        do String.dispose(static_30);
-        do String.dispose(static_31);
-        do String.dispose(static_32);
+        do static_9.dispose();
+        do static_10.dispose();
+        do static_11.dispose();
+        do static_12.dispose();
+        do static_13.dispose();
+        do static_14.dispose();
+        do static_15.dispose();
+        do static_16.dispose();
+        do static_17.dispose();
+        do static_18.dispose();
+        do static_19.dispose();
+        do static_20.dispose();
+        do static_21.dispose();
+        do static_22.dispose();
+        do static_23.dispose();
+        do static_24.dispose();
+        do static_25.dispose();
+        do static_26.dispose();
+        do static_27.dispose();
+        do static_28.dispose();
+        do static_29.dispose();
+        do static_30.dispose();
+        do static_31.dispose();
+        do static_32.dispose();
         return;
     }
 
@@ -151,11 +151,11 @@ class Game {
         	let local_0 = local_0 + 1;
         }
         do field_4.dispose();
-        do Array.dispose(field_7);
-        do Array.dispose(field_14);
+        do field_7.dispose();
+        do field_14.dispose();
         do field_8.dispose();
-        do String.dispose(field_15);
-        do Array.dispose(field_16);
+        do field_15.dispose();
+        do field_16.dispose();
         do Memory.deAlloc(this);
         return;
     }
@@ -838,17 +838,17 @@ class Game {
         let local_1 = 0;
         while (~(local_1)) {
         	let local_0 = Keyboard.readLine(static_14);
-        	if (( String.length(local_0) = 1)) {
-        		if (( String.charAt(local_0, 0) = 81)) {
-        			do String.dispose(local_0);
+        	if (( local_0.length() = 1)) {
+        		if (( local_0.charAt(0) = 81)) {
+        			do local_0.dispose();
         			return 0;
         		}
         	}
-        	if (( String.length(local_0) = 4)) {
-        		if (isFile(String.charAt(local_0, 0))) {
-        			if (isRank(String.charAt(local_0, 1))) {
-        				if (isFile(String.charAt(local_0, 2))) {
-        					if (isRank(String.charAt(local_0, 3))) {
+        	if (( local_0.length() = 4)) {
+        		if (isFile(local_0.charAt(0))) {
+        			if (isRank(local_0.charAt(1))) {
+        				if (isFile(local_0.charAt(2))) {
+        					if (isRank(local_0.charAt(3))) {
         						let local_2 = field_6.convertUIMoveStrToMove(local_0, argument_1);
         						let local_1 = ~(local_2 = 0);
         					}
@@ -859,7 +859,7 @@ class Game {
         	if (~(local_1)) {
         		do clearMovePanel(field_17);
         	}
-        	do String.dispose(local_0);
+        	do local_0.dispose();
         }
         do Output.println();
         let field_17 = field_17 + 2;

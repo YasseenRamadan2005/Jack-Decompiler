@@ -39,9 +39,6 @@ public class JackCodeGenerator {
 
     private int generateBlock(List<VMinstruction> parsed, int start, List<String> jackLines, int indentLevel) throws Exception {
         VMinstruction instr = parsed.get(start);
-        if (fn.name.equals("String.appendChar")) {
-            int x = 0;
-        }
         switch (instr) {
             case LabelInstruction labelStart -> {
                 String startLabel = labelStart.getLabel();
@@ -159,7 +156,6 @@ public class JackCodeGenerator {
                 jackLines.add(indent("}", indentLevel));
                 return i;
             }
-
             default -> {
                 String generated = switch (instr) {
                     case PushGroup pg -> indent(generatePushGroup(pg), indentLevel);
@@ -295,7 +291,6 @@ public class JackCodeGenerator {
         List<String> jackArgs = new ArrayList<>();
 
         boolean isMethod = decompiler.isMethodFunction(functionName);
-
         if (isMethod && !args.isEmpty()) {
             // First argument is instance
             String instance = generatePushGroup(args.getFirst());

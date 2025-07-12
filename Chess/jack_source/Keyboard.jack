@@ -1,0 +1,53 @@
+class Keyboard {
+    function void init() {
+        
+        return;
+    }
+
+    function int keyPressed() {
+        
+        return Memory.peek(24576);
+    }
+
+    function int readChar() {
+        var int local_0;
+        var int local_1;
+        
+        do Output.printChar(0);
+        while (( local_1 = 0 | local_0 > 0)) {
+        	let local_0 = Keyboard.keyPressed();
+        	if (local_0 > 0) {
+        		let local_1 = local_0;
+        	}
+        }
+        do Output.printChar(String.backSpace());
+        do Output.printChar(local_1);
+        return local_1;
+    }
+
+    function int readLine(int argument_0) {
+        var int local_0;
+        var int local_1;
+        var int local_2;
+        var int local_3;
+        var int local_4;
+        
+        let local_3 = String.new(80);
+        do Output.printString(argument_0);
+        let local_1 = String.newLine();
+        let local_2 = String.backSpace();
+        while (~(local_4)) {
+        	let local_0 = Keyboard.readChar();
+        	let local_4 = local_0 = local_1;
+        	if (~(local_4)) {
+        		if (local_0 = local_2) {
+        			do local_3.eraseLastChar();
+        // Unhandled VM instruction: GotoInstruction{label='IF_END1}
+        		}
+        		let local_3 = local_3.appendChar(local_0);
+        	}
+        }
+        return local_3;
+    }
+
+}
