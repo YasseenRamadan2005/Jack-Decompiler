@@ -3,16 +3,16 @@ class Memory {
     function void init() {
         
         let static_0 = 0;
-        let static_0[2048] = 14334;
+        let 2048[static_0] = 14334;
         
-        let static_0[2049] = 2050;
+        let 2049[static_0] = 2050;
         
         return;
     }
 
     function int peek(int argument_0) {
         
-        return static_0[argument_0];
+        return argument_0[static_0];
     }
 
     function int alloc(int argument_0) {
@@ -26,39 +26,39 @@ class Memory {
         	let argument_0 = 1;
         }
         let local_0 = 2048;
-        while (( local_0 < 16383 & ( local_0[0] < argument_0))) {
-        	let local_1 = local_0[1];
-        	if (( ( ( local_0[0] = 0) | local_1 > 16382) | ( local_1[0] = 0))) {
+        while (( local_0 < 16383 & ( 0[local_0] < argument_0))) {
+        	let local_1 = 1[local_0];
+        	if (( ( ( 0[local_0] = 0) | local_1 > 16382) | ( 0[local_1] = 0))) {
         		let local_0 = local_1;
         // Unhandled VM instruction: GotoInstruction{label='IF_END2}
         	}
-        	let local_0[0] = ( ( local_0[1] - local_0) + local_1[0]);
+        	let 0[local_0] = ( ( 1[local_0] - local_0) + 0[local_1]);
         	
-        	if (( local_1[1] = local_1 + 2)) {
-        		let local_0[1] = local_0 + 2;
+        	if (( 1[local_1] = local_1 + 2)) {
+        		let 1[local_0] = local_0 + 2;
         		
         // Unhandled VM instruction: GotoInstruction{label='IF_END3}
         	}
-        	let local_0[1] = local_1[1];
+        	let 1[local_0] = 1[local_1];
         	
         }
         if (( local_0 + argument_0 > 16379)) {
         	do Sys.error(6);
         }
-        if (( local_0[0] > argument_0 + 2)) {
-        	let local_0[argument_0 + 2] = ( ( local_0[0] - argument_0) - 2);
+        if (( 0[local_0] > argument_0 + 2)) {
+        	let argument_0[2][local_0] = ( ( 0[local_0] - argument_0) - 2);
         	
-        	if (( local_0[1] = local_0 + 2)) {
-        		let local_0[argument_0 + 3] = ( local_0 + argument_0 + 4);
+        	if (( 1[local_0] = local_0 + 2)) {
+        		let argument_0[3][local_0] = ( local_0 + argument_0 + 4);
         		
         // Unhandled VM instruction: GotoInstruction{label='IF_END6}
         	}
-        	let local_0[argument_0 + 3] = local_0[1];
+        	let argument_0[3][local_0] = 1[local_0];
         	
-        	let local_0[1] = ( local_0 + argument_0 + 2);
+        	let 1[local_0] = ( local_0 + argument_0 + 2);
         	
         }
-        let local_0[0] = 0;
+        let 0[local_0] = 0;
         
         return local_0 + 2;
     }
@@ -68,20 +68,20 @@ class Memory {
         var int local_1;
         
         let local_0 = argument_0 - 2;
-        let local_1 = local_0[1];
-        if (( local_1[0] = 0)) {
-        	let local_0[0] = ( ( local_0[1] - local_0) - 2);
+        let local_1 = 1[local_0];
+        if (( 0[local_1] = 0)) {
+        	let 0[local_0] = ( ( 1[local_0] - local_0) - 2);
         	
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         }
-        let local_0[0] = ( ( local_0[1] - local_0) + local_1[0]);
+        let 0[local_0] = ( ( 1[local_0] - local_0) + 0[local_1]);
         
-        if (( local_1[1] = local_1 + 2)) {
-        	let local_0[1] = local_0 + 2;
+        if (( 1[local_1] = local_1 + 2)) {
+        	let 1[local_0] = local_0 + 2;
         	
         // Unhandled VM instruction: GotoInstruction{label='IF_END1}
         }
-        let local_0[1] = local_1[1];
+        let 1[local_0] = 1[local_1];
         
         return;
     }

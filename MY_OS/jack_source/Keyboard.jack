@@ -17,7 +17,7 @@ class Keyboard {
     }
 
     function int readLine(int argument_0) {
-        var int local_0;
+        var String local_0;
         var int local_1;
         
         do Output.printString(argument_0);
@@ -28,7 +28,7 @@ class Keyboard {
         		do local_0.eraseLastChar();
         	}
         	else {
-        		do String.appendChar(local_0, local_1);
+        		do local_0.appendChar(local_1);
         	}
         	let local_1 = Keyboard.readChar();
         }

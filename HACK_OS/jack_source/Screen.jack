@@ -8,11 +8,11 @@ class Screen {
         let static_1 = 16384;
         let static_2 = ~(0);
         let static_0 = Array.new(17);
-        let static_0[0] = 1;
+        let 0[static_0] = 1;
         
         while (local_0 < 16) {
         	let local_0 = local_0 + 1;
-        	let static_0[local_0] = ( static_0[local_0 - 1] + static_0[local_0 - 1]);
+        	let local_0[static_0] = ( local_0 - 1[static_0] + local_0 - 1[static_0]);
         	
         }
         return;
@@ -21,11 +21,11 @@ class Screen {
     function void updateLocation(int argument_0, int argument_1) {
         
         if (static_2) {
-        	let static_1[argument_0] = ( static_1[argument_0] | argument_1);
+        	let argument_0[static_1] = ( argument_0[static_1] | argument_1);
         	
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         }
-        let static_1[argument_0] = ( static_1[argument_0] & ~(argument_1));
+        let argument_0[static_1] = ( argument_0[static_1] & ~(argument_1));
         
         return;
     }
@@ -41,7 +41,7 @@ class Screen {
         let local_0 = Math.divide(argument_0, 16);
         let local_1 = ( argument_0 - Math.multiply(local_0, 16));
         let local_2 = ( Math.multiply(argument_1, 32) + local_0);
-        do Screen.updateLocation(local_2, static_0[local_1]);
+        do Screen.updateLocation(local_2, local_1[static_0]);
         return;
     }
 
@@ -77,8 +77,8 @@ class Screen {
         	let local_9 = ( local_7 - Math.multiply(local_1, 16));
         	let local_2 = Math.divide(local_8, 16);
         	let local_10 = ( local_8 - Math.multiply(local_2, 16));
-        	let local_5 = ~(( static_0[local_9] - 1));
-        	let local_4 = ( static_0[local_10 + 1] - 1);
+        	let local_5 = ~(( local_9[static_0] - 1));
+        	let local_4 = ( local_10[1][static_0] - 1);
         	let local_0 = ( Math.multiply(argument_0, 32) + local_1);
         	let local_6 = local_2 - local_1;
         	let local_3 = local_0 + local_6;

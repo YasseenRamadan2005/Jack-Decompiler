@@ -62,8 +62,8 @@ add
 pop pointer 1
 pop that 0
 push constant 0
-returnappendChar
-function String. 1
+return
+function String.appendChar 1
 push argument 0
 pop pointer 0
 push this 1

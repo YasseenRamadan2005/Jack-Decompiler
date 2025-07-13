@@ -1,6 +1,6 @@
 class Main {
     function void main() {
-        var int local_0;
+        var String local_0;
         
         let local_0 = "Hello, world!";
         do Output.printString(local_0);

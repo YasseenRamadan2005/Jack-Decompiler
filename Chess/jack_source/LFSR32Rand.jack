@@ -1,17 +1,17 @@
 class LFSR32Rand {
     field int field_0;
     field int field_1;
-    constructor int new() {
+    constructor LFSR32Rand new() {
         do seed(0, 0);
         return this;
     }
 
-    method void dispose(int argument_0) {
+    method void dispose() {
         do Memory.deAlloc(this);
         return;
     }
 
-    method void seed(int argument_0, int argument_1, int argument_2) {
+    method void seed(int argument_0, int argument_1) {
         if (( argument_1 | argument_2 = 0)) {
         	let field_0 = 23294;
         	let field_1 = -(4083);
@@ -22,7 +22,7 @@ class LFSR32Rand {
         return;
     }
 
-    method void randBit(int argument_0) {
+    method void randBit() {
         var int local_0;
         if (( field_1 | field_0 = 0)) {
         	do seed(0, 0);
@@ -33,7 +33,7 @@ class LFSR32Rand {
         return;
     }
 
-    method int randInt(int argument_0) {
+    method int randInt() {
         var int local_0;
         while (local_0 < 16) {
         	do randBit();
@@ -42,11 +42,11 @@ class LFSR32Rand {
         return field_0;
     }
 
-    method int rand(int argument_0) {
+    method int rand() {
         return ( randInt() & 32767);
     }
 
-    method int randRange(int argument_0, int argument_1, int argument_2) {
+    method int randRange(int argument_0, int argument_1) {
         var int local_0;
         var int local_1;
         var int local_2;

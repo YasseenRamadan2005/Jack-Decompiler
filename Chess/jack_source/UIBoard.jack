@@ -15,21 +15,21 @@ class UIBoard {
         return;
     }
 
-    constructor int new() {
+    constructor UIBoard new() {
         let field_0 = 240;
         let field_1 = ( ( static_0 - field_0 - 1) - 1);
         let field_2 = 1;
         return this;
     }
 
-    method void dispose(int argument_0) {
+    method void dispose() {
         do Memory.deAlloc(this);
         return;
     }
 
-    method void drawBoard(int argument_0, int argument_1, int argument_2) {
+    method void drawBoard(int argument_0, Board argument_1) {
         var int local_0;
-        var int local_1;
+        var UIBoard local_1;
         var int local_2;
         var int local_3;
         let field_3 = argument_2;
@@ -99,7 +99,7 @@ class UIBoard {
         return;
     }
 
-    method void drawPieces(int argument_0, int argument_1, int argument_2) {
+    method void drawPieces(int argument_0, PieceList argument_1) {
         var int local_0;
         var int local_1;
         var int local_2;
@@ -109,12 +109,12 @@ class UIBoard {
         var int local_6;
         var int local_7;
         var int local_8;
-        var int local_9;
+        var Piece local_9;
         var int local_10;
         let local_8 = argument_1.getPieces();
         let local_1 = argument_1.getCount();
         while (local_0 < local_1) {
-        	let local_9 = local_8[local_0];
+        	let local_9 = local_0[local_8];
         	let local_2 = local_9.getValue();
         	let local_3 = local_9.getSquare();
         	if (( field_3 = -(1))) {
@@ -132,7 +132,7 @@ class UIBoard {
         return;
     }
 
-    method void drawPiece(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4, int argument_5) {
+    method void drawPiece(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4) {
         if (argument_2 = 1) {
         	if (argument_1 = 1) {
         		do draw_wPawn(argument_3, argument_4, argument_5);
@@ -181,7 +181,7 @@ class UIBoard {
         return;
     }
 
-    method void doUIMove(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void doUIMove(int argument_0, int argument_1, int argument_2) {
         var int local_0;
         var int local_1;
         var int local_2;
@@ -268,7 +268,7 @@ class UIBoard {
         return;
     }
 
-    method void eraseSq(int argument_0, int argument_1) {
+    method void eraseSq(int argument_0) {
         var int local_0;
         var int local_1;
         var int local_2;
@@ -285,7 +285,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_wPawn(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_wPawn(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_bPawn(argument_1, argument_2, 0);
@@ -329,7 +329,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_wKnight(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_wKnight(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_bKnight(argument_1, argument_2, 0);
@@ -371,7 +371,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_wBishop(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_wBishop(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_bBishop(argument_1, argument_2, 0);
@@ -423,7 +423,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_wRook(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_wRook(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_bRook(argument_1, argument_2, 0);
@@ -460,7 +460,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_wQueen(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_wQueen(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_bQueen(argument_1, argument_2, 0);
@@ -512,7 +512,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_wKing(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_wKing(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_bKing(argument_1, argument_2, 0);
@@ -563,7 +563,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_bPawn(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_bPawn(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_wPawn(argument_1, argument_2, 0);
@@ -590,7 +590,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_bKnight(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_bKnight(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_wKnight(argument_1, argument_2, 0);
@@ -622,7 +622,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_bBishop(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_bBishop(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_wBishop(argument_1, argument_2, 0);
@@ -657,7 +657,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_bRook(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_bRook(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_wRook(argument_1, argument_2, 0);
@@ -682,7 +682,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_bQueen(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_bQueen(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_wQueen(argument_1, argument_2, 0);
@@ -736,7 +736,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_bKing(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void draw_bKing(int argument_0, int argument_1, int argument_2) {
         if (argument_3) {
         	do Screen.setColor(0);
         	do draw_wKing(argument_1, argument_2, 0);
@@ -784,7 +784,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_a(int argument_0, int argument_1, int argument_2) {
+    method void draw_a(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
@@ -809,7 +809,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_b(int argument_0, int argument_1, int argument_2) {
+    method void draw_b(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 0, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
@@ -843,7 +843,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_c(int argument_0, int argument_1, int argument_2) {
+    method void draw_c(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
@@ -867,7 +867,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_d(int argument_0, int argument_1, int argument_2) {
+    method void draw_d(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 5, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
@@ -901,7 +901,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_e(int argument_0, int argument_1, int argument_2) {
+    method void draw_e(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 1, argument_2 + 3);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 3);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 3);
@@ -929,7 +929,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_f(int argument_0, int argument_1, int argument_2) {
+    method void draw_f(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
@@ -959,7 +959,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_g(int argument_0, int argument_1, int argument_2) {
+    method void draw_g(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 1, argument_2 + 2);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 2);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 2);
@@ -994,7 +994,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_h(int argument_0, int argument_1, int argument_2) {
+    method void draw_h(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 0, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 0, argument_2 + 1);
@@ -1029,7 +1029,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_1(int argument_0, int argument_1, int argument_2) {
+    method void draw_1(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 1, argument_2 + 1);
@@ -1058,7 +1058,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_2(int argument_0, int argument_1, int argument_2) {
+    method void draw_2(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
@@ -1090,7 +1090,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_3(int argument_0, int argument_1, int argument_2) {
+    method void draw_3(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
@@ -1121,7 +1121,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_4(int argument_0, int argument_1, int argument_2) {
+    method void draw_4(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 1);
         do Screen.drawPixel(argument_1 + 4, argument_2 + 1);
@@ -1151,7 +1151,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_5(int argument_0, int argument_1, int argument_2) {
+    method void draw_5(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 0, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
@@ -1184,7 +1184,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_6(int argument_0, int argument_1, int argument_2) {
+    method void draw_6(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 4, argument_2 + 0);
@@ -1218,7 +1218,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_7(int argument_0, int argument_1, int argument_2) {
+    method void draw_7(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 0, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
@@ -1245,7 +1245,7 @@ class UIBoard {
         return;
     }
 
-    method void draw_8(int argument_0, int argument_1, int argument_2) {
+    method void draw_8(int argument_0, int argument_1) {
         do Screen.drawPixel(argument_1 + 1, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 2, argument_2 + 0);
         do Screen.drawPixel(argument_1 + 3, argument_2 + 0);

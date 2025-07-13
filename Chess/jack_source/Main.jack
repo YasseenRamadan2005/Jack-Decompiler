@@ -1,7 +1,7 @@
 class Main {
     function void main() {
-        var int local_0;
-        var int local_1;
+        var Game local_0;
+        var String local_1;
         var int local_2;
         
         do Board.init();

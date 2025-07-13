@@ -34,21 +34,21 @@ class Game {
     static int static_32;
     field int field_0;
     field int field_1;
-    field int field_2;
+    field LFSR32Rand field_2;
     field int field_3;
-    field int field_4;
+    field Book field_4;
     field int field_5;
-    field int field_6;
-    field int field_7;
-    field int field_8;
+    field Board field_6;
+    field Array field_7;
+    field UIBoard field_8;
     field int field_9;
     field int field_10;
     field int field_11;
     field int field_12;
     field int field_13;
-    field int field_14;
-    field int field_15;
-    field int field_16;
+    field Array field_14;
+    field String field_15;
+    field Array field_16;
     field int field_17;
     function void init() {
         
@@ -117,15 +117,15 @@ class Game {
         return;
     }
 
-    constructor int new() {
+    constructor Game new() {
         var int local_0;
         let field_2 = LFSR32Rand.new();
         let field_7 = Array.new(static_4);
         let field_14 = Array.new(static_4);
         while (local_0 < static_4) {
-        	let field_7[local_0] = MoveList.new(static_5, ~(0));
+        	let local_0[field_7] = MoveList.new(static_5, ~(0));
         	
-        	let field_14[local_0] = BoardState.new(static_4 - local_0);
+        	let local_0[field_14] = BoardState.new(static_4 - local_0);
         	
         	let local_0 = local_0 + 1;
         }
@@ -137,16 +137,16 @@ class Game {
         return this;
     }
 
-    method void dispose(int argument_0) {
+    method void dispose() {
         var int local_0;
-        var int local_1;
-        var int local_2;
+        var MoveList local_1;
+        var BoardState local_2;
         do field_2.dispose();
         do field_6.dispose();
         while (local_0 < static_4) {
-        	let local_1 = field_7[local_0];
+        	let local_1 = local_0[field_7];
         	do local_1.dispose();
-        	let local_2 = field_14[local_0];
+        	let local_2 = local_0[field_14];
         	do local_2.dispose();
         	let local_0 = local_0 + 1;
         }
@@ -165,14 +165,14 @@ class Game {
         return static_32;
     }
 
-    method void clearBoard(int argument_0) {
+    method void clearBoard() {
         var int local_0;
-        var int local_1;
+        var BoardState local_1;
         do field_4.resetWindow();
         do field_6.initBoard(field_14);
         do field_6.clearMoveHistory();
         while (local_0 < static_4) {
-        	let local_1 = field_14[local_0];
+        	let local_1 = local_0[field_14];
         	do local_1.resetKillers();
         	do local_1.resetPvCount();
         	let local_0 = local_0 + 1;
@@ -180,43 +180,43 @@ class Game {
         return;
     }
 
-    method void splitPv(int argument_0) {
+    method void splitPv() {
         var int local_0;
         var int local_1;
-        var int local_2;
+        var BoardState local_2;
         var int local_3;
-        let local_2 = field_14[0];
+        let local_2 = 0[field_14];
         let local_3 = local_2.getPv();
         let local_1 = local_2.getPvCount();
         while (local_0 < local_1) {
-        	let local_2 = field_14[local_0];
-        	do local_2.setPvMove(local_3[local_0]);
+        	let local_2 = local_0[field_14];
+        	do local_2.setPvMove(local_0[local_3]);
         	let local_0 = local_0 + 1;
         }
         while (local_0 < static_4) {
-        	let local_2 = field_14[local_0];
+        	let local_2 = local_0[field_14];
         	do local_2.setPvMove(0);
         	let local_0 = local_0 + 1;
         }
         return;
     }
 
-    method void run(int argument_0) {
+    method void run() {
         var int local_0;
         var int local_1;
-        var int local_2;
+        var Game local_2;
         var int local_3;
         var int local_4;
-        var int local_5;
+        var MoveList local_5;
         var int local_6;
-        var int local_7;
+        var BoardState local_7;
         var int local_8;
-        let local_7 = field_14[0];
+        let local_7 = 0[field_14];
         do outputWelcome();
         do initGameSettings();
         do field_8.drawBoard(field_6, field_9);
         do outputPlayerList();
-        let local_5 = field_7[0];
+        let local_5 = 0[field_7];
         if (( field_9 = field_6.getTurn())) {
         	do field_6.genLegalMoves(field_7);
         	let local_0 = getHumanMove(local_5);
@@ -238,8 +238,8 @@ class Game {
         	do Output.printString(static_25);
         	if (field_10 = 1) {
         		do randomMoveSearch();
-        		let local_0 = field_16[0];
-        		let local_1 = field_16[1];
+        		let local_0 = 0[field_16];
+        		let local_1 = 1[field_16];
         		if (( local_0 = -(1))) {
         			do clearMovePanel(field_17);
         			if (local_1 = static_6) {
@@ -317,13 +317,13 @@ class Game {
         		while (~(local_8)) {
         			do splitPv();
         			do alphaBetaRoot(local_2, local_3, local_4);
-        			let local_0 = field_16[0];
-        			let local_1 = field_16[1];
+        			let local_0 = 0[field_16];
+        			let local_1 = 1[field_16];
         			if (local_0 = 0) {
         				do splitPv();
         				do alphaBetaRoot(local_2, -(static_2), static_2);
-        				let local_0 = field_16[0];
-        				let local_1 = field_16[1];
+        				let local_0 = 0[field_16];
+        				let local_1 = 1[field_16];
         			}
         			if (( local_0 = -(1))) {
         				do clearMovePanel(field_17);
@@ -414,7 +414,7 @@ class Game {
         return;
     }
 
-    method void clearMovePanel(int argument_0, int argument_1) {
+    method void clearMovePanel(int argument_0) {
         do Screen.setColor(0);
         do Screen.drawRectangle(0, Math.multiply(argument_1, 11), Math.multiply(32, 8), 255);
         do Screen.setColor(~(0));
@@ -423,53 +423,53 @@ class Game {
         return;
     }
 
-    method void randomMoveSearch(int argument_0) {
+    method void randomMoveSearch() {
         var int local_0;
         var int local_1;
-        var int local_2;
-        var int local_3;
-        var int local_4;
+        var LFSR32Rand local_2;
+        var MoveList local_3;
+        var BoardState local_4;
         var int local_5;
         do field_6.genLegalMoves(field_7);
-        let local_3 = field_7[0];
+        let local_3 = 0[field_7];
         let local_2 = local_3.getCount();
-        let local_4 = field_14[0];
+        let local_4 = 0[field_14];
         if (local_2 = 0) {
-        	let field_16[0] = -(1);
+        	let 0[field_16] = -(1);
         	
         	if (local_4.getSideToMoveInCheck()) {
-        		let field_16[1] = -(static_3);
+        		let 1[field_16] = -(static_3);
         		
         // Unhandled VM instruction: GotoInstruction{label='IF_END1}
         	}
-        	let field_16[1] = static_6;
+        	let 1[field_16] = static_6;
         	
         	return;
         }
         if (field_6.drawByRep3()) {
-        	let field_16[0] = -(1);
+        	let 0[field_16] = -(1);
         	
-        	let field_16[1] = static_8;
+        	let 1[field_16] = static_8;
         	
         	return;
         }
         if (( local_4.getFiftyMoveCount() = 100)) {
-        	let field_16[0] = -(1);
+        	let 0[field_16] = -(1);
         	
-        	let field_16[1] = static_7;
+        	let 1[field_16] = static_7;
         	
         	return;
         }
         let local_0 = local_3.getMoves();
         let local_1 = field_2.randRange(0, local_2 - 1);
-        let field_16[0] = local_0[local_1];
+        let 0[field_16] = local_1[local_0];
         
-        let field_16[1] = 0;
+        let 1[field_16] = 0;
         
         return;
     }
 
-    method void alphaBetaRoot(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method void alphaBetaRoot(int argument_0, int argument_1, int argument_2) {
         var int local_0;
         var int local_1;
         var int local_2;
@@ -477,9 +477,9 @@ class Game {
         var int local_4;
         var int local_5;
         var int local_6;
-        var int local_7;
+        var MoveList local_7;
         var int local_8;
-        var int local_9;
+        var BoardState local_9;
         var int local_10;
         if (field_0 = 32767) {
         	let field_0 = 1;
@@ -487,12 +487,12 @@ class Game {
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         }
         let field_0 = field_0 + 1;
-        let local_9 = field_14[local_5];
+        let local_9 = local_5[field_14];
         if (field_6.drawByRep3()) {
         	do local_9.resetPvCount();
-        	let field_16[0] = -(1);
+        	let 0[field_16] = -(1);
         	
-        	let field_16[1] = static_8;
+        	let 1[field_16] = static_8;
         	
         	return;
         }
@@ -503,9 +503,9 @@ class Game {
         			let local_2 = -(alphaBeta(argument_1 - 3, local_5 + 1, -(argument_3), ( -(argument_3) + 1)));
         			do field_6.undoNullMove();
         			if (~(local_2 < argument_3)) {
-        				let field_16[0] = 0;
+        				let 0[field_16] = 0;
         				
-        				let field_16[1] = argument_3;
+        				let 1[field_16] = argument_3;
         				
         				return;
         			}
@@ -513,8 +513,8 @@ class Game {
         	}
         }
         let local_8 = 0;
-        let local_10 = field_14[local_5 + 1];
-        let local_7 = field_7[local_5];
+        let local_10 = local_5[1][field_14];
+        let local_7 = local_5[field_7];
         do field_6.genPseudoLegalMoves(local_7);
         let local_6 = local_7.getMoves();
         let local_4 = local_7.getCount();
@@ -527,7 +527,7 @@ class Game {
         	if (local_1 < 10) {
         		do local_7.moveBestRankedMoveToPos(local_1);
         	}
-        	let local_0 = local_6[local_1];
+        	let local_0 = local_1[local_6];
         	do field_6.doMove(local_0);
         	if (field_6.inCheck(-(field_6.getTurn()))) {
         		do field_6.undoMove(local_0);
@@ -537,9 +537,9 @@ class Game {
         		if (( local_9.getFiftyMoveCount() = 100)) {
         			do local_9.resetPvCount();
         			do field_6.undoMove(local_0);
-        			let field_16[0] = -(1);
+        			let 0[field_16] = -(1);
         			
-        			let field_16[1] = static_7;
+        			let 1[field_16] = static_7;
         			
         			return;
         		}
@@ -549,9 +549,9 @@ class Game {
         	let local_2 = -(alphaBeta(argument_1 - 1, local_5 + 1, -(argument_3), -(argument_2)));
         	do field_6.undoMove(local_0);
         	if (~(local_2 < argument_3)) {
-        		let field_16[0] = 0;
+        		let 0[field_16] = 0;
         		
-        		let field_16[1] = argument_3;
+        		let 1[field_16] = argument_3;
         		
         		if (( local_0 & 16384 = 0)) {
         			do local_9.storeKiller(local_0);
@@ -567,33 +567,33 @@ class Game {
         }
         if (~(local_8)) {
         	do local_9.resetPvCount();
-        	let field_16[0] = -(1);
+        	let 0[field_16] = -(1);
         	
         	if (local_9.getSideToMoveInCheck()) {
-        		let field_16[1] = -(static_3);
+        		let 1[field_16] = -(static_3);
         		
         // Unhandled VM instruction: GotoInstruction{label='IF_END15}
         	}
-        	let field_16[1] = static_6;
+        	let 1[field_16] = static_6;
         	
         	return;
         }
-        let field_16[0] = local_3;
+        let 0[field_16] = local_3;
         
-        let field_16[1] = argument_2;
+        let 1[field_16] = argument_2;
         
         return;
     }
 
-    method int alphaBeta(int argument_0, int argument_1, int argument_2, int argument_3, int argument_4) {
+    method int alphaBeta(int argument_0, int argument_1, int argument_2, int argument_3) {
         var int local_0;
         var int local_1;
         var int local_2;
         var int local_3;
         var int local_4;
-        var int local_5;
+        var MoveList local_5;
         var int local_6;
-        var int local_7;
+        var BoardState local_7;
         var int local_8;
         if (argument_1 = 0) {
         	return qSearch(argument_2, argument_3, argument_4);
@@ -604,7 +604,7 @@ class Game {
         // Unhandled VM instruction: GotoInstruction{label='IF_END1}
         }
         let field_0 = field_0 + 1;
-        let local_7 = field_14[argument_2];
+        let local_7 = argument_2[field_14];
         if (field_6.drawByRep2()) {
         	do local_7.resetPvCount();
         	return 0;
@@ -624,8 +624,8 @@ class Game {
         	}
         }
         let local_6 = 0;
-        let local_8 = field_14[argument_2 + 1];
-        let local_5 = field_7[argument_2];
+        let local_8 = argument_2[1][field_14];
+        let local_5 = argument_2[field_7];
         do field_6.genPseudoLegalMoves(local_5);
         let local_4 = local_5.getMoves();
         let local_3 = local_5.getCount();
@@ -638,7 +638,7 @@ class Game {
         	if (local_1 < 10) {
         		do local_5.moveBestRankedMoveToPos(local_1);
         	}
-        	let local_0 = local_4[local_1];
+        	let local_0 = local_1[local_4];
         	do field_6.doMove(local_0);
         	if (field_6.inCheck(-(field_6.getTurn()))) {
         		do field_6.undoMove(local_0);
@@ -678,21 +678,21 @@ class Game {
         return argument_3;
     }
 
-    method int qSearch(int argument_0, int argument_1, int argument_2, int argument_3) {
+    method int qSearch(int argument_0, int argument_1, int argument_2) {
         var int local_0;
         var int local_1;
         var int local_2;
         var int local_3;
         var int local_4;
-        var int local_5;
-        var int local_6;
+        var MoveList local_5;
+        var BoardState local_6;
         if (field_0 = 32767) {
         	let field_0 = 1;
         	let field_1 = field_1 + 1;
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         }
         let field_0 = field_0 + 1;
-        let local_6 = field_14[argument_1];
+        let local_6 = argument_1[field_14];
         do local_6.resetPvCount();
         let local_2 = field_6.eval(argument_2, argument_3);
         if (( argument_1 = static_4 - 1)) {
@@ -704,7 +704,7 @@ class Game {
         if (local_2 > argument_2) {
         	let argument_2 = local_2;
         }
-        let local_5 = field_7[argument_1];
+        let local_5 = argument_1[field_7];
         do field_6.genPseudoLegalQMoves(local_5);
         let local_4 = local_5.getMoves();
         let local_3 = local_5.getCount();
@@ -712,7 +712,7 @@ class Game {
         	if (local_1 < 5) {
         		do local_5.moveBestRankedMoveToPos(local_1);
         	}
-        	let local_0 = local_4[local_1];
+        	let local_0 = local_1[local_4];
         	if (field_6.moveCapturesKing(local_0)) {
         		return argument_3;
         	}
@@ -730,7 +730,7 @@ class Game {
         return argument_2;
     }
 
-    method void initGameSettings(int argument_0) {
+    method void initGameSettings() {
         var int local_0;
         var int local_1;
         let local_0 = 0;
@@ -829,8 +829,8 @@ class Game {
         return;
     }
 
-    method int getHumanMove(int argument_0, int argument_1) {
-        var int local_0;
+    method int getHumanMove(int argument_0) {
+        var String local_0;
         var int local_1;
         var int local_2;
         do Output.println();
@@ -866,22 +866,22 @@ class Game {
         return local_2;
     }
 
-    method int isFile(int argument_0, int argument_1) {
+    method int isFile(int argument_0) {
         return ( argument_1 > 64 & argument_1 < 73);
     }
 
-    method int isRank(int argument_0, int argument_1) {
+    method int isRank(int argument_0) {
         return ( argument_1 > 48 & argument_1 < 57);
     }
 
-    method void outputWelcome(int argument_0) {
+    method void outputWelcome() {
         do Output.printString(static_9);
         do Output.println();
         do Output.println();
         return;
     }
 
-    method void outputPlayerList(int argument_0) {
+    method void outputPlayerList() {
         do Output.printString(static_10);
         if (field_9 = static_0) {
         	do Output.printString(static_12);
@@ -903,7 +903,7 @@ class Game {
         return;
     }
 
-    method void outputPlayerWins(int argument_0) {
+    method void outputPlayerWins() {
         if (( field_6.getTurn() = static_0)) {
         	do Output.printString(static_28);
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
@@ -912,17 +912,17 @@ class Game {
         return;
     }
 
-    method void OutputPlayerDrawByStalemate(int argument_0) {
+    method void OutputPlayerDrawByStalemate() {
         do Output.printString(static_29);
         return;
     }
 
-    method void OutputPlayerDrawByFifty(int argument_0) {
+    method void OutputPlayerDrawByFifty() {
         do Output.printString(static_30);
         return;
     }
 
-    method void OutputPlayerDrawByRep(int argument_0) {
+    method void OutputPlayerDrawByRep() {
         do Output.printString(static_31);
         return;
     }

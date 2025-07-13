@@ -29,7 +29,7 @@ class Keyboard {
         var int local_0;
         var int local_1;
         var int local_2;
-        var int local_3;
+        var String local_3;
         var int local_4;
         
         let local_3 = String.new(80);

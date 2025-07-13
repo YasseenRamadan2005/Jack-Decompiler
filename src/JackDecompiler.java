@@ -28,6 +28,7 @@ public class JackDecompiler {
         }
 
         for (File vmFile : vmFiles) parseVmFile(vmFile);
+        inferVariableTypes();  // <-- Added pass to infer types
         printMetadata();
     }
 
@@ -37,27 +38,46 @@ public class JackDecompiler {
                 out.println("class " + cls.name + " {");
 
                 for (int i = 0; i <= cls.staticMax; i++) {
-                    out.println("    static int static_" + i + ";");
+                    String varName = "static_" + i;
+                    Symbol sym = cls.classSymbols.get(varName);
+                    String type = (sym != null && sym.type != null) ? sym.type : "int";
+                    out.println("    static " + type + " " + varName + ";");
                 }
+
                 for (int i = 0; i <= cls.fieldMax; i++) {
-                    out.println("    field int field_" + i + ";");
+                    String varName = "field_" + i;
+                    Symbol sym = cls.classSymbols.get(varName);
+                    String type = (sym != null && sym.type != null) ? sym.type : "int";
+                    out.println("    field " + type + " " + varName + ";");
                 }
 
                 for (FunctionMetadata fn : cls.functions) {
                     if (!calledFunctions.contains(fn.name)) continue;
 
                     String kind = fn.isConstructor ? "constructor" : fn.isMethod ? "method" : "function";
-                    String ret = fn.isVoid ? "void" : "int";
+                    String ret = fn.isConstructor ? cls.name : (fn.isVoid ? "void" : "int");
+
                     out.print("    " + kind + " " + ret + " " + fn.getShortName() + "(");
+
                     int nArgs = fn.numArgs;
+                    if (fn.isMethod) {
+                        nArgs--;
+                    }
                     for (int i = 0; i < nArgs; i++) {
                         if (i > 0) out.print(", ");
-                        out.print("int argument_" + i);
+                        String argName = "argument_" + i;
+                        Symbol sym = fn.functionSymbols.get("argument_" + i);
+                        String type = (sym != null && sym.type != null) ? sym.type : "int";
+                        out.print(type + " " + argName);
                     }
+
                     out.println(") {");
 
                     for (int i = 0; i < fn.numLocals; i++) {
-                        out.println("        var int local_" + i + ";");
+                        String localName = "local_" + i;
+                        Symbol sym = fn.functionSymbols.get("local_" + i);
+                        String type = (sym != null && sym.type != null) ? sym.type : "int";
+                        out.println("        var " + type + " " + localName + ";");
                     }
 
                     List<String> jackBody = translator.translate(fn.vmCode, fn);
@@ -75,6 +95,7 @@ public class JackDecompiler {
             }
         }
     }
+
 
     private void parseVmFile(File vmFile) throws IOException {
         String className = vmFile.getName().replace(".vm", "");
@@ -143,17 +164,61 @@ public class JackDecompiler {
         return fn != null && fn.isMethod;
     }
 
-    // Or if you want to check by class and method:
-    public boolean isMethodFunction(String className, String functionName) {
-        ClassMetadata cls = classMap.get(className);
-        if (cls == null) return false;
-        for (FunctionMetadata fn : cls.functions) {
-            if (fn.name.equals(functionName)) {
-                return fn.isMethod;
+    private void inferVariableTypes() {
+        for (ClassMetadata cls : classMap.values()) {
+            for (FunctionMetadata fn : cls.functions) {
+                List<String> lines = fn.vmCode;
+                for (int i = 0; i < lines.size(); i++) {
+                    String line = lines.get(i);
+                    if (!line.startsWith("call ")) continue;
+
+                    String[] parts = line.split(" ");
+                    if (parts.length < 3) continue;
+
+                    String callee = parts[1];
+                    int nArgs;
+                    try {
+                        nArgs = Integer.parseInt(parts[2]);
+                    } catch (NumberFormatException e) {
+                        continue;
+                    }
+
+                    FunctionMetadata target = functionMap.get(callee);
+                    if (target == null || !target.isMethod) continue;
+
+                    int receiverLineIndex = i - nArgs;
+                    if (receiverLineIndex < 0) continue;
+
+                    String receiverLine = lines.get(receiverLineIndex).trim();
+                    if (!receiverLine.startsWith("push ")) continue;
+
+                    String[] segParts = receiverLine.split(" ");
+                    if (segParts.length != 3) continue;
+
+                    String segment = segParts[1];
+                    int index;
+                    try {
+                        index = Integer.parseInt(segParts[2]);
+                    } catch (NumberFormatException e) {
+                        continue;
+                    }
+
+                    String type = callee.split("\\.")[0];
+
+                    if (segment.equals("static") || segment.equals("local") || segment.equals("argument")) {
+                        String varKey = segment + "_" + index;
+                        Symbol sym = fn.functionSymbols.computeIfAbsent(varKey, k -> new Symbol(segment, index));
+                        sym.type = type;
+                    } else if (segment.equals("this")) {
+                        String varKey = "field_" + index;
+                        Symbol sym = cls.classSymbols.computeIfAbsent(varKey, k -> new Symbol("field", index));
+                        sym.type = type;
+                    }
+                }
             }
         }
-        return false;
     }
+
 
     private void printMetadata() {
         System.out.println("===== Decompiled Metadata =====\n");
@@ -171,6 +236,12 @@ public class JackDecompiler {
                 String kind = fn.isConstructor ? "constructor" : fn.isMethod ? "method" : "function";
                 String ret = fn.isVoid ? "void" : "int";
                 System.out.printf("    %s %s %s(%d args, %d locals)\n", kind, ret, fn.getShortName(), fn.numArgs, fn.numLocals);
+
+                if (!fn.functionSymbols.isEmpty()) {
+                    for (Map.Entry<String, Symbol> entry : fn.functionSymbols.entrySet()) {
+                        System.out.printf("      - %s → %s\n", entry.getKey(), entry.getValue());
+                    }
+                }
             }
             System.out.println();
         }
@@ -199,7 +270,6 @@ public class JackDecompiler {
 
     // === Metadata Classes ===
 
-
     public static class FunctionMetadata {
         public final String name;
         public boolean isVoid = false;
@@ -209,7 +279,6 @@ public class JackDecompiler {
         public int numLocals = 0;
         public final List<String> vmCode = new ArrayList<>();
 
-        // Symbol table for function-level variables: variable name -> kind and index
         public final Map<String, Symbol> functionSymbols = new LinkedHashMap<>();
 
         public FunctionMetadata(String name) {
@@ -232,7 +301,6 @@ public class JackDecompiler {
         public int fieldMax = -1;
         public final List<FunctionMetadata> functions = new ArrayList<>();
 
-        // Symbol table for class-level variables: variable name -> kind and index
         public final Map<String, Symbol> classSymbols = new LinkedHashMap<>();
 
         public ClassMetadata(String name) {
@@ -240,19 +308,25 @@ public class JackDecompiler {
         }
     }
 
-    // Simple symbol record for variable metadata (without type for now)
     public static class Symbol {
-        public final String kind;   // e.g. "static", "field", "argument", "local"
+        public final String kind;
         public final int index;
+        public String type;
 
-        public Symbol(String kind, int index) {
+        public Symbol(String kind, int index, String type) {
             this.kind = kind;
             this.index = index;
+            this.type = type;
+        }
+
+        public Symbol(String kind, int index) {
+            this(kind, index, null);
         }
 
         @Override
         public String toString() {
-            return kind + "_" + index;
+            return kind + "_" + index + (type != null ? " : " + type : "");
         }
     }
 }
+

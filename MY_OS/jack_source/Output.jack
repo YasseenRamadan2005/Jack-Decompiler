@@ -162,7 +162,7 @@ class Output {
         return;
     }
 
-    function void printString(int argument_0) {
+    function void printString(String argument_0) {
         var int local_0;
         var int local_1;
         
@@ -176,7 +176,7 @@ class Output {
     }
 
     function void printInt(int argument_0) {
-        var int local_0;
+        var String local_0;
         
         let local_0 = String.new(10);
         do local_0.setInt(argument_0);

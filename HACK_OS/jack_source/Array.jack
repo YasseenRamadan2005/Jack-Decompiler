@@ -7,7 +7,7 @@ class Array {
         return Memory.alloc(argument_0);
     }
 
-    method void dispose(int argument_0) {
+    method void dispose() {
         do Memory.deAlloc(this);
         return;
     }

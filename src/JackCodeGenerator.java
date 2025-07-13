@@ -179,8 +179,8 @@ public class JackCodeGenerator {
             PushGroup cur = dr.getBase();
             List<String> indices = new ArrayList<>();
             while (cur instanceof BinaryPushGroup bg && bg.getOp() == ArithmeticInstruction.Op.ADD) {
-                indices.addFirst(generatePushGroup(bg.getLeft()));
-                cur = bg.getRight();
+                indices.addFirst(generatePushGroup(bg.getRight()));
+                cur = bg.getLeft();
             }
             StringBuilder sb = new StringBuilder(generatePushGroup(cur));
             for (String idx : indices) sb.append('[').append(idx).append(']');
@@ -298,7 +298,7 @@ public class JackCodeGenerator {
                 jackArgs.add(generatePushGroup(args.get(i)));
             }
             String methodName = functionName.substring(functionName.indexOf('.') + 1);
-            if (instance.equals("this")) {
+            if (fn.name.split("\\.")[0].equals(functionName.split("\\.")[0])) {
                 return methodName + "(" + String.join(", ", jackArgs) + ")";
             }
             return instance + "." + methodName + "(" + String.join(", ", jackArgs) + ")";
@@ -318,8 +318,8 @@ public class JackCodeGenerator {
 
         // Unwrap nested BinaryPushGroup with ADD ops to collect indices
         while (dest instanceof BinaryPushGroup bg && bg.getOp().equals(ArithmeticInstruction.Op.ADD)) {
-            indices.addFirst(generatePushGroup(bg.getLeft()));  // collect right as index
-            dest = bg.getRight();                                 // move left toward base
+            indices.addFirst(generatePushGroup(bg.getRight()));  // collect right as index
+            dest = bg.getLeft();                                 // move left toward base
         }
 
         String base = generatePushGroup(dest); // now base is not ADD anymore
