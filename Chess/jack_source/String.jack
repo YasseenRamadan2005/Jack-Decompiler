@@ -30,14 +30,14 @@ class String {
         if (( ( argument_1 < 0 | argument_1 > field_2) | argument_1 = field_2)) {
         	do Sys.error(15);
         }
-        return argument_1[field_1];
+        return field_1[argument_1];
     }
 
     method void setCharAt(int argument_0, int argument_1) {
         if (( ( argument_1 < 0 | argument_1 > field_2) | argument_1 = field_2)) {
         	do Sys.error(16);
         }
-        let argument_1[field_1] = argument_2;
+        let field_1[argument_1] = argument_2;
         
         return;
     }
@@ -46,7 +46,7 @@ class String {
         if (field_2 = field_0) {
         	do Sys.error(17);
         }
-        let field_2[field_1] = argument_1;
+        let field_1[field_2] = argument_1;
         
         let field_2 = field_2 + 1;
         return this;
@@ -70,12 +70,12 @@ class String {
         	return 0;
         }
         let local_3 = ~(0);
-        if (( 0[field_1] = 45)) {
+        if (( field_1[0] = 45)) {
         	let local_4 = ~(0);
         	let local_0 = 1;
         }
         while (( local_0 < field_2 & local_3)) {
-        	let local_2 = ( local_0[field_1] - 48);
+        	let local_2 = ( field_1[local_0] - 48);
         	let local_3 = ~(( local_2 < 0 | local_2 > 9));
         	if (local_3) {
         		let local_1 = ( Math.multiply(local_1, 10) + local_2);
@@ -104,13 +104,13 @@ class String {
         let local_1 = argument_1;
         while (local_1 > 0) {
         	let local_1 = Math.divide(argument_1, 10);
-        	let local_0[local_2] = ( 48 + ( argument_1 - Math.multiply(local_1, 10)));
+        	let local_2[local_0] = ( 48 + ( argument_1 - Math.multiply(local_1, 10)));
         	
         	let local_0 = local_0 + 1;
         	let argument_1 = local_1;
         }
         if (local_3) {
-        	let local_0[local_2] = 45;
+        	let local_2[local_0] = 45;
         	
         	let local_0 = local_0 + 1;
         }
@@ -118,14 +118,14 @@ class String {
         	do Sys.error(19);
         }
         if (local_0 = 0) {
-        	let 0[field_1] = 48;
+        	let field_1[0] = 48;
         	
         	let field_2 = 1;
         // Unhandled VM instruction: GotoInstruction{label='IF_END4}
         }
         let field_2 = 0;
         while (field_2 < local_0) {
-        	let field_2[field_1] = ( local_0 - field_2 + 1)[local_2];
+        	let field_1[field_2] = local_2[( local_0 - field_2 + 1)];
         	
         	let field_2 = field_2 + 1;
         }

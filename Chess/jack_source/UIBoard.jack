@@ -114,7 +114,7 @@ class UIBoard {
         let local_8 = argument_1.getPieces();
         let local_1 = argument_1.getCount();
         while (local_0 < local_1) {
-        	let local_9 = local_0[local_8];
+        	let local_9 = local_8[local_0];
         	let local_2 = local_9.getValue();
         	let local_3 = local_9.getSquare();
         	if (( field_3 = -(1))) {

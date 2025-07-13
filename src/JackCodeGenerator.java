@@ -179,8 +179,8 @@ public class JackCodeGenerator {
             PushGroup cur = dr.getBase();
             List<String> indices = new ArrayList<>();
             while (cur instanceof BinaryPushGroup bg && bg.getOp() == ArithmeticInstruction.Op.ADD) {
-                indices.addFirst(generatePushGroup(bg.getRight()));
-                cur = bg.getLeft();
+                indices.addFirst(generatePushGroup(bg.getLeft()));
+                cur = bg.getRight();
             }
             StringBuilder sb = new StringBuilder(generatePushGroup(cur));
             for (String idx : indices) sb.append('[').append(idx).append(']');
@@ -318,8 +318,8 @@ public class JackCodeGenerator {
 
         // Unwrap nested BinaryPushGroup with ADD ops to collect indices
         while (dest instanceof BinaryPushGroup bg && bg.getOp().equals(ArithmeticInstruction.Op.ADD)) {
-            indices.addFirst(generatePushGroup(bg.getRight()));  // collect right as index
-            dest = bg.getLeft();                                 // move left toward base
+            indices.addFirst(generatePushGroup(bg.getLeft()));  // collect right as index
+            dest = bg.getRight();                                 // move left toward base
         }
 
         String base = generatePushGroup(dest); // now base is not ADD anymore

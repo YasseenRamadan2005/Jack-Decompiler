@@ -118,29 +118,29 @@ class Board {
         let static_31 = Array.new(239);
         do Board.initAttackSliderSteps();
         let static_32 = Array.new(16);
-        let static_4[static_32] = static_29;
+        let static_32[static_4] = static_29;
         
-        let static_5[static_32] = static_27;
+        let static_32[static_5] = static_27;
         
-        let static_6[static_32] = static_26;
+        let static_32[static_6] = static_26;
         
-        let static_7[static_32] = static_25;
+        let static_32[static_7] = static_25;
         
-        let static_8[static_32] = static_24;
+        let static_32[static_8] = static_24;
         
-        let static_9[static_32] = static_23;
+        let static_32[static_9] = static_23;
         
-        let static_10[static_32] = static_28;
+        let static_32[static_10] = static_28;
         
-        let static_11[static_32] = static_27;
+        let static_32[static_11] = static_27;
         
-        let static_12[static_32] = static_26;
+        let static_32[static_12] = static_26;
         
-        let static_13[static_32] = static_25;
+        let static_32[static_13] = static_25;
         
-        let static_14[static_32] = static_24;
+        let static_32[static_14] = static_24;
         
-        let static_15[static_32] = static_23;
+        let static_32[static_15] = static_23;
         
         let static_33 = Array.new(120);
         let static_34 = Array.new(120);
@@ -163,101 +163,101 @@ class Board {
         let static_49 = 4;
         let static_50 = 8;
         let static_52 = Array.new(9);
-        let 0[static_52] = 14;
+        let static_52[0] = 14;
         
-        let 1[static_52] = 31;
+        let static_52[1] = 31;
         
-        let 2[static_52] = 33;
+        let static_52[2] = 33;
         
-        let 3[static_52] = 18;
+        let static_52[3] = 18;
         
-        let 4[static_52] = -(14);
+        let static_52[4] = -(14);
         
-        let 5[static_52] = -(31);
+        let static_52[5] = -(31);
         
-        let 6[static_52] = -(33);
+        let static_52[6] = -(33);
         
-        let 7[static_52] = -(18);
+        let static_52[7] = -(18);
         
-        let 8[static_52] = 0;
+        let static_52[8] = 0;
         
         let static_53 = Array.new(5);
-        let 0[static_53] = 15;
+        let static_53[0] = 15;
         
-        let 1[static_53] = 17;
+        let static_53[1] = 17;
         
-        let 2[static_53] = -(15);
+        let static_53[2] = -(15);
         
-        let 3[static_53] = -(17);
+        let static_53[3] = -(17);
         
-        let 4[static_53] = 0;
+        let static_53[4] = 0;
         
         let static_54 = Array.new(5);
-        let 0[static_54] = 1;
+        let static_54[0] = 1;
         
-        let 1[static_54] = 16;
+        let static_54[1] = 16;
         
-        let 2[static_54] = -(1);
+        let static_54[2] = -(1);
         
-        let 3[static_54] = -(16);
+        let static_54[3] = -(16);
         
-        let 4[static_54] = 0;
+        let static_54[4] = 0;
         
         let static_55 = Array.new(9);
-        let 0[static_55] = 15;
+        let static_55[0] = 15;
         
-        let 1[static_55] = 17;
+        let static_55[1] = 17;
         
-        let 2[static_55] = -(15);
+        let static_55[2] = -(15);
         
-        let 3[static_55] = -(17);
+        let static_55[3] = -(17);
         
-        let 4[static_55] = 1;
+        let static_55[4] = 1;
         
-        let 5[static_55] = 16;
+        let static_55[5] = 16;
         
-        let 6[static_55] = -(1);
+        let static_55[6] = -(1);
         
-        let 7[static_55] = -(16);
+        let static_55[7] = -(16);
         
-        let 8[static_55] = 0;
+        let static_55[8] = 0;
         
         let static_51 = Array.new(8);
-        let static_5[static_51] = static_52;
+        let static_51[static_5] = static_52;
         
-        let static_6[static_51] = static_53;
+        let static_51[static_6] = static_53;
         
-        let static_7[static_51] = static_54;
+        let static_51[static_7] = static_54;
         
-        let static_8[static_51] = static_55;
+        let static_51[static_8] = static_55;
         
-        let static_9[static_51] = static_55;
+        let static_51[static_9] = static_55;
         
         let static_56 = 2048;
         let static_57 = 8192;
         let static_58 = Array.new(8);
-        let static_5[static_58] = 1;
+        let static_58[static_5] = 1;
         
-        let static_6[static_58] = 2;
+        let static_58[static_6] = 2;
         
-        let static_7[static_58] = 3;
+        let static_58[static_7] = 3;
         
-        let static_8[static_58] = 4;
+        let static_58[static_8] = 4;
         
-        let static_9[static_58] = 5;
+        let static_58[static_9] = 5;
         
         let static_59 = Array.new(8);
-        let static_4[static_59] = 100;
+        let static_59[static_4] = 100;
         
-        let static_5[static_59] = 320;
+        let static_59[static_5] = 320;
         
-        let static_6[static_59] = 320;
+        let static_59[static_6] = 320;
         
-        let static_7[static_59] = 550;
+        let static_59[static_7] = 550;
         
-        let static_8[static_59] = 950;
+        let static_59[static_8] = 950;
         
-        let static_9[static_59] = 1024;
+        let static_59[static_9] = 1024;
         
         let static_61 = Array.new(120);
         do Board.initwPawnPieceSquareTable();
@@ -284,29 +284,29 @@ class Board {
         let static_72 = Array.new(120);
         do Board.initbKingPieceSquareTable();
         let static_60 = Array.new(16);
-        let static_4[static_60] = static_61;
+        let static_60[static_4] = static_61;
         
-        let static_5[static_60] = static_63;
+        let static_60[static_5] = static_63;
         
-        let static_6[static_60] = static_65;
+        let static_60[static_6] = static_65;
         
-        let static_7[static_60] = static_67;
+        let static_60[static_7] = static_67;
         
-        let static_8[static_60] = static_69;
+        let static_60[static_8] = static_69;
         
-        let static_9[static_60] = 0;
+        let static_60[static_9] = 0;
         
-        let static_10[static_60] = static_62;
+        let static_60[static_10] = static_62;
         
-        let static_11[static_60] = static_64;
+        let static_60[static_11] = static_64;
         
-        let static_12[static_60] = static_66;
+        let static_60[static_12] = static_66;
         
-        let static_13[static_60] = static_68;
+        let static_60[static_13] = static_68;
         
-        let static_14[static_60] = static_70;
+        let static_60[static_14] = static_70;
         
-        let static_15[static_60] = 0;
+        let static_60[static_15] = 0;
         
         let static_73 = Array.new(120);
         do Board.initwKingEndPieceSquareTable();
@@ -369,7 +369,7 @@ class Board {
 
     function int matValue(int argument_0) {
         
-        return argument_0[static_59];
+        return static_59[argument_0];
     }
 
     function int decodeFromSq(int argument_0) {
@@ -434,7 +434,7 @@ class Board {
         let local_6 = ( Math.multiply(8, local_1) + local_0);
         let local_7 = ( Math.multiply(local_5, 64) | local_6);
         while (local_2 < local_4) {
-        	let local_3 = local_2[local_9];
+        	let local_3 = local_9[local_2];
         	if (( local_3 & 4095 = local_7)) {
         		if (( local_3 & static_42 = static_42)) {
         			do Output.println();
@@ -469,7 +469,7 @@ class Board {
         					return local_3;
         				}
         				let local_2 = local_2 + 1;
-        				let local_3 = local_2[local_9];
+        				let local_3 = local_9[local_2];
         			}
         // Unhandled VM instruction: GotoInstruction{label='IF_END1}
         		}
@@ -517,14 +517,14 @@ class Board {
         var int local_0;
         var BoardState local_1;
         while (local_0 < 128) {
-        	let local_0[field_1] = 0;
+        	let field_1[local_0] = 0;
         	
         	let local_0 = local_0 + 1;
         }
         do field_2.resetCount();
         do field_3.resetCount();
         let field_4 = argument_1;
-        let local_1 = 0[field_4];
+        let local_1 = field_4[0];
         do local_1.resetState();
         do standardBoardConfig();
         let field_0 = ~(0);
@@ -534,49 +534,49 @@ class Board {
 
     method void standardBoardConfig() {
         var int local_0;
-        let 0[field_1] = field_2.addPiece(static_7, 0);
+        let field_1[0] = field_2.addPiece(static_7, 0);
         
-        let 1[field_1] = field_2.addPiece(static_5, 1);
+        let field_1[1] = field_2.addPiece(static_5, 1);
         
-        let 2[field_1] = field_2.addPiece(static_6, 2);
+        let field_1[2] = field_2.addPiece(static_6, 2);
         
-        let 3[field_1] = field_2.addPiece(static_8, 3);
+        let field_1[3] = field_2.addPiece(static_8, 3);
         
-        let 5[field_1] = field_2.addPiece(static_6, 5);
+        let field_1[5] = field_2.addPiece(static_6, 5);
         
-        let 6[field_1] = field_2.addPiece(static_5, 6);
+        let field_1[6] = field_2.addPiece(static_5, 6);
         
-        let 7[field_1] = field_2.addPiece(static_7, 7);
+        let field_1[7] = field_2.addPiece(static_7, 7);
         
         let local_0 = 16;
         while (local_0 < 24) {
-        	let local_0[field_1] = field_2.addPiece(static_4, local_0);
+        	let field_1[local_0] = field_2.addPiece(static_4, local_0);
         	
         	let local_0 = local_0 + 1;
         }
-        let 4[field_1] = field_2.addPiece(static_9, 4);
+        let field_1[4] = field_2.addPiece(static_9, 4);
         
-        let 112[field_1] = field_3.addPiece(static_13, 112);
+        let field_1[112] = field_3.addPiece(static_13, 112);
         
-        let 113[field_1] = field_3.addPiece(static_11, 113);
+        let field_1[113] = field_3.addPiece(static_11, 113);
         
-        let 114[field_1] = field_3.addPiece(static_12, 114);
+        let field_1[114] = field_3.addPiece(static_12, 114);
         
-        let 115[field_1] = field_3.addPiece(static_14, 115);
+        let field_1[115] = field_3.addPiece(static_14, 115);
         
-        let 117[field_1] = field_3.addPiece(static_12, 117);
+        let field_1[117] = field_3.addPiece(static_12, 117);
         
-        let 118[field_1] = field_3.addPiece(static_11, 118);
+        let field_1[118] = field_3.addPiece(static_11, 118);
         
-        let 119[field_1] = field_3.addPiece(static_13, 119);
+        let field_1[119] = field_3.addPiece(static_13, 119);
         
         let local_0 = 96;
         while (local_0 < 104) {
-        	let local_0[field_1] = field_3.addPiece(static_10, local_0);
+        	let field_1[local_0] = field_3.addPiece(static_10, local_0);
         	
         	let local_0 = local_0 + 1;
         }
-        let 116[field_1] = field_3.addPiece(static_15, 116);
+        let field_1[116] = field_3.addPiece(static_15, 116);
         
         let field_5 = static_2;
         return;
@@ -586,8 +586,8 @@ class Board {
         var int local_0;
         var BoardState local_1;
         let field_4 = field_4 - 1;
-        let local_0 = 0[field_4];
-        let local_1 = 1[field_4];
+        let local_0 = field_4[0];
+        let local_1 = field_4[1];
         do local_0.setState(local_1.getFiftyMoveCount(), local_1.getEnPassantSq(), local_1.getCastlingRights(), local_1.getCapturedPiece(), local_1.getwMaterial(), local_1.getbMaterial(), 0);
         do local_0.setSideToMoveInCheck(inCheck(field_5));
         return;
@@ -618,23 +618,23 @@ class Board {
         let local_0 = field_3.getPieces();
         let local_3 = field_3.getCount();
         while (local_2 < local_3) {
-        	let local_1 = local_2[local_0];
+        	let local_1 = local_0[local_2];
         	if (~(local_1.isDead())) {
         		let local_6 = local_1.getSquare();
         		let local_4 = ( argument_1 - local_6 + 119);
         		let local_5 = local_1.getValue();
-        		if (~(( ( local_4[static_30] & local_5[static_32]) = 0))) {
+        		if (~(( ( static_30[local_4] & static_32[local_5]) = 0))) {
         			if (( local_5 & static_1 = 0)) {
         				return ~(0);
         // Unhandled VM instruction: GotoInstruction{label='IF_END3}
         			}
         			let local_7 = 0;
         			while (~(local_7)) {
-        				let local_6 = ( local_6 + local_4[static_31]);
+        				let local_6 = ( local_6 + static_31[local_4]);
         				if (local_6 = argument_1) {
         					return ~(0);
         				}
-        				if (~(( local_6[field_1] = 0))) {
+        				if (~(( field_1[local_6] = 0))) {
         					let local_7 = ~(0);
         				}
         			}
@@ -656,7 +656,7 @@ class Board {
         var int local_7;
         var int local_8;
         var Piece local_9;
-        let local_6 = 0[field_4];
+        let local_6 = field_4[0];
         let local_4 = local_6.getwMaterial();
         let local_5 = local_6.getbMaterial();
         let local_3 = local_4 - local_5;
@@ -672,7 +672,7 @@ class Board {
         let local_7 = field_2.getPieces();
         let local_1 = field_2.getCount();
         while (local_0 < local_1) {
-        	let local_9 = local_0[local_7];
+        	let local_9 = local_7[local_0];
         	if (~(local_9.isDead())) {
         		let local_2 = local_9.getValue();
         		if (local_2 = static_9) {
@@ -683,8 +683,8 @@ class Board {
         			let local_8 = static_71;
         // Unhandled VM instruction: GotoInstruction{label='IF_END4}
         		}
-        		let local_8 = local_2[static_60];
-        		let local_4 = ( local_4 + local_9.getSquare()[local_8]);
+        		let local_8 = static_60[local_2];
+        		let local_4 = ( local_4 + local_8[local_9.getSquare()]);
         	}
         	let local_0 = local_0 + 1;
         }
@@ -692,7 +692,7 @@ class Board {
         let local_1 = field_3.getCount();
         let local_0 = 0;
         while (local_0 < local_1) {
-        	let local_9 = local_0[local_7];
+        	let local_9 = local_7[local_0];
         	if (~(local_9.isDead())) {
         		let local_2 = local_9.getValue();
         		if (local_2 = static_15) {
@@ -703,8 +703,8 @@ class Board {
         			let local_8 = static_72;
         // Unhandled VM instruction: GotoInstruction{label='IF_END7}
         		}
-        		let local_8 = local_2[static_60];
-        		let local_5 = ( local_5 + local_9.getSquare()[local_8]);
+        		let local_8 = static_60[local_2];
+        		let local_5 = ( local_5 + local_8[local_9.getSquare()]);
         	}
         	let local_0 = local_0 + 1;
         }
@@ -741,18 +741,18 @@ class Board {
         if (local_2 < 5) {
         	return 0;
         }
-        let local_3 = local_2 - 1[local_0];
+        let local_3 = local_0[local_2 - 1];
         if (( local_3 & static_37 = 0)) {
         	let local_5 = Board.decodeFromSq(local_3);
         	let local_6 = local_3 & static_36;
-        	let local_4 = local_2 - 3[local_0];
+        	let local_4 = local_0[local_2 - 3];
         	if (( local_4 & static_37 = 0)) {
-        		if (( ( ( local_6 = ( local_2 - 5[local_0] & static_36)) & ( local_6 = Board.decodeFromSq(local_4))) & ( local_5 = local_4 & static_36))) {
-        			let local_3 = local_2 - 2[local_0];
+        		if (( ( ( local_6 = ( local_0[local_2 - 5] & static_36)) & ( local_6 = Board.decodeFromSq(local_4))) & ( local_5 = local_4 & static_36))) {
+        			let local_3 = local_0[local_2 - 2];
         			if (( local_3 & static_37 = 0)) {
         				let local_5 = Board.decodeFromSq(local_3);
         				let local_6 = local_3 & static_36;
-        				let local_4 = local_2 - 4[local_0];
+        				let local_4 = local_0[local_2 - 4];
         				if (( local_4 & static_37 = 0)) {
         					if (( ( local_6 = Board.decodeFromSq(local_4)) & ( local_5 = local_4 & static_36))) {
         						return ~(0);
@@ -778,24 +778,24 @@ class Board {
         if (local_2 < 9) {
         	return 0;
         }
-        let local_3 = local_2 - 1[local_0];
+        let local_3 = local_0[local_2 - 1];
         if (( local_3 & static_37 = 0)) {
         	let local_5 = Board.decodeFromSq(local_3);
         	let local_6 = local_3 & static_36;
-        	let local_4 = local_2 - 3[local_0];
+        	let local_4 = local_0[local_2 - 3];
         	if (( local_4 & static_37 = 0)) {
-        		if (( ( ( local_6 = ( local_2 - 9[local_0] & static_36)) & ( local_6 = Board.decodeFromSq(local_4))) & ( local_5 = local_4 & static_36))) {
-        			let local_3 = local_2 - 2[local_0];
+        		if (( ( ( local_6 = ( local_0[local_2 - 9] & static_36)) & ( local_6 = Board.decodeFromSq(local_4))) & ( local_5 = local_4 & static_36))) {
+        			let local_3 = local_0[local_2 - 2];
         			if (( local_3 & static_37 = 0)) {
         				let local_5 = Board.decodeFromSq(local_3);
         				let local_6 = local_3 & static_36;
-        				let local_4 = local_2 - 4[local_0];
+        				let local_4 = local_0[local_2 - 4];
         				if (( local_4 & static_37 = 0)) {
         					if (( ( local_6 = Board.decodeFromSq(local_4)) & ( local_5 = local_4 & static_36))) {
-        						if (( local_2 - 5[local_0] = local_2 - 1[local_0])) {
-        							if (( local_2 - 7[local_0] = local_2 - 3[local_0])) {
-        								if (( local_2 - 6[local_0] = local_2 - 2[local_0])) {
-        									if (( local_2 - 8[local_0] = local_2 - 4[local_0])) {
+        						if (( local_0[local_2 - 5] = local_0[local_2 - 1])) {
+        							if (( local_0[local_2 - 7] = local_0[local_2 - 3])) {
+        								if (( local_0[local_2 - 6] = local_0[local_2 - 2])) {
+        									if (( local_0[local_2 - 8] = local_0[local_2 - 4])) {
         										return ~(0);
         									}
         								}
@@ -812,7 +812,7 @@ class Board {
 
     method int moveCapturesKing(int argument_0) {
         var Piece local_0;
-        let local_0 = argument_1 & static_36[static_35][field_1];
+        let local_0 = field_1[static_35[argument_1 & static_36]];
         if (local_0 = 0) {
         	return 0;
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
@@ -839,12 +839,12 @@ class Board {
         var BoardState local_15;
         var BoardState local_16;
         do field_6.addMoveIgnoreRank(argument_1);
-        let local_0 = Board.decodeFromSq(argument_1)[static_35];
-        let local_1 = argument_1 & static_36[static_35];
-        let local_7 = local_0[field_1];
+        let local_0 = static_35[Board.decodeFromSq(argument_1)];
+        let local_1 = static_35[argument_1 & static_36];
+        let local_7 = field_1[local_0];
         let local_3 = local_7.getValue();
-        let local_15 = 0[field_4];
-        let local_16 = 1[field_4];
+        let local_15 = field_4[0];
+        let local_16 = field_4[1];
         let local_11 = -(1);
         let local_12 = local_15.getCastlingRights();
         let local_13 = local_15.getwMaterial();
@@ -857,13 +857,13 @@ class Board {
         // Unhandled VM instruction: GotoInstruction{label='IF_END2}
         		}
         		let local_2 = local_1 + 16;
-        		let local_8 = local_2[field_1];
-        		let local_2[field_1] = 0;
+        		let local_8 = field_1[local_2];
+        		let field_1[local_2] = 0;
         		
         		let local_4 = local_8.getValue();
         // Unhandled VM instruction: GotoInstruction{label='IF_END1}
         	}
-        	let local_8 = local_1[field_1];
+        	let local_8 = field_1[local_1];
         	let local_4 = local_8.getValue();
         	if (( local_4 & 7 = static_7)) {
         		if (field_5 = static_3) {
@@ -886,10 +886,10 @@ class Board {
         	}
         	do local_8.setDead(~(0));
         	if (field_5 = static_2) {
-        		let local_14 = ( local_14 - local_4 & 7[static_59]);
+        		let local_14 = ( local_14 - static_59[local_4 & 7]);
         // Unhandled VM instruction: GotoInstruction{label='IF_END9}
         	}
-        	let local_13 = ( local_13 - local_4[static_59]);
+        	let local_13 = ( local_13 - static_59[local_4]);
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         }
         let local_8 = 0;
@@ -914,10 +914,10 @@ class Board {
         	if (( argument_1 & static_37 = static_45)) {
         		let local_5 = local_0 + 3;
         		let local_6 = local_0 + 1;
-        		let local_9 = local_5[field_1];
-        		let local_6[field_1] = local_9;
+        		let local_9 = field_1[local_5];
+        		let field_1[local_6] = local_9;
         		
-        		let local_5[field_1] = 0;
+        		let field_1[local_5] = 0;
         		
         		do local_9.setSquare(local_6);
         // Unhandled VM instruction: GotoInstruction{label='IF_END15}
@@ -925,10 +925,10 @@ class Board {
         	if (( argument_1 & static_37 = static_46)) {
         		let local_5 = local_0 - 4;
         		let local_6 = local_0 - 1;
-        		let local_9 = local_5[field_1];
-        		let local_6[field_1] = local_9;
+        		let local_9 = field_1[local_5];
+        		let field_1[local_6] = local_9;
         		
-        		let local_5[field_1] = 0;
+        		let field_1[local_5] = 0;
         		
         		do local_9.setSquare(local_6);
         	}
@@ -985,14 +985,14 @@ class Board {
         	}
         	do local_7.setValue(static_11);
         	if (field_5 = static_2) {
-        		let local_13 = ( ( local_13 + local_7.getValue()[static_59]) - static_4[static_59]);
+        		let local_13 = ( ( local_13 + static_59[local_7.getValue()]) - static_59[static_4]);
         // Unhandled VM instruction: GotoInstruction{label='IF_END31}
         	}
-        	let local_14 = ( ( local_14 + ( local_7.getValue() & 7)[static_59]) - static_4[static_59]);
+        	let local_14 = ( ( local_14 + static_59[( local_7.getValue() & 7)]) - static_59[static_4]);
         }
-        let local_1[field_1] = local_7;
+        let field_1[local_1] = local_7;
         
-        let local_0[field_1] = 0;
+        let field_1[local_0] = 0;
         
         do local_7.setSquare(local_1);
         do local_16.setState(local_10, local_11, local_12, local_8, local_13, local_14, 0);
@@ -1011,11 +1011,11 @@ class Board {
         var int local_6;
         var BoardState local_7;
         var int local_8;
-        let local_0 = Board.decodeFromSq(argument_1)[static_35];
-        let local_1 = argument_1 & static_36[static_35];
-        let local_3 = local_0[field_1];
-        let local_7 = 0[field_4];
-        let local_8 = 1[field_4];
+        let local_0 = static_35[Board.decodeFromSq(argument_1)];
+        let local_1 = static_35[argument_1 & static_36];
+        let local_3 = field_1[local_0];
+        let local_7 = field_4[0];
+        let local_8 = field_4[1];
         let local_5 = local_7.getwMaterial();
         let local_6 = local_7.getbMaterial();
         if (( argument_1 & static_37 = static_43)) {
@@ -1024,18 +1024,18 @@ class Board {
         // Unhandled VM instruction: GotoInstruction{label='IF_END1}
         	}
         	let local_2 = local_1 + 16;
-        	let local_4 = local_2[field_1];
-        	let local_2[field_1] = 0;
+        	let local_4 = field_1[local_2];
+        	let field_1[local_2] = 0;
         	
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
         }
-        let local_4 = local_1[field_1];
+        let local_4 = field_1[local_1];
         do local_4.setDead(~(0));
         if (field_5 = static_2) {
-        	let local_6 = ( local_6 - ( local_4.getValue() & 7)[static_59]);
+        	let local_6 = ( local_6 - static_59[( local_4.getValue() & 7)]);
         // Unhandled VM instruction: GotoInstruction{label='IF_END2}
         }
-        let local_5 = ( local_5 - local_4.getValue()[static_59]);
+        let local_5 = ( local_5 - static_59[local_4.getValue()]);
         if (( argument_1 & static_42 = static_42)) {
         	if (( argument_1 & static_39 = static_39)) {
         		if (field_5 = static_2) {
@@ -1067,14 +1067,14 @@ class Board {
         	}
         	do local_3.setValue(static_11);
         	if (field_5 = static_2) {
-        		let local_5 = ( ( local_5 + local_3.getValue()[static_59]) - static_4[static_59]);
+        		let local_5 = ( ( local_5 + static_59[local_3.getValue()]) - static_59[static_4]);
         // Unhandled VM instruction: GotoInstruction{label='IF_END11}
         	}
-        	let local_6 = ( ( local_6 + ( local_3.getValue() & 7)[static_59]) - static_4[static_59]);
+        	let local_6 = ( ( local_6 + static_59[( local_3.getValue() & 7)]) - static_59[static_4]);
         }
-        let local_1[field_1] = local_3;
+        let field_1[local_1] = local_3;
         
-        let local_0[field_1] = 0;
+        let field_1[local_0] = 0;
         
         do local_3.setSquare(local_1);
         do local_8.setState(0, -(1), 0, local_4, local_5, local_6, 0);
@@ -1094,10 +1094,10 @@ class Board {
         var Piece local_7;
         var BoardState local_8;
         do field_6.removeMove();
-        let local_0 = Board.decodeFromSq(argument_1)[static_35];
-        let local_1 = argument_1 & static_36[static_35];
+        let local_0 = static_35[Board.decodeFromSq(argument_1)];
+        let local_1 = static_35[argument_1 & static_36];
         let field_5 = -(field_5);
-        let local_5 = local_1[field_1];
+        let local_5 = field_1[local_1];
         do local_5.setSquare(local_0);
         if (( argument_1 & static_42 = static_42)) {
         	if (field_5 = static_2) {
@@ -1110,10 +1110,10 @@ class Board {
         if (( argument_1 & static_37 = static_45)) {
         	let local_3 = local_0 + 3;
         	let local_4 = local_0 + 1;
-        	let local_7 = local_4[field_1];
-        	let local_3[field_1] = local_7;
+        	let local_7 = field_1[local_4];
+        	let field_1[local_3] = local_7;
         	
-        	let local_4[field_1] = 0;
+        	let field_1[local_4] = 0;
         	
         	do local_7.setSquare(local_3);
         // Unhandled VM instruction: GotoInstruction{label='IF_END2}
@@ -1121,29 +1121,29 @@ class Board {
         if (( argument_1 & static_37 = static_46)) {
         	let local_3 = local_0 - 4;
         	let local_4 = local_0 - 1;
-        	let local_7 = local_4[field_1];
-        	let local_3[field_1] = local_7;
+        	let local_7 = field_1[local_4];
+        	let field_1[local_3] = local_7;
         	
-        	let local_4[field_1] = 0;
+        	let field_1[local_4] = 0;
         	
         	do local_7.setSquare(local_3);
         }
-        let local_0[field_1] = local_5;
+        let field_1[local_0] = local_5;
         
         if (( argument_1 & static_44 = static_44)) {
-        	let local_8 = 0[field_4];
+        	let local_8 = field_4[0];
         	let local_6 = local_8.getCapturedPiece();
         	let local_2 = local_6.getSquare();
         	do local_6.setDead(0);
-        	let local_2[field_1] = local_6;
+        	let field_1[local_2] = local_6;
         	
         	if (( argument_1 & static_37 = static_43)) {
-        		let local_1[field_1] = 0;
+        		let field_1[local_1] = 0;
         		
         	}
         // Unhandled VM instruction: GotoInstruction{label='IF_END4}
         }
-        let local_1[field_1] = 0;
+        let field_1[local_1] = 0;
         
         let field_4 = field_4 - 1;
         return;
@@ -1156,10 +1156,10 @@ class Board {
         var Piece local_3;
         var Piece local_4;
         var BoardState local_5;
-        let local_0 = Board.decodeFromSq(argument_1)[static_35];
-        let local_1 = argument_1 & static_36[static_35];
+        let local_0 = static_35[Board.decodeFromSq(argument_1)];
+        let local_1 = static_35[argument_1 & static_36];
         let field_5 = -(field_5);
-        let local_3 = local_1[field_1];
+        let local_3 = field_1[local_1];
         do local_3.setSquare(local_0);
         if (( argument_1 & static_42 = static_42)) {
         	if (field_5 = static_2) {
@@ -1168,16 +1168,16 @@ class Board {
         	}
         	do local_3.setValue(static_10);
         }
-        let local_0[field_1] = local_3;
+        let field_1[local_0] = local_3;
         
-        let local_5 = 0[field_4];
+        let local_5 = field_4[0];
         let local_4 = local_5.getCapturedPiece();
         let local_2 = local_4.getSquare();
         do local_4.setDead(0);
-        let local_2[field_1] = local_4;
+        let field_1[local_2] = local_4;
         
         if (( argument_1 & static_37 = static_43)) {
-        	let local_1[field_1] = 0;
+        	let field_1[local_1] = 0;
         	
         }
         let field_4 = field_4 - 1;
@@ -1191,8 +1191,8 @@ class Board {
         var int local_3;
         var int local_4;
         var int local_5;
-        let local_0 = 0[field_4];
-        let local_1 = 1[field_4];
+        let local_0 = field_4[0];
+        let local_1 = field_4[1];
         let local_3 = local_0.getCastlingRights();
         let local_4 = local_0.getwMaterial();
         let local_5 = local_0.getbMaterial();
@@ -1216,14 +1216,14 @@ class Board {
         var int local_3;
         var int local_4;
         var int local_5;
-        let local_0 = 0[argument_1];
+        let local_0 = argument_1[0];
         do local_0.resetCount();
-        let local_1 = 1[argument_1];
+        let local_1 = argument_1[1];
         do genPseudoLegalMoves(local_1);
         let local_2 = local_1.getMoves();
         let local_5 = local_1.getCount();
         while (local_3 < local_5) {
-        	let local_4 = local_3[local_2];
+        	let local_4 = local_2[local_3];
         	do doMove(local_4);
         	if (~(inCheck(-(field_5)))) {
         		do local_0.addMoveIgnoreRank(local_4);
@@ -1255,7 +1255,7 @@ class Board {
         var int local_17;
         var int local_18;
         var BoardState local_19;
-        let local_19 = 0[field_4];
+        let local_19 = field_4[0];
         let local_18 = local_19.getEnPassantSq();
         if (field_5 = static_2) {
         	let local_2 = field_2.getPieces();
@@ -1266,11 +1266,11 @@ class Board {
         let local_9 = field_3.getCount();
         do argument_1.resetCount();
         while (local_7 < local_9) {
-        	let local_4 = local_7[local_2];
+        	let local_4 = local_2[local_7];
         	if (~(local_4.isDead())) {
         		let local_0 = local_4.getSquare();
         		let local_10 = local_4.getValue();
-        		let local_3 = local_10 & 7[static_51];
+        		let local_3 = static_51[local_10 & 7];
         		if (( local_10 & 7 = static_4)) {
         			if (field_5 = static_2) {
         				let local_11 = local_0 + 15;
@@ -1282,10 +1282,10 @@ class Board {
         			let local_12 = local_0 - 17;
         			let local_15 = local_0 < 32;
         			if (( local_11 & static_0 = 0)) {
-        				let local_5 = local_11[field_1];
+        				let local_5 = field_1[local_11];
         				if (local_5 = 0) {
         					if (local_11 = local_18) {
-        						do argument_1.addMove(( ( static_43 | local_0[static_33]) | local_11[static_34]), ( static_57 | static_4[static_59]));
+        						do argument_1.addMove(( ( static_43 | static_33[local_0]) | static_34[local_11]), ( static_57 | static_59[static_4]));
         					}
         // Unhandled VM instruction: GotoInstruction{label='IF_END5}
         				}
@@ -1296,8 +1296,8 @@ class Board {
         				}
         				let local_16 = local_13 < 8;
         				if (local_16) {
-        					let local_6 = ( ( static_44 | local_0[static_33]) | local_11[static_34]);
-        					let local_14 = ( static_57 | local_13 & 7[static_59]);
+        					let local_6 = ( ( static_44 | static_33[local_0]) | static_34[local_11]);
+        					let local_14 = ( static_57 | static_59[local_13 & 7]);
         					if (local_15) {
         						do argument_1.addMove(static_39 | local_6, local_14);
         						do argument_1.addMove(static_40 | local_6, local_14);
@@ -1309,10 +1309,10 @@ class Board {
         				}
         			}
         			if (( local_12 & static_0 = 0)) {
-        				let local_5 = local_12[field_1];
+        				let local_5 = field_1[local_12];
         				if (local_5 = 0) {
         					if (local_12 = local_18) {
-        						do argument_1.addMove(( ( static_43 | local_0[static_33]) | local_12[static_34]), ( static_57 | static_4[static_59]));
+        						do argument_1.addMove(( ( static_43 | static_33[local_0]) | static_34[local_12]), ( static_57 | static_59[static_4]));
         					}
         // Unhandled VM instruction: GotoInstruction{label='IF_END11}
         				}
@@ -1323,8 +1323,8 @@ class Board {
         				}
         				let local_16 = local_13 < 8;
         				if (local_16) {
-        					let local_6 = ( ( static_44 | local_0[static_33]) | local_12[static_34]);
-        					let local_14 = ( static_57 | local_13 & 7[static_59]);
+        					let local_6 = ( ( static_44 | static_33[local_0]) | static_34[local_12]);
+        					let local_14 = ( static_57 | static_59[local_13 & 7]);
         					if (local_15) {
         						do argument_1.addMove(static_39 | local_6, local_14);
         						do argument_1.addMove(static_40 | local_6, local_14);
@@ -1339,10 +1339,10 @@ class Board {
         		}
         		if (( local_10 & 7 = static_9)) {
         			let local_8 = 0;
-        			while (~(( local_8[local_3] = 0))) {
-        				let local_1 = ( local_0 + local_8[local_3]);
+        			while (~(( local_3[local_8] = 0))) {
+        				let local_1 = ( local_0 + local_3[local_8]);
         				if (( local_1 & static_0 = 0)) {
-        					let local_5 = local_1[field_1];
+        					let local_5 = field_1[local_1];
         					if (~(local_5 = 0)) {
         						let local_13 = local_5.getValue();
         						if (field_5 = static_2) {
@@ -1351,7 +1351,7 @@ class Board {
         						}
         						let local_16 = local_13 < 8;
         						if (local_16) {
-        							do argument_1.addMove(( ( static_44 | local_0[static_33]) | local_1[static_34]), ( static_57 | ( local_13 & 7[static_59] - static_9[static_58])));
+        							do argument_1.addMove(( ( static_44 | static_33[local_0]) | static_34[local_1]), ( static_57 | ( static_59[local_13 & 7] - static_58[static_9])));
         						}
         					}
         				}
@@ -1361,10 +1361,10 @@ class Board {
         		}
         		if (( local_10 & 7 = static_5)) {
         			let local_8 = 0;
-        			while (~(( local_8[local_3] = 0))) {
-        				let local_1 = ( local_0 + local_8[local_3]);
+        			while (~(( local_3[local_8] = 0))) {
+        				let local_1 = ( local_0 + local_3[local_8]);
         				if (( local_1 & static_0 = 0)) {
-        					let local_5 = local_1[field_1];
+        					let local_5 = field_1[local_1];
         					if (~(local_5 = 0)) {
         						let local_13 = local_5.getValue();
         						if (field_5 = static_2) {
@@ -1373,7 +1373,7 @@ class Board {
         						}
         						let local_16 = local_13 < 8;
         						if (local_16) {
-        							do argument_1.addMove(( ( static_44 | local_0[static_33]) | local_1[static_34]), ( static_57 | ( local_13 & 7[static_59] - static_5[static_58])));
+        							do argument_1.addMove(( ( static_44 | static_33[local_0]) | static_34[local_1]), ( static_57 | ( static_59[local_13 & 7] - static_58[static_5])));
         						}
         					}
         				}
@@ -1382,13 +1382,13 @@ class Board {
         // Unhandled VM instruction: GotoInstruction{label='IF_END21}
         		}
         		let local_8 = 0;
-        		while (~(( local_8[local_3] = 0))) {
-        			let local_1 = ( local_0 + local_8[local_3]);
+        		while (~(( local_3[local_8] = 0))) {
+        			let local_1 = ( local_0 + local_3[local_8]);
         			let local_17 = 0;
         			while (( ( local_1 & static_0 = 0) & ~(local_17))) {
-        				let local_5 = local_1[field_1];
+        				let local_5 = field_1[local_1];
         				if (local_5 = 0) {
-        					let local_1 = ( local_1 + local_8[local_3]);
+        					let local_1 = ( local_1 + local_3[local_8]);
         // Unhandled VM instruction: GotoInstruction{label='IF_END26}
         				}
         				let local_13 = local_5.getValue();
@@ -1398,7 +1398,7 @@ class Board {
         				}
         				let local_16 = local_13 < 8;
         				if (local_16) {
-        					do argument_1.addMove(( ( static_44 | local_0[static_33]) | local_1[static_34]), ( static_57 | ( local_13 & 7[static_59] - local_10 & 7[static_58])));
+        					do argument_1.addMove(( ( static_44 | static_33[local_0]) | static_34[local_1]), ( static_57 | ( static_59[local_13 & 7] - static_58[local_10 & 7])));
         				}
         				let local_17 = ~(0);
         			}
@@ -1437,7 +1437,7 @@ class Board {
         var int local_23;
         var int local_24;
         var BoardState local_25;
-        let local_25 = 0[field_4];
+        let local_25 = field_4[0];
         let local_23 = local_25.getEnPassantSq();
         if (field_5 = static_2) {
         	let local_2 = field_2.getPieces();
@@ -1448,11 +1448,11 @@ class Board {
         let local_9 = field_3.getCount();
         do argument_1.resetCount();
         while (local_7 < local_9) {
-        	let local_4 = local_7[local_2];
+        	let local_4 = local_2[local_7];
         	if (~(local_4.isDead())) {
         		let local_1 = local_4.getSquare();
         		let local_10 = local_4.getValue();
-        		let local_3 = local_10 & 7[static_51];
+        		let local_3 = static_51[local_10 & 7];
         		if (( local_10 & 7 = static_4)) {
         			if (field_5 = static_2) {
         				let local_11 = local_1 + 15;
@@ -1470,10 +1470,10 @@ class Board {
         			let local_19 = local_1 > 87;
         			let local_20 = local_1 < 32;
         			if (( local_11 & static_0 = 0)) {
-        				let local_5 = local_11[field_1];
+        				let local_5 = field_1[local_11];
         				if (local_5 = 0) {
         					if (local_11 = local_23) {
-        						do argument_1.addMove(( ( static_43 | local_1[static_33]) | local_11[static_34]), ( static_57 | static_4[static_59]));
+        						do argument_1.addMove(( ( static_43 | static_33[local_1]) | static_34[local_11]), ( static_57 | static_59[static_4]));
         					}
         // Unhandled VM instruction: GotoInstruction{label='IF_END5}
         				}
@@ -1484,8 +1484,8 @@ class Board {
         				}
         				let local_21 = local_15 < 8;
         				if (local_21) {
-        					let local_6 = ( ( static_44 | local_1[static_33]) | local_11[static_34]);
-        					let local_16 = ( static_57 | local_15 & 7[static_59]);
+        					let local_6 = ( ( static_44 | static_33[local_1]) | static_34[local_11]);
+        					let local_16 = ( static_57 | static_59[local_15 & 7]);
         					if (local_20) {
         						do argument_1.addMove(static_39 | local_6, local_16);
         						do argument_1.addMove(static_40 | local_6, local_16);
@@ -1497,10 +1497,10 @@ class Board {
         				}
         			}
         			if (( local_12 & static_0 = 0)) {
-        				let local_5 = local_12[field_1];
+        				let local_5 = field_1[local_12];
         				if (local_5 = 0) {
         					if (local_12 = local_23) {
-        						do argument_1.addMove(( ( static_43 | local_1[static_33]) | local_12[static_34]), ( static_57 | static_4[static_59]));
+        						do argument_1.addMove(( ( static_43 | static_33[local_1]) | static_34[local_12]), ( static_57 | static_59[static_4]));
         					}
         // Unhandled VM instruction: GotoInstruction{label='IF_END11}
         				}
@@ -1511,8 +1511,8 @@ class Board {
         				}
         				let local_21 = local_15 < 8;
         				if (local_21) {
-        					let local_6 = ( ( static_44 | local_1[static_33]) | local_12[static_34]);
-        					let local_16 = ( static_57 | local_15 & 7[static_59]);
+        					let local_6 = ( ( static_44 | static_33[local_1]) | static_34[local_12]);
+        					let local_16 = ( static_57 | static_59[local_15 & 7]);
         					if (local_20) {
         						do argument_1.addMove(static_39 | local_6, local_16);
         						do argument_1.addMove(static_40 | local_6, local_16);
@@ -1523,8 +1523,8 @@ class Board {
         					do argument_1.addMove(local_6, local_16);
         				}
         			}
-        			if (( local_13[field_1] = 0)) {
-        				let local_6 = ( local_1[static_33] | local_13[static_34]);
+        			if (( field_1[local_13] = 0)) {
+        				let local_6 = ( static_33[local_1] | static_34[local_13]);
         				if (local_20) {
         					do argument_1.addMove(static_39 | local_6, static_56);
         					do argument_1.addMove(static_40 | local_6, 0);
@@ -1534,8 +1534,8 @@ class Board {
         				}
         				do argument_1.addMove(local_6, 0);
         				if (local_19) {
-        					if (( local_14[field_1] = 0)) {
-        						do argument_1.addMove(( ( static_38 | local_1[static_33]) | local_14[static_34]), 0);
+        					if (( field_1[local_14] = 0)) {
+        						do argument_1.addMove(( ( static_38 | static_33[local_1]) | static_34[local_14]), 0);
         					}
         				}
         			}
@@ -1552,27 +1552,27 @@ class Board {
         				let local_17 = static_49;
         				let local_18 = static_50;
         				if (( local_24 & local_17 = local_17)) {
-        					if (( ( local_1[1][field_1] = 0) & ( local_1[2][field_1] = 0))) {
+        					if (( ( field_1[local_1 + 1] = 0) & ( field_1[local_1 + 2] = 0))) {
         						if (~(isAttacked(local_1 + 1, -(field_5)))) {
-        							do argument_1.addMove(( ( static_45 | local_1[static_33]) | local_1[2][static_34]), 0);
+        							do argument_1.addMove(( ( static_45 | static_33[local_1]) | static_34[local_1 + 2]), 0);
         						}
         					}
         				}
         				if (( local_24 & local_18 = local_18)) {
-        					if (( ( ( local_1 - 1[field_1] = 0) & ( local_1 - 2[field_1] = 0)) & ( local_1 - 3[field_1] = 0))) {
+        					if (( ( ( field_1[local_1 - 1] = 0) & ( field_1[local_1 - 2] = 0)) & ( field_1[local_1 - 3] = 0))) {
         						if (~(isAttacked(local_1 - 1, -(field_5)))) {
-        							do argument_1.addMove(( ( static_46 | local_1[static_33]) | local_1 - 2[static_34]), 0);
+        							do argument_1.addMove(( ( static_46 | static_33[local_1]) | static_34[local_1 - 2]), 0);
         						}
         					}
         				}
         			}
         			let local_8 = 0;
-        			while (~(( local_8[local_3] = 0))) {
-        				let local_0 = ( local_1 + local_8[local_3]);
+        			while (~(( local_3[local_8] = 0))) {
+        				let local_0 = ( local_1 + local_3[local_8]);
         				if (( local_0 & static_0 = 0)) {
-        					let local_5 = local_0[field_1];
+        					let local_5 = field_1[local_0];
         					if (local_5 = 0) {
-        						do argument_1.addMove(( local_1[static_33] | local_0[static_34]), 0);
+        						do argument_1.addMove(( static_33[local_1] | static_34[local_0]), 0);
         // Unhandled VM instruction: GotoInstruction{label='IF_END30}
         					}
         					let local_15 = local_5.getValue();
@@ -1582,7 +1582,7 @@ class Board {
         					}
         					let local_21 = local_15 < 8;
         					if (local_21) {
-        						do argument_1.addMove(( ( static_44 | local_1[static_33]) | local_0[static_34]), ( static_57 | ( local_15 & 7[static_59] - static_9[static_58])));
+        						do argument_1.addMove(( ( static_44 | static_33[local_1]) | static_34[local_0]), ( static_57 | ( static_59[local_15 & 7] - static_58[static_9])));
         					}
         				}
         				let local_8 = local_8 + 1;
@@ -1591,12 +1591,12 @@ class Board {
         		}
         		if (( local_10 & 7 = static_5)) {
         			let local_8 = 0;
-        			while (~(( local_8[local_3] = 0))) {
-        				let local_0 = ( local_1 + local_8[local_3]);
+        			while (~(( local_3[local_8] = 0))) {
+        				let local_0 = ( local_1 + local_3[local_8]);
         				if (( local_0 & static_0 = 0)) {
-        					let local_5 = local_0[field_1];
+        					let local_5 = field_1[local_0];
         					if (local_5 = 0) {
-        						do argument_1.addMove(( local_1[static_33] | local_0[static_34]), 0);
+        						do argument_1.addMove(( static_33[local_1] | static_34[local_0]), 0);
         // Unhandled VM instruction: GotoInstruction{label='IF_END35}
         					}
         					let local_15 = local_5.getValue();
@@ -1606,7 +1606,7 @@ class Board {
         					}
         					let local_21 = local_15 < 8;
         					if (local_21) {
-        						do argument_1.addMove(( ( static_44 | local_1[static_33]) | local_0[static_34]), ( static_57 | ( local_15 & 7[static_59] - static_5[static_58])));
+        						do argument_1.addMove(( ( static_44 | static_33[local_1]) | static_34[local_0]), ( static_57 | ( static_59[local_15 & 7] - static_58[static_5])));
         					}
         				}
         				let local_8 = local_8 + 1;
@@ -1614,14 +1614,14 @@ class Board {
         // Unhandled VM instruction: GotoInstruction{label='IF_END33}
         		}
         		let local_8 = 0;
-        		while (~(( local_8[local_3] = 0))) {
-        			let local_0 = ( local_1 + local_8[local_3]);
+        		while (~(( local_3[local_8] = 0))) {
+        			let local_0 = ( local_1 + local_3[local_8]);
         			let local_22 = 0;
         			while (( ( local_0 & static_0 = 0) & ~(local_22))) {
-        				let local_5 = local_0[field_1];
+        				let local_5 = field_1[local_0];
         				if (local_5 = 0) {
-        					do argument_1.addMove(( local_1[static_33] | local_0[static_34]), 0);
-        					let local_0 = ( local_0 + local_8[local_3]);
+        					do argument_1.addMove(( static_33[local_1] | static_34[local_0]), 0);
+        					let local_0 = ( local_0 + local_3[local_8]);
         // Unhandled VM instruction: GotoInstruction{label='IF_END38}
         				}
         				let local_15 = local_5.getValue();
@@ -1631,7 +1631,7 @@ class Board {
         				}
         				let local_21 = local_15 < 8;
         				if (local_21) {
-        					do argument_1.addMove(( ( static_44 | local_1[static_33]) | local_0[static_34]), ( static_57 | ( local_15 & 7[static_59] - local_10 & 7[static_58])));
+        					do argument_1.addMove(( ( static_44 | static_33[local_1]) | static_34[local_0]), ( static_57 | ( static_59[local_15 & 7] - static_58[local_10 & 7])));
         				}
         				let local_22 = ~(0);
         			}
@@ -1645,1798 +1645,1798 @@ class Board {
 
     function void initwPawnPieceSquareTable() {
         
-        let 16[static_61] = 2;
+        let static_61[16] = 2;
         
-        let 17[static_61] = 3;
+        let static_61[17] = 3;
         
-        let 18[static_61] = 4;
+        let static_61[18] = 4;
         
-        let 19[static_61] = 0;
+        let static_61[19] = 0;
         
-        let 20[static_61] = 0;
+        let static_61[20] = 0;
         
-        let 21[static_61] = 4;
+        let static_61[21] = 4;
         
-        let 22[static_61] = 3;
+        let static_61[22] = 3;
         
-        let 23[static_61] = 2;
+        let static_61[23] = 2;
         
-        let 32[static_61] = 4;
+        let static_61[32] = 4;
         
-        let 33[static_61] = 6;
+        let static_61[33] = 6;
         
-        let 34[static_61] = 12;
+        let static_61[34] = 12;
         
-        let 35[static_61] = 12;
+        let static_61[35] = 12;
         
-        let 36[static_61] = 12;
+        let static_61[36] = 12;
         
-        let 37[static_61] = 4;
+        let static_61[37] = 4;
         
-        let 38[static_61] = 6;
+        let static_61[38] = 6;
         
-        let 39[static_61] = 4;
+        let static_61[39] = 4;
         
-        let 48[static_61] = 4;
+        let static_61[48] = 4;
         
-        let 49[static_61] = 7;
+        let static_61[49] = 7;
         
-        let 50[static_61] = 18;
+        let static_61[50] = 18;
         
-        let 51[static_61] = 25;
+        let static_61[51] = 25;
         
-        let 52[static_61] = 25;
+        let static_61[52] = 25;
         
-        let 53[static_61] = 16;
+        let static_61[53] = 16;
         
-        let 54[static_61] = 7;
+        let static_61[54] = 7;
         
-        let 55[static_61] = 4;
+        let static_61[55] = 4;
         
-        let 64[static_61] = 6;
+        let static_61[64] = 6;
         
-        let 65[static_61] = 11;
+        let static_61[65] = 11;
         
-        let 66[static_61] = 18;
+        let static_61[66] = 18;
         
-        let 67[static_61] = 27;
+        let static_61[67] = 27;
         
-        let 68[static_61] = 27;
+        let static_61[68] = 27;
         
-        let 69[static_61] = 16;
+        let static_61[69] = 16;
         
-        let 70[static_61] = 11;
+        let static_61[70] = 11;
         
-        let 71[static_61] = 6;
+        let static_61[71] = 6;
         
-        let 80[static_61] = 10;
+        let static_61[80] = 10;
         
-        let 81[static_61] = 15;
+        let static_61[81] = 15;
         
-        let 82[static_61] = 24;
+        let static_61[82] = 24;
         
-        let 83[static_61] = 32;
+        let static_61[83] = 32;
         
-        let 84[static_61] = 32;
+        let static_61[84] = 32;
         
-        let 85[static_61] = 24;
+        let static_61[85] = 24;
         
-        let 86[static_61] = 15;
+        let static_61[86] = 15;
         
-        let 87[static_61] = 10;
+        let static_61[87] = 10;
         
-        let 96[static_61] = 10;
+        let static_61[96] = 10;
         
-        let 97[static_61] = 15;
+        let static_61[97] = 15;
         
-        let 98[static_61] = 24;
+        let static_61[98] = 24;
         
-        let 99[static_61] = 32;
+        let static_61[99] = 32;
         
-        let 100[static_61] = 32;
+        let static_61[100] = 32;
         
-        let 101[static_61] = 24;
+        let static_61[101] = 24;
         
-        let 102[static_61] = 15;
+        let static_61[102] = 15;
         
-        let 103[static_61] = 10;
+        let static_61[103] = 10;
         
         return;
     }
 
     function void initbPawnPieceSquareTable() {
         
-        let 16[static_62] = 10;
+        let static_62[16] = 10;
         
-        let 17[static_62] = 15;
+        let static_62[17] = 15;
         
-        let 18[static_62] = 24;
+        let static_62[18] = 24;
         
-        let 19[static_62] = 32;
+        let static_62[19] = 32;
         
-        let 20[static_62] = 32;
+        let static_62[20] = 32;
         
-        let 21[static_62] = 24;
+        let static_62[21] = 24;
         
-        let 22[static_62] = 15;
+        let static_62[22] = 15;
         
-        let 23[static_62] = 10;
+        let static_62[23] = 10;
         
-        let 32[static_62] = 10;
+        let static_62[32] = 10;
         
-        let 33[static_62] = 15;
+        let static_62[33] = 15;
         
-        let 34[static_62] = 24;
+        let static_62[34] = 24;
         
-        let 35[static_62] = 32;
+        let static_62[35] = 32;
         
-        let 36[static_62] = 32;
+        let static_62[36] = 32;
         
-        let 37[static_62] = 24;
+        let static_62[37] = 24;
         
-        let 38[static_62] = 15;
+        let static_62[38] = 15;
         
-        let 39[static_62] = 10;
+        let static_62[39] = 10;
         
-        let 48[static_62] = 6;
+        let static_62[48] = 6;
         
-        let 49[static_62] = 11;
+        let static_62[49] = 11;
         
-        let 50[static_62] = 18;
+        let static_62[50] = 18;
         
-        let 51[static_62] = 27;
+        let static_62[51] = 27;
         
-        let 52[static_62] = 27;
+        let static_62[52] = 27;
         
-        let 53[static_62] = 16;
+        let static_62[53] = 16;
         
-        let 54[static_62] = 11;
+        let static_62[54] = 11;
         
-        let 55[static_62] = 6;
+        let static_62[55] = 6;
         
-        let 64[static_62] = 4;
+        let static_62[64] = 4;
         
-        let 65[static_62] = 7;
+        let static_62[65] = 7;
         
-        let 66[static_62] = 18;
+        let static_62[66] = 18;
         
-        let 67[static_62] = 25;
+        let static_62[67] = 25;
         
-        let 68[static_62] = 25;
+        let static_62[68] = 25;
         
-        let 69[static_62] = 16;
+        let static_62[69] = 16;
         
-        let 70[static_62] = 7;
+        let static_62[70] = 7;
         
-        let 71[static_62] = 4;
+        let static_62[71] = 4;
         
-        let 80[static_62] = 4;
+        let static_62[80] = 4;
         
-        let 81[static_62] = 6;
+        let static_62[81] = 6;
         
-        let 82[static_62] = 12;
+        let static_62[82] = 12;
         
-        let 83[static_62] = 12;
+        let static_62[83] = 12;
         
-        let 84[static_62] = 12;
+        let static_62[84] = 12;
         
-        let 85[static_62] = 4;
+        let static_62[85] = 4;
         
-        let 86[static_62] = 6;
+        let static_62[86] = 6;
         
-        let 87[static_62] = 4;
+        let static_62[87] = 4;
         
-        let 96[static_62] = 2;
+        let static_62[96] = 2;
         
-        let 97[static_62] = 3;
+        let static_62[97] = 3;
         
-        let 98[static_62] = 4;
+        let static_62[98] = 4;
         
-        let 99[static_62] = 0;
+        let static_62[99] = 0;
         
-        let 100[static_62] = 0;
+        let static_62[100] = 0;
         
-        let 101[static_62] = 4;
+        let static_62[101] = 4;
         
-        let 102[static_62] = 3;
+        let static_62[102] = 3;
         
-        let 103[static_62] = 2;
+        let static_62[103] = 2;
         
         return;
     }
 
     function void initwKnightPieceSquareTable() {
         
-        let 0[static_63] = -(7);
+        let static_63[0] = -(7);
         
-        let 1[static_63] = -(3);
+        let static_63[1] = -(3);
         
-        let 2[static_63] = 1;
+        let static_63[2] = 1;
         
-        let 3[static_63] = 3;
+        let static_63[3] = 3;
         
-        let 4[static_63] = 3;
+        let static_63[4] = 3;
         
-        let 5[static_63] = 1;
+        let static_63[5] = 1;
         
-        let 6[static_63] = -(3);
+        let static_63[6] = -(3);
         
-        let 7[static_63] = -(7);
+        let static_63[7] = -(7);
         
-        let 16[static_63] = 2;
+        let static_63[16] = 2;
         
-        let 17[static_63] = 6;
+        let static_63[17] = 6;
         
-        let 18[static_63] = 14;
+        let static_63[18] = 14;
         
-        let 19[static_63] = 20;
+        let static_63[19] = 20;
         
-        let 20[static_63] = 20;
+        let static_63[20] = 20;
         
-        let 21[static_63] = 14;
+        let static_63[21] = 14;
         
-        let 22[static_63] = 6;
+        let static_63[22] = 6;
         
-        let 23[static_63] = 2;
+        let static_63[23] = 2;
         
-        let 32[static_63] = 6;
+        let static_63[32] = 6;
         
-        let 33[static_63] = 14;
+        let static_63[33] = 14;
         
-        let 34[static_63] = 22;
+        let static_63[34] = 22;
         
-        let 35[static_63] = 26;
+        let static_63[35] = 26;
         
-        let 36[static_63] = 26;
+        let static_63[36] = 26;
         
-        let 37[static_63] = 22;
+        let static_63[37] = 22;
         
-        let 38[static_63] = 14;
+        let static_63[38] = 14;
         
-        let 39[static_63] = 6;
+        let static_63[39] = 6;
         
-        let 48[static_63] = 8;
+        let static_63[48] = 8;
         
-        let 49[static_63] = 18;
+        let static_63[49] = 18;
         
-        let 50[static_63] = 26;
+        let static_63[50] = 26;
         
-        let 51[static_63] = 30;
+        let static_63[51] = 30;
         
-        let 52[static_63] = 30;
+        let static_63[52] = 30;
         
-        let 53[static_63] = 26;
+        let static_63[53] = 26;
         
-        let 54[static_63] = 18;
+        let static_63[54] = 18;
         
-        let 55[static_63] = 8;
+        let static_63[55] = 8;
         
-        let 64[static_63] = 8;
+        let static_63[64] = 8;
         
-        let 65[static_63] = 18;
+        let static_63[65] = 18;
         
-        let 66[static_63] = 30;
+        let static_63[66] = 30;
         
-        let 67[static_63] = 32;
+        let static_63[67] = 32;
         
-        let 68[static_63] = 32;
+        let static_63[68] = 32;
         
-        let 69[static_63] = 30;
+        let static_63[69] = 30;
         
-        let 70[static_63] = 18;
+        let static_63[70] = 18;
         
-        let 71[static_63] = 8;
+        let static_63[71] = 8;
         
-        let 80[static_63] = 6;
+        let static_63[80] = 6;
         
-        let 81[static_63] = 14;
+        let static_63[81] = 14;
         
-        let 82[static_63] = 28;
+        let static_63[82] = 28;
         
-        let 83[static_63] = 32;
+        let static_63[83] = 32;
         
-        let 84[static_63] = 32;
+        let static_63[84] = 32;
         
-        let 85[static_63] = 28;
+        let static_63[85] = 28;
         
-        let 86[static_63] = 14;
+        let static_63[86] = 14;
         
-        let 87[static_63] = 6;
+        let static_63[87] = 6;
         
-        let 96[static_63] = 2;
+        let static_63[96] = 2;
         
-        let 97[static_63] = 6;
+        let static_63[97] = 6;
         
-        let 98[static_63] = 14;
+        let static_63[98] = 14;
         
-        let 99[static_63] = 20;
+        let static_63[99] = 20;
         
-        let 100[static_63] = 20;
+        let static_63[100] = 20;
         
-        let 101[static_63] = 14;
+        let static_63[101] = 14;
         
-        let 102[static_63] = 6;
+        let static_63[102] = 6;
         
-        let 103[static_63] = 2;
+        let static_63[103] = 2;
         
-        let 112[static_63] = -(7);
+        let static_63[112] = -(7);
         
-        let 113[static_63] = -(3);
+        let static_63[113] = -(3);
         
-        let 114[static_63] = 1;
+        let static_63[114] = 1;
         
-        let 115[static_63] = 3;
+        let static_63[115] = 3;
         
-        let 116[static_63] = 3;
+        let static_63[116] = 3;
         
-        let 117[static_63] = 1;
+        let static_63[117] = 1;
         
-        let 118[static_63] = -(3);
+        let static_63[118] = -(3);
         
-        let 119[static_63] = -(7);
+        let static_63[119] = -(7);
         
         return;
     }
 
     function void initbKnightPieceSquareTable() {
         
-        let 0[static_64] = -(7);
+        let static_64[0] = -(7);
         
-        let 1[static_64] = -(3);
+        let static_64[1] = -(3);
         
-        let 2[static_64] = 1;
+        let static_64[2] = 1;
         
-        let 3[static_64] = 3;
+        let static_64[3] = 3;
         
-        let 4[static_64] = 3;
+        let static_64[4] = 3;
         
-        let 5[static_64] = 1;
+        let static_64[5] = 1;
         
-        let 6[static_64] = -(3);
+        let static_64[6] = -(3);
         
-        let 7[static_64] = -(7);
+        let static_64[7] = -(7);
         
-        let 16[static_64] = 2;
+        let static_64[16] = 2;
         
-        let 17[static_64] = 6;
+        let static_64[17] = 6;
         
-        let 18[static_64] = 14;
+        let static_64[18] = 14;
         
-        let 19[static_64] = 20;
+        let static_64[19] = 20;
         
-        let 20[static_64] = 20;
+        let static_64[20] = 20;
         
-        let 21[static_64] = 14;
+        let static_64[21] = 14;
         
-        let 22[static_64] = 6;
+        let static_64[22] = 6;
         
-        let 23[static_64] = 2;
+        let static_64[23] = 2;
         
-        let 32[static_64] = 6;
+        let static_64[32] = 6;
         
-        let 33[static_64] = 14;
+        let static_64[33] = 14;
         
-        let 34[static_64] = 28;
+        let static_64[34] = 28;
         
-        let 35[static_64] = 32;
+        let static_64[35] = 32;
         
-        let 36[static_64] = 32;
+        let static_64[36] = 32;
         
-        let 37[static_64] = 28;
+        let static_64[37] = 28;
         
-        let 38[static_64] = 14;
+        let static_64[38] = 14;
         
-        let 39[static_64] = 6;
+        let static_64[39] = 6;
         
-        let 48[static_64] = 8;
+        let static_64[48] = 8;
         
-        let 49[static_64] = 18;
+        let static_64[49] = 18;
         
-        let 50[static_64] = 30;
+        let static_64[50] = 30;
         
-        let 51[static_64] = 32;
+        let static_64[51] = 32;
         
-        let 52[static_64] = 32;
+        let static_64[52] = 32;
         
-        let 53[static_64] = 30;
+        let static_64[53] = 30;
         
-        let 54[static_64] = 18;
+        let static_64[54] = 18;
         
-        let 55[static_64] = 8;
+        let static_64[55] = 8;
         
-        let 64[static_64] = 8;
+        let static_64[64] = 8;
         
-        let 65[static_64] = 18;
+        let static_64[65] = 18;
         
-        let 66[static_64] = 26;
+        let static_64[66] = 26;
         
-        let 67[static_64] = 30;
+        let static_64[67] = 30;
         
-        let 68[static_64] = 30;
+        let static_64[68] = 30;
         
-        let 69[static_64] = 26;
+        let static_64[69] = 26;
         
-        let 70[static_64] = 18;
+        let static_64[70] = 18;
         
-        let 71[static_64] = 8;
+        let static_64[71] = 8;
         
-        let 80[static_64] = 6;
+        let static_64[80] = 6;
         
-        let 81[static_64] = 14;
+        let static_64[81] = 14;
         
-        let 82[static_64] = 22;
+        let static_64[82] = 22;
         
-        let 83[static_64] = 26;
+        let static_64[83] = 26;
         
-        let 84[static_64] = 26;
+        let static_64[84] = 26;
         
-        let 85[static_64] = 22;
+        let static_64[85] = 22;
         
-        let 86[static_64] = 14;
+        let static_64[86] = 14;
         
-        let 87[static_64] = 6;
+        let static_64[87] = 6;
         
-        let 96[static_64] = 2;
+        let static_64[96] = 2;
         
-        let 97[static_64] = 6;
+        let static_64[97] = 6;
         
-        let 98[static_64] = 14;
+        let static_64[98] = 14;
         
-        let 99[static_64] = 20;
+        let static_64[99] = 20;
         
-        let 100[static_64] = 20;
+        let static_64[100] = 20;
         
-        let 101[static_64] = 14;
+        let static_64[101] = 14;
         
-        let 102[static_64] = 6;
+        let static_64[102] = 6;
         
-        let 103[static_64] = 2;
+        let static_64[103] = 2;
         
-        let 112[static_64] = -(7);
+        let static_64[112] = -(7);
         
-        let 113[static_64] = -(3);
+        let static_64[113] = -(3);
         
-        let 114[static_64] = 1;
+        let static_64[114] = 1;
         
-        let 115[static_64] = 3;
+        let static_64[115] = 3;
         
-        let 116[static_64] = 3;
+        let static_64[116] = 3;
         
-        let 117[static_64] = 1;
+        let static_64[117] = 1;
         
-        let 118[static_64] = -(3);
+        let static_64[118] = -(3);
         
-        let 119[static_64] = -(7);
+        let static_64[119] = -(7);
         
         return;
     }
 
     function void initwBishopPieceSquareTable() {
         
-        let 0[static_65] = 16;
+        let static_65[0] = 16;
         
-        let 1[static_65] = 16;
+        let static_65[1] = 16;
         
-        let 2[static_65] = 16;
+        let static_65[2] = 16;
         
-        let 3[static_65] = 16;
+        let static_65[3] = 16;
         
-        let 4[static_65] = 16;
+        let static_65[4] = 16;
         
-        let 5[static_65] = 16;
+        let static_65[5] = 16;
         
-        let 6[static_65] = 16;
+        let static_65[6] = 16;
         
-        let 7[static_65] = 16;
+        let static_65[7] = 16;
         
-        let 16[static_65] = 26;
+        let static_65[16] = 26;
         
-        let 17[static_65] = 29;
+        let static_65[17] = 29;
         
-        let 18[static_65] = 31;
+        let static_65[18] = 31;
         
-        let 19[static_65] = 31;
+        let static_65[19] = 31;
         
-        let 20[static_65] = 31;
+        let static_65[20] = 31;
         
-        let 21[static_65] = 31;
+        let static_65[21] = 31;
         
-        let 22[static_65] = 29;
+        let static_65[22] = 29;
         
-        let 23[static_65] = 26;
+        let static_65[23] = 26;
         
-        let 32[static_65] = 26;
+        let static_65[32] = 26;
         
-        let 33[static_65] = 28;
+        let static_65[33] = 28;
         
-        let 34[static_65] = 32;
+        let static_65[34] = 32;
         
-        let 35[static_65] = 32;
+        let static_65[35] = 32;
         
-        let 36[static_65] = 32;
+        let static_65[36] = 32;
         
-        let 37[static_65] = 32;
+        let static_65[37] = 32;
         
-        let 38[static_65] = 28;
+        let static_65[38] = 28;
         
-        let 39[static_65] = 26;
+        let static_65[39] = 26;
         
-        let 48[static_65] = 16;
+        let static_65[48] = 16;
         
-        let 49[static_65] = 26;
+        let static_65[49] = 26;
         
-        let 50[static_65] = 32;
+        let static_65[50] = 32;
         
-        let 51[static_65] = 32;
+        let static_65[51] = 32;
         
-        let 52[static_65] = 32;
+        let static_65[52] = 32;
         
-        let 53[static_65] = 32;
+        let static_65[53] = 32;
         
-        let 54[static_65] = 26;
+        let static_65[54] = 26;
         
-        let 55[static_65] = 16;
+        let static_65[55] = 16;
         
-        let 64[static_65] = 16;
+        let static_65[64] = 16;
         
-        let 65[static_65] = 26;
+        let static_65[65] = 26;
         
-        let 66[static_65] = 32;
+        let static_65[66] = 32;
         
-        let 67[static_65] = 32;
+        let static_65[67] = 32;
         
-        let 68[static_65] = 32;
+        let static_65[68] = 32;
         
-        let 69[static_65] = 32;
+        let static_65[69] = 32;
         
-        let 70[static_65] = 26;
+        let static_65[70] = 26;
         
-        let 71[static_65] = 16;
+        let static_65[71] = 16;
         
-        let 80[static_65] = 16;
+        let static_65[80] = 16;
         
-        let 81[static_65] = 28;
+        let static_65[81] = 28;
         
-        let 82[static_65] = 32;
+        let static_65[82] = 32;
         
-        let 83[static_65] = 32;
+        let static_65[83] = 32;
         
-        let 84[static_65] = 32;
+        let static_65[84] = 32;
         
-        let 85[static_65] = 32;
+        let static_65[85] = 32;
         
-        let 86[static_65] = 28;
+        let static_65[86] = 28;
         
-        let 87[static_65] = 16;
+        let static_65[87] = 16;
         
-        let 96[static_65] = 16;
+        let static_65[96] = 16;
         
-        let 97[static_65] = 29;
+        let static_65[97] = 29;
         
-        let 98[static_65] = 31;
+        let static_65[98] = 31;
         
-        let 99[static_65] = 31;
+        let static_65[99] = 31;
         
-        let 100[static_65] = 31;
+        let static_65[100] = 31;
         
-        let 101[static_65] = 31;
+        let static_65[101] = 31;
         
-        let 102[static_65] = 29;
+        let static_65[102] = 29;
         
-        let 103[static_65] = 16;
+        let static_65[103] = 16;
         
-        let 112[static_65] = 16;
+        let static_65[112] = 16;
         
-        let 113[static_65] = 16;
+        let static_65[113] = 16;
         
-        let 114[static_65] = 16;
+        let static_65[114] = 16;
         
-        let 115[static_65] = 16;
+        let static_65[115] = 16;
         
-        let 116[static_65] = 16;
+        let static_65[116] = 16;
         
-        let 117[static_65] = 16;
+        let static_65[117] = 16;
         
-        let 118[static_65] = 16;
+        let static_65[118] = 16;
         
-        let 119[static_65] = 16;
+        let static_65[119] = 16;
         
         return;
     }
 
     function void initbBishopPieceSquareTable() {
         
-        let 0[static_66] = 16;
+        let static_66[0] = 16;
         
-        let 1[static_66] = 16;
+        let static_66[1] = 16;
         
-        let 2[static_66] = 16;
+        let static_66[2] = 16;
         
-        let 3[static_66] = 16;
+        let static_66[3] = 16;
         
-        let 4[static_66] = 16;
+        let static_66[4] = 16;
         
-        let 5[static_66] = 16;
+        let static_66[5] = 16;
         
-        let 6[static_66] = 16;
+        let static_66[6] = 16;
         
-        let 7[static_66] = 16;
+        let static_66[7] = 16;
         
-        let 16[static_66] = 16;
+        let static_66[16] = 16;
         
-        let 17[static_66] = 29;
+        let static_66[17] = 29;
         
-        let 18[static_66] = 31;
+        let static_66[18] = 31;
         
-        let 19[static_66] = 31;
+        let static_66[19] = 31;
         
-        let 20[static_66] = 31;
+        let static_66[20] = 31;
         
-        let 21[static_66] = 31;
+        let static_66[21] = 31;
         
-        let 22[static_66] = 29;
+        let static_66[22] = 29;
         
-        let 23[static_66] = 16;
+        let static_66[23] = 16;
         
-        let 32[static_66] = 16;
+        let static_66[32] = 16;
         
-        let 33[static_66] = 28;
+        let static_66[33] = 28;
         
-        let 34[static_66] = 32;
+        let static_66[34] = 32;
         
-        let 35[static_66] = 32;
+        let static_66[35] = 32;
         
-        let 36[static_66] = 32;
+        let static_66[36] = 32;
         
-        let 37[static_66] = 32;
+        let static_66[37] = 32;
         
-        let 38[static_66] = 28;
+        let static_66[38] = 28;
         
-        let 39[static_66] = 16;
+        let static_66[39] = 16;
         
-        let 48[static_66] = 16;
+        let static_66[48] = 16;
         
-        let 49[static_66] = 26;
+        let static_66[49] = 26;
         
-        let 50[static_66] = 32;
+        let static_66[50] = 32;
         
-        let 51[static_66] = 32;
+        let static_66[51] = 32;
         
-        let 52[static_66] = 32;
+        let static_66[52] = 32;
         
-        let 53[static_66] = 32;
+        let static_66[53] = 32;
         
-        let 54[static_66] = 26;
+        let static_66[54] = 26;
         
-        let 55[static_66] = 16;
+        let static_66[55] = 16;
         
-        let 64[static_66] = 16;
+        let static_66[64] = 16;
         
-        let 65[static_66] = 26;
+        let static_66[65] = 26;
         
-        let 66[static_66] = 32;
+        let static_66[66] = 32;
         
-        let 67[static_66] = 32;
+        let static_66[67] = 32;
         
-        let 68[static_66] = 32;
+        let static_66[68] = 32;
         
-        let 69[static_66] = 32;
+        let static_66[69] = 32;
         
-        let 70[static_66] = 26;
+        let static_66[70] = 26;
         
-        let 71[static_66] = 16;
+        let static_66[71] = 16;
         
-        let 80[static_66] = 26;
+        let static_66[80] = 26;
         
-        let 81[static_66] = 28;
+        let static_66[81] = 28;
         
-        let 82[static_66] = 32;
+        let static_66[82] = 32;
         
-        let 83[static_66] = 32;
+        let static_66[83] = 32;
         
-        let 84[static_66] = 32;
+        let static_66[84] = 32;
         
-        let 85[static_66] = 32;
+        let static_66[85] = 32;
         
-        let 86[static_66] = 28;
+        let static_66[86] = 28;
         
-        let 87[static_66] = 26;
+        let static_66[87] = 26;
         
-        let 96[static_66] = 26;
+        let static_66[96] = 26;
         
-        let 97[static_66] = 29;
+        let static_66[97] = 29;
         
-        let 98[static_66] = 31;
+        let static_66[98] = 31;
         
-        let 99[static_66] = 31;
+        let static_66[99] = 31;
         
-        let 100[static_66] = 31;
+        let static_66[100] = 31;
         
-        let 101[static_66] = 31;
+        let static_66[101] = 31;
         
-        let 102[static_66] = 29;
+        let static_66[102] = 29;
         
-        let 103[static_66] = 26;
+        let static_66[103] = 26;
         
-        let 112[static_66] = 16;
+        let static_66[112] = 16;
         
-        let 113[static_66] = 16;
+        let static_66[113] = 16;
         
-        let 114[static_66] = 16;
+        let static_66[114] = 16;
         
-        let 115[static_66] = 16;
+        let static_66[115] = 16;
         
-        let 116[static_66] = 16;
+        let static_66[116] = 16;
         
-        let 117[static_66] = 16;
+        let static_66[117] = 16;
         
-        let 118[static_66] = 16;
+        let static_66[118] = 16;
         
-        let 119[static_66] = 16;
+        let static_66[119] = 16;
         
         return;
     }
 
     function void initwRookPieceSquareTable() {
         
-        let 0[static_67] = 0;
+        let static_67[0] = 0;
         
-        let 1[static_67] = 0;
+        let static_67[1] = 0;
         
-        let 2[static_67] = 0;
+        let static_67[2] = 0;
         
-        let 3[static_67] = 3;
+        let static_67[3] = 3;
         
-        let 4[static_67] = 3;
+        let static_67[4] = 3;
         
-        let 5[static_67] = 0;
+        let static_67[5] = 0;
         
-        let 6[static_67] = 0;
+        let static_67[6] = 0;
         
-        let 7[static_67] = 0;
+        let static_67[7] = 0;
         
-        let 16[static_67] = -(2);
+        let static_67[16] = -(2);
         
-        let 17[static_67] = 0;
+        let static_67[17] = 0;
         
-        let 18[static_67] = 0;
+        let static_67[18] = 0;
         
-        let 19[static_67] = 0;
+        let static_67[19] = 0;
         
-        let 20[static_67] = 0;
+        let static_67[20] = 0;
         
-        let 21[static_67] = 0;
+        let static_67[21] = 0;
         
-        let 22[static_67] = 0;
+        let static_67[22] = 0;
         
-        let 23[static_67] = -(2);
+        let static_67[23] = -(2);
         
-        let 32[static_67] = -(2);
+        let static_67[32] = -(2);
         
-        let 33[static_67] = 0;
+        let static_67[33] = 0;
         
-        let 34[static_67] = 0;
+        let static_67[34] = 0;
         
-        let 35[static_67] = 0;
+        let static_67[35] = 0;
         
-        let 36[static_67] = 0;
+        let static_67[36] = 0;
         
-        let 37[static_67] = 0;
+        let static_67[37] = 0;
         
-        let 38[static_67] = 0;
+        let static_67[38] = 0;
         
-        let 39[static_67] = -(2);
+        let static_67[39] = -(2);
         
-        let 48[static_67] = -(2);
+        let static_67[48] = -(2);
         
-        let 49[static_67] = 0;
+        let static_67[49] = 0;
         
-        let 50[static_67] = 0;
+        let static_67[50] = 0;
         
-        let 51[static_67] = 0;
+        let static_67[51] = 0;
         
-        let 52[static_67] = 0;
+        let static_67[52] = 0;
         
-        let 53[static_67] = 0;
+        let static_67[53] = 0;
         
-        let 54[static_67] = 0;
+        let static_67[54] = 0;
         
-        let 55[static_67] = -(2);
+        let static_67[55] = -(2);
         
-        let 64[static_67] = -(2);
+        let static_67[64] = -(2);
         
-        let 65[static_67] = 0;
+        let static_67[65] = 0;
         
-        let 66[static_67] = 0;
+        let static_67[66] = 0;
         
-        let 67[static_67] = 0;
+        let static_67[67] = 0;
         
-        let 68[static_67] = 0;
+        let static_67[68] = 0;
         
-        let 69[static_67] = 0;
+        let static_67[69] = 0;
         
-        let 70[static_67] = 0;
+        let static_67[70] = 0;
         
-        let 71[static_67] = -(2);
+        let static_67[71] = -(2);
         
-        let 80[static_67] = -(2);
+        let static_67[80] = -(2);
         
-        let 81[static_67] = 0;
+        let static_67[81] = 0;
         
-        let 82[static_67] = 0;
+        let static_67[82] = 0;
         
-        let 83[static_67] = 0;
+        let static_67[83] = 0;
         
-        let 84[static_67] = 0;
+        let static_67[84] = 0;
         
-        let 85[static_67] = 0;
+        let static_67[85] = 0;
         
-        let 86[static_67] = 0;
+        let static_67[86] = 0;
         
-        let 87[static_67] = -(2);
+        let static_67[87] = -(2);
         
-        let 96[static_67] = 10;
+        let static_67[96] = 10;
         
-        let 97[static_67] = 10;
+        let static_67[97] = 10;
         
-        let 98[static_67] = 10;
+        let static_67[98] = 10;
         
-        let 99[static_67] = 10;
+        let static_67[99] = 10;
         
-        let 100[static_67] = 10;
+        let static_67[100] = 10;
         
-        let 101[static_67] = 10;
+        let static_67[101] = 10;
         
-        let 102[static_67] = 10;
+        let static_67[102] = 10;
         
-        let 103[static_67] = 10;
+        let static_67[103] = 10;
         
-        let 112[static_67] = 0;
+        let static_67[112] = 0;
         
-        let 113[static_67] = 0;
+        let static_67[113] = 0;
         
-        let 114[static_67] = 0;
+        let static_67[114] = 0;
         
-        let 115[static_67] = 0;
+        let static_67[115] = 0;
         
-        let 116[static_67] = 0;
+        let static_67[116] = 0;
         
-        let 117[static_67] = 0;
+        let static_67[117] = 0;
         
-        let 118[static_67] = 0;
+        let static_67[118] = 0;
         
-        let 119[static_67] = 0;
+        let static_67[119] = 0;
         
         return;
     }
 
     function void initbRookPieceSquareTable() {
         
-        let 0[static_68] = 0;
+        let static_68[0] = 0;
         
-        let 1[static_68] = 0;
+        let static_68[1] = 0;
         
-        let 2[static_68] = 0;
+        let static_68[2] = 0;
         
-        let 3[static_68] = 0;
+        let static_68[3] = 0;
         
-        let 4[static_68] = 0;
+        let static_68[4] = 0;
         
-        let 5[static_68] = 0;
+        let static_68[5] = 0;
         
-        let 6[static_68] = 0;
+        let static_68[6] = 0;
         
-        let 7[static_68] = 0;
+        let static_68[7] = 0;
         
-        let 16[static_68] = 10;
+        let static_68[16] = 10;
         
-        let 17[static_68] = 10;
+        let static_68[17] = 10;
         
-        let 18[static_68] = 10;
+        let static_68[18] = 10;
         
-        let 19[static_68] = 10;
+        let static_68[19] = 10;
         
-        let 20[static_68] = 10;
+        let static_68[20] = 10;
         
-        let 21[static_68] = 10;
+        let static_68[21] = 10;
         
-        let 22[static_68] = 10;
+        let static_68[22] = 10;
         
-        let 23[static_68] = 10;
+        let static_68[23] = 10;
         
-        let 32[static_68] = -(2);
+        let static_68[32] = -(2);
         
-        let 33[static_68] = 0;
+        let static_68[33] = 0;
         
-        let 34[static_68] = 0;
+        let static_68[34] = 0;
         
-        let 35[static_68] = 0;
+        let static_68[35] = 0;
         
-        let 36[static_68] = 0;
+        let static_68[36] = 0;
         
-        let 37[static_68] = 0;
+        let static_68[37] = 0;
         
-        let 38[static_68] = 0;
+        let static_68[38] = 0;
         
-        let 39[static_68] = -(2);
+        let static_68[39] = -(2);
         
-        let 48[static_68] = -(2);
+        let static_68[48] = -(2);
         
-        let 49[static_68] = 0;
+        let static_68[49] = 0;
         
-        let 50[static_68] = 0;
+        let static_68[50] = 0;
         
-        let 51[static_68] = 0;
+        let static_68[51] = 0;
         
-        let 52[static_68] = 0;
+        let static_68[52] = 0;
         
-        let 53[static_68] = 0;
+        let static_68[53] = 0;
         
-        let 54[static_68] = 0;
+        let static_68[54] = 0;
         
-        let 55[static_68] = -(2);
+        let static_68[55] = -(2);
         
-        let 64[static_68] = -(2);
+        let static_68[64] = -(2);
         
-        let 65[static_68] = 0;
+        let static_68[65] = 0;
         
-        let 66[static_68] = 0;
+        let static_68[66] = 0;
         
-        let 67[static_68] = 0;
+        let static_68[67] = 0;
         
-        let 68[static_68] = 0;
+        let static_68[68] = 0;
         
-        let 69[static_68] = 0;
+        let static_68[69] = 0;
         
-        let 70[static_68] = 0;
+        let static_68[70] = 0;
         
-        let 71[static_68] = -(2);
+        let static_68[71] = -(2);
         
-        let 80[static_68] = -(2);
+        let static_68[80] = -(2);
         
-        let 81[static_68] = 0;
+        let static_68[81] = 0;
         
-        let 82[static_68] = 0;
+        let static_68[82] = 0;
         
-        let 83[static_68] = 0;
+        let static_68[83] = 0;
         
-        let 84[static_68] = 0;
+        let static_68[84] = 0;
         
-        let 85[static_68] = 0;
+        let static_68[85] = 0;
         
-        let 86[static_68] = 0;
+        let static_68[86] = 0;
         
-        let 87[static_68] = -(2);
+        let static_68[87] = -(2);
         
-        let 96[static_68] = -(2);
+        let static_68[96] = -(2);
         
-        let 97[static_68] = 0;
+        let static_68[97] = 0;
         
-        let 98[static_68] = 0;
+        let static_68[98] = 0;
         
-        let 99[static_68] = 0;
+        let static_68[99] = 0;
         
-        let 100[static_68] = 0;
+        let static_68[100] = 0;
         
-        let 101[static_68] = 0;
+        let static_68[101] = 0;
         
-        let 102[static_68] = 0;
+        let static_68[102] = 0;
         
-        let 103[static_68] = -(2);
+        let static_68[103] = -(2);
         
-        let 112[static_68] = 0;
+        let static_68[112] = 0;
         
-        let 113[static_68] = 0;
+        let static_68[113] = 0;
         
-        let 114[static_68] = 0;
+        let static_68[114] = 0;
         
-        let 115[static_68] = 3;
+        let static_68[115] = 3;
         
-        let 116[static_68] = 3;
+        let static_68[116] = 3;
         
-        let 117[static_68] = 0;
+        let static_68[117] = 0;
         
-        let 118[static_68] = 0;
+        let static_68[118] = 0;
         
-        let 119[static_68] = 0;
+        let static_68[119] = 0;
         
         return;
     }
 
     function void initwQueenPieceSquareTable() {
         
-        let 0[static_69] = -(2);
+        let static_69[0] = -(2);
         
-        let 1[static_69] = -(2);
+        let static_69[1] = -(2);
         
-        let 2[static_69] = -(2);
+        let static_69[2] = -(2);
         
-        let 3[static_69] = 0;
+        let static_69[3] = 0;
         
-        let 4[static_69] = 0;
+        let static_69[4] = 0;
         
-        let 5[static_69] = -(2);
+        let static_69[5] = -(2);
         
-        let 6[static_69] = -(2);
+        let static_69[6] = -(2);
         
-        let 7[static_69] = -(2);
+        let static_69[7] = -(2);
         
-        let 16[static_69] = 0;
+        let static_69[16] = 0;
         
-        let 17[static_69] = 0;
+        let static_69[17] = 0;
         
-        let 18[static_69] = 1;
+        let static_69[18] = 1;
         
-        let 19[static_69] = 1;
+        let static_69[19] = 1;
         
-        let 20[static_69] = 1;
+        let static_69[20] = 1;
         
-        let 21[static_69] = 0;
+        let static_69[21] = 0;
         
-        let 22[static_69] = 0;
+        let static_69[22] = 0;
         
-        let 23[static_69] = 0;
+        let static_69[23] = 0;
         
-        let 32[static_69] = 0;
+        let static_69[32] = 0;
         
-        let 33[static_69] = 1;
+        let static_69[33] = 1;
         
-        let 34[static_69] = 1;
+        let static_69[34] = 1;
         
-        let 35[static_69] = 1;
+        let static_69[35] = 1;
         
-        let 36[static_69] = 1;
+        let static_69[36] = 1;
         
-        let 37[static_69] = 0;
+        let static_69[37] = 0;
         
-        let 38[static_69] = 0;
+        let static_69[38] = 0;
         
-        let 39[static_69] = 0;
+        let static_69[39] = 0;
         
-        let 48[static_69] = 0;
+        let static_69[48] = 0;
         
-        let 49[static_69] = 0;
+        let static_69[49] = 0;
         
-        let 50[static_69] = 0;
+        let static_69[50] = 0;
         
-        let 51[static_69] = 2;
+        let static_69[51] = 2;
         
-        let 52[static_69] = 2;
+        let static_69[52] = 2;
         
-        let 53[static_69] = 0;
+        let static_69[53] = 0;
         
-        let 54[static_69] = 0;
+        let static_69[54] = 0;
         
-        let 55[static_69] = 0;
+        let static_69[55] = 0;
         
-        let 64[static_69] = 0;
+        let static_69[64] = 0;
         
-        let 65[static_69] = 0;
+        let static_69[65] = 0;
         
-        let 66[static_69] = 0;
+        let static_69[66] = 0;
         
-        let 67[static_69] = 2;
+        let static_69[67] = 2;
         
-        let 68[static_69] = 2;
+        let static_69[68] = 2;
         
-        let 69[static_69] = 0;
+        let static_69[69] = 0;
         
-        let 70[static_69] = 0;
+        let static_69[70] = 0;
         
-        let 71[static_69] = 0;
+        let static_69[71] = 0;
         
-        let 80[static_69] = -(2);
+        let static_69[80] = -(2);
         
-        let 81[static_69] = -(2);
+        let static_69[81] = -(2);
         
-        let 82[static_69] = 0;
+        let static_69[82] = 0;
         
-        let 83[static_69] = 0;
+        let static_69[83] = 0;
         
-        let 84[static_69] = 0;
+        let static_69[84] = 0;
         
-        let 85[static_69] = 0;
+        let static_69[85] = 0;
         
-        let 86[static_69] = 0;
+        let static_69[86] = 0;
         
-        let 87[static_69] = 0;
+        let static_69[87] = 0;
         
-        let 96[static_69] = -(2);
+        let static_69[96] = -(2);
         
-        let 97[static_69] = -(2);
+        let static_69[97] = -(2);
         
-        let 98[static_69] = 0;
+        let static_69[98] = 0;
         
-        let 99[static_69] = 0;
+        let static_69[99] = 0;
         
-        let 100[static_69] = 0;
+        let static_69[100] = 0;
         
-        let 101[static_69] = 0;
+        let static_69[101] = 0;
         
-        let 102[static_69] = 0;
+        let static_69[102] = 0;
         
-        let 103[static_69] = 0;
+        let static_69[103] = 0;
         
-        let 112[static_69] = -(2);
+        let static_69[112] = -(2);
         
-        let 113[static_69] = -(2);
+        let static_69[113] = -(2);
         
-        let 114[static_69] = 0;
+        let static_69[114] = 0;
         
-        let 115[static_69] = 0;
+        let static_69[115] = 0;
         
-        let 116[static_69] = 0;
+        let static_69[116] = 0;
         
-        let 117[static_69] = 0;
+        let static_69[117] = 0;
         
-        let 118[static_69] = 0;
+        let static_69[118] = 0;
         
-        let 119[static_69] = 0;
+        let static_69[119] = 0;
         
         return;
     }
 
     function void initbQueenPieceSquareTable() {
         
-        let 0[static_70] = -(2);
+        let static_70[0] = -(2);
         
-        let 1[static_70] = -(2);
+        let static_70[1] = -(2);
         
-        let 2[static_70] = 0;
+        let static_70[2] = 0;
         
-        let 3[static_70] = 0;
+        let static_70[3] = 0;
         
-        let 4[static_70] = 0;
+        let static_70[4] = 0;
         
-        let 5[static_70] = 0;
+        let static_70[5] = 0;
         
-        let 6[static_70] = 0;
+        let static_70[6] = 0;
         
-        let 7[static_70] = 0;
+        let static_70[7] = 0;
         
-        let 16[static_70] = -(2);
+        let static_70[16] = -(2);
         
-        let 17[static_70] = -(2);
+        let static_70[17] = -(2);
         
-        let 18[static_70] = 0;
+        let static_70[18] = 0;
         
-        let 19[static_70] = 0;
+        let static_70[19] = 0;
         
-        let 20[static_70] = 0;
+        let static_70[20] = 0;
         
-        let 21[static_70] = 0;
+        let static_70[21] = 0;
         
-        let 22[static_70] = 0;
+        let static_70[22] = 0;
         
-        let 23[static_70] = 0;
+        let static_70[23] = 0;
         
-        let 32[static_70] = -(2);
+        let static_70[32] = -(2);
         
-        let 33[static_70] = -(2);
+        let static_70[33] = -(2);
         
-        let 34[static_70] = 0;
+        let static_70[34] = 0;
         
-        let 35[static_70] = 0;
+        let static_70[35] = 0;
         
-        let 36[static_70] = 0;
+        let static_70[36] = 0;
         
-        let 37[static_70] = 0;
+        let static_70[37] = 0;
         
-        let 38[static_70] = 0;
+        let static_70[38] = 0;
         
-        let 39[static_70] = 0;
+        let static_70[39] = 0;
         
-        let 48[static_70] = 0;
+        let static_70[48] = 0;
         
-        let 49[static_70] = 0;
+        let static_70[49] = 0;
         
-        let 50[static_70] = 0;
+        let static_70[50] = 0;
         
-        let 51[static_70] = 2;
+        let static_70[51] = 2;
         
-        let 52[static_70] = 2;
+        let static_70[52] = 2;
         
-        let 53[static_70] = 0;
+        let static_70[53] = 0;
         
-        let 54[static_70] = 0;
+        let static_70[54] = 0;
         
-        let 55[static_70] = 0;
+        let static_70[55] = 0;
         
-        let 64[static_70] = 0;
+        let static_70[64] = 0;
         
-        let 65[static_70] = 0;
+        let static_70[65] = 0;
         
-        let 66[static_70] = 0;
+        let static_70[66] = 0;
         
-        let 67[static_70] = 2;
+        let static_70[67] = 2;
         
-        let 68[static_70] = 2;
+        let static_70[68] = 2;
         
-        let 69[static_70] = 0;
+        let static_70[69] = 0;
         
-        let 70[static_70] = 0;
+        let static_70[70] = 0;
         
-        let 71[static_70] = 0;
+        let static_70[71] = 0;
         
-        let 80[static_70] = 0;
+        let static_70[80] = 0;
         
-        let 81[static_70] = 1;
+        let static_70[81] = 1;
         
-        let 82[static_70] = 1;
+        let static_70[82] = 1;
         
-        let 83[static_70] = 1;
+        let static_70[83] = 1;
         
-        let 84[static_70] = 1;
+        let static_70[84] = 1;
         
-        let 85[static_70] = 0;
+        let static_70[85] = 0;
         
-        let 86[static_70] = 0;
+        let static_70[86] = 0;
         
-        let 87[static_70] = 0;
+        let static_70[87] = 0;
         
-        let 96[static_70] = 0;
+        let static_70[96] = 0;
         
-        let 97[static_70] = 0;
+        let static_70[97] = 0;
         
-        let 98[static_70] = 1;
+        let static_70[98] = 1;
         
-        let 99[static_70] = 1;
+        let static_70[99] = 1;
         
-        let 100[static_70] = 1;
+        let static_70[100] = 1;
         
-        let 101[static_70] = 0;
+        let static_70[101] = 0;
         
-        let 102[static_70] = 0;
+        let static_70[102] = 0;
         
-        let 103[static_70] = 0;
+        let static_70[103] = 0;
         
-        let 112[static_70] = -(2);
+        let static_70[112] = -(2);
         
-        let 113[static_70] = -(2);
+        let static_70[113] = -(2);
         
-        let 114[static_70] = -(2);
+        let static_70[114] = -(2);
         
-        let 115[static_70] = 0;
+        let static_70[115] = 0;
         
-        let 116[static_70] = 0;
+        let static_70[116] = 0;
         
-        let 117[static_70] = -(2);
+        let static_70[117] = -(2);
         
-        let 118[static_70] = -(2);
+        let static_70[118] = -(2);
         
-        let 119[static_70] = -(2);
+        let static_70[119] = -(2);
         
         return;
     }
 
     function void initwKingPieceSquareTable() {
         
-        let 0[static_71] = 3;
+        let static_71[0] = 3;
         
-        let 1[static_71] = 3;
+        let static_71[1] = 3;
         
-        let 2[static_71] = 8;
+        let static_71[2] = 8;
         
-        let 3[static_71] = -(12);
+        let static_71[3] = -(12);
         
-        let 4[static_71] = -(8);
+        let static_71[4] = -(8);
         
-        let 5[static_71] = -(12);
+        let static_71[5] = -(12);
         
-        let 6[static_71] = 10;
+        let static_71[6] = 10;
         
-        let 7[static_71] = 5;
+        let static_71[7] = 5;
         
-        let 16[static_71] = -(5);
+        let static_71[16] = -(5);
         
-        let 17[static_71] = -(5);
+        let static_71[17] = -(5);
         
-        let 18[static_71] = -(12);
+        let static_71[18] = -(12);
         
-        let 19[static_71] = -(12);
+        let static_71[19] = -(12);
         
-        let 20[static_71] = -(12);
+        let static_71[20] = -(12);
         
-        let 21[static_71] = -(12);
+        let static_71[21] = -(12);
         
-        let 22[static_71] = -(5);
+        let static_71[22] = -(5);
         
-        let 23[static_71] = -(5);
+        let static_71[23] = -(5);
         
-        let 32[static_71] = -(7);
+        let static_71[32] = -(7);
         
-        let 33[static_71] = -(15);
+        let static_71[33] = -(15);
         
-        let 34[static_71] = -(15);
+        let static_71[34] = -(15);
         
-        let 35[static_71] = -(15);
+        let static_71[35] = -(15);
         
-        let 36[static_71] = -(15);
+        let static_71[36] = -(15);
         
-        let 37[static_71] = -(15);
+        let static_71[37] = -(15);
         
-        let 38[static_71] = -(15);
+        let static_71[38] = -(15);
         
-        let 39[static_71] = -(7);
+        let static_71[39] = -(7);
         
-        let 48[static_71] = -(20);
+        let static_71[48] = -(20);
         
-        let 49[static_71] = -(20);
+        let static_71[49] = -(20);
         
-        let 50[static_71] = -(20);
+        let static_71[50] = -(20);
         
-        let 51[static_71] = -(20);
+        let static_71[51] = -(20);
         
-        let 52[static_71] = -(20);
+        let static_71[52] = -(20);
         
-        let 53[static_71] = -(20);
+        let static_71[53] = -(20);
         
-        let 54[static_71] = -(20);
+        let static_71[54] = -(20);
         
-        let 55[static_71] = -(20);
+        let static_71[55] = -(20);
         
-        let 64[static_71] = -(20);
+        let static_71[64] = -(20);
         
-        let 65[static_71] = -(20);
+        let static_71[65] = -(20);
         
-        let 66[static_71] = -(20);
+        let static_71[66] = -(20);
         
-        let 67[static_71] = -(20);
+        let static_71[67] = -(20);
         
-        let 68[static_71] = -(20);
+        let static_71[68] = -(20);
         
-        let 69[static_71] = -(20);
+        let static_71[69] = -(20);
         
-        let 70[static_71] = -(20);
+        let static_71[70] = -(20);
         
-        let 71[static_71] = -(20);
+        let static_71[71] = -(20);
         
-        let 80[static_71] = -(20);
+        let static_71[80] = -(20);
         
-        let 81[static_71] = -(20);
+        let static_71[81] = -(20);
         
-        let 82[static_71] = -(20);
+        let static_71[82] = -(20);
         
-        let 83[static_71] = -(20);
+        let static_71[83] = -(20);
         
-        let 84[static_71] = -(20);
+        let static_71[84] = -(20);
         
-        let 85[static_71] = -(20);
+        let static_71[85] = -(20);
         
-        let 86[static_71] = -(20);
+        let static_71[86] = -(20);
         
-        let 87[static_71] = -(20);
+        let static_71[87] = -(20);
         
-        let 96[static_71] = -(20);
+        let static_71[96] = -(20);
         
-        let 97[static_71] = -(20);
+        let static_71[97] = -(20);
         
-        let 98[static_71] = -(20);
+        let static_71[98] = -(20);
         
-        let 99[static_71] = -(20);
+        let static_71[99] = -(20);
         
-        let 100[static_71] = -(20);
+        let static_71[100] = -(20);
         
-        let 101[static_71] = -(20);
+        let static_71[101] = -(20);
         
-        let 102[static_71] = -(20);
+        let static_71[102] = -(20);
         
-        let 103[static_71] = -(20);
+        let static_71[103] = -(20);
         
-        let 112[static_71] = -(20);
+        let static_71[112] = -(20);
         
-        let 113[static_71] = -(20);
+        let static_71[113] = -(20);
         
-        let 114[static_71] = -(20);
+        let static_71[114] = -(20);
         
-        let 115[static_71] = -(20);
+        let static_71[115] = -(20);
         
-        let 116[static_71] = -(20);
+        let static_71[116] = -(20);
         
-        let 117[static_71] = -(20);
+        let static_71[117] = -(20);
         
-        let 118[static_71] = -(20);
+        let static_71[118] = -(20);
         
-        let 119[static_71] = -(20);
+        let static_71[119] = -(20);
         
         return;
     }
 
     function void initwKingEndPieceSquareTable() {
         
-        let 0[static_73] = 0;
+        let static_73[0] = 0;
         
-        let 1[static_73] = 0;
+        let static_73[1] = 0;
         
-        let 2[static_73] = 1;
+        let static_73[2] = 1;
         
-        let 3[static_73] = 2;
+        let static_73[3] = 2;
         
-        let 4[static_73] = 2;
+        let static_73[4] = 2;
         
-        let 5[static_73] = 1;
+        let static_73[5] = 1;
         
-        let 6[static_73] = 0;
+        let static_73[6] = 0;
         
-        let 7[static_73] = 0;
+        let static_73[7] = 0;
         
-        let 16[static_73] = 0;
+        let static_73[16] = 0;
         
-        let 17[static_73] = 2;
+        let static_73[17] = 2;
         
-        let 18[static_73] = 4;
+        let static_73[18] = 4;
         
-        let 19[static_73] = 5;
+        let static_73[19] = 5;
         
-        let 20[static_73] = 5;
+        let static_73[20] = 5;
         
-        let 21[static_73] = 4;
+        let static_73[21] = 4;
         
-        let 22[static_73] = 2;
+        let static_73[22] = 2;
         
-        let 23[static_73] = 0;
+        let static_73[23] = 0;
         
-        let 32[static_73] = 1;
+        let static_73[32] = 1;
         
-        let 33[static_73] = 4;
+        let static_73[33] = 4;
         
-        let 34[static_73] = 6;
+        let static_73[34] = 6;
         
-        let 35[static_73] = 7;
+        let static_73[35] = 7;
         
-        let 36[static_73] = 7;
+        let static_73[36] = 7;
         
-        let 37[static_73] = 6;
+        let static_73[37] = 6;
         
-        let 38[static_73] = 4;
+        let static_73[38] = 4;
         
-        let 39[static_73] = 1;
+        let static_73[39] = 1;
         
-        let 48[static_73] = 1;
+        let static_73[48] = 1;
         
-        let 49[static_73] = 4;
+        let static_73[49] = 4;
         
-        let 50[static_73] = 10;
+        let static_73[50] = 10;
         
-        let 51[static_73] = 10;
+        let static_73[51] = 10;
         
-        let 52[static_73] = 10;
+        let static_73[52] = 10;
         
-        let 53[static_73] = 10;
+        let static_73[53] = 10;
         
-        let 54[static_73] = 4;
+        let static_73[54] = 4;
         
-        let 55[static_73] = 1;
+        let static_73[55] = 1;
         
-        let 64[static_73] = 1;
+        let static_73[64] = 1;
         
-        let 65[static_73] = 4;
+        let static_73[65] = 4;
         
-        let 66[static_73] = 12;
+        let static_73[66] = 12;
         
-        let 67[static_73] = 15;
+        let static_73[67] = 15;
         
-        let 68[static_73] = 15;
+        let static_73[68] = 15;
         
-        let 69[static_73] = 12;
+        let static_73[69] = 12;
         
-        let 70[static_73] = 4;
+        let static_73[70] = 4;
         
-        let 71[static_73] = 1;
+        let static_73[71] = 1;
         
-        let 80[static_73] = 0;
+        let static_73[80] = 0;
         
-        let 81[static_73] = 7;
+        let static_73[81] = 7;
         
-        let 82[static_73] = 10;
+        let static_73[82] = 10;
         
-        let 83[static_73] = 12;
+        let static_73[83] = 12;
         
-        let 84[static_73] = 12;
+        let static_73[84] = 12;
         
-        let 85[static_73] = 10;
+        let static_73[85] = 10;
         
-        let 86[static_73] = 7;
+        let static_73[86] = 7;
         
-        let 87[static_73] = 0;
+        let static_73[87] = 0;
         
-        let 96[static_73] = 0;
+        let static_73[96] = 0;
         
-        let 97[static_73] = 2;
+        let static_73[97] = 2;
         
-        let 98[static_73] = 4;
+        let static_73[98] = 4;
         
-        let 99[static_73] = 5;
+        let static_73[99] = 5;
         
-        let 100[static_73] = 5;
+        let static_73[100] = 5;
         
-        let 101[static_73] = 4;
+        let static_73[101] = 4;
         
-        let 102[static_73] = 2;
+        let static_73[102] = 2;
         
-        let 103[static_73] = 0;
+        let static_73[103] = 0;
         
-        let 112[static_73] = 0;
+        let static_73[112] = 0;
         
-        let 113[static_73] = 0;
+        let static_73[113] = 0;
         
-        let 114[static_73] = 0;
+        let static_73[114] = 0;
         
-        let 115[static_73] = 0;
+        let static_73[115] = 0;
         
-        let 116[static_73] = 0;
+        let static_73[116] = 0;
         
-        let 117[static_73] = 0;
+        let static_73[117] = 0;
         
-        let 118[static_73] = 0;
+        let static_73[118] = 0;
         
-        let 119[static_73] = 0;
+        let static_73[119] = 0;
         
         return;
     }
 
     function void initbKingPieceSquareTable() {
         
-        let 0[static_72] = -(20);
+        let static_72[0] = -(20);
         
-        let 1[static_72] = -(20);
+        let static_72[1] = -(20);
         
-        let 2[static_72] = -(20);
+        let static_72[2] = -(20);
         
-        let 3[static_72] = -(20);
+        let static_72[3] = -(20);
         
-        let 4[static_72] = -(20);
+        let static_72[4] = -(20);
         
-        let 5[static_72] = -(20);
+        let static_72[5] = -(20);
         
-        let 6[static_72] = -(20);
+        let static_72[6] = -(20);
         
-        let 7[static_72] = -(20);
+        let static_72[7] = -(20);
         
-        let 16[static_72] = -(20);
+        let static_72[16] = -(20);
         
-        let 17[static_72] = -(20);
+        let static_72[17] = -(20);
         
-        let 18[static_72] = -(20);
+        let static_72[18] = -(20);
         
-        let 19[static_72] = -(20);
+        let static_72[19] = -(20);
         
-        let 20[static_72] = -(20);
+        let static_72[20] = -(20);
         
-        let 21[static_72] = -(20);
+        let static_72[21] = -(20);
         
-        let 22[static_72] = -(20);
+        let static_72[22] = -(20);
         
-        let 23[static_72] = -(20);
+        let static_72[23] = -(20);
         
-        let 32[static_72] = -(20);
+        let static_72[32] = -(20);
         
-        let 33[static_72] = -(20);
+        let static_72[33] = -(20);
         
-        let 34[static_72] = -(20);
+        let static_72[34] = -(20);
         
-        let 35[static_72] = -(20);
+        let static_72[35] = -(20);
         
-        let 36[static_72] = -(20);
+        let static_72[36] = -(20);
         
-        let 37[static_72] = -(20);
+        let static_72[37] = -(20);
         
-        let 38[static_72] = -(20);
+        let static_72[38] = -(20);
         
-        let 39[static_72] = -(20);
+        let static_72[39] = -(20);
         
-        let 48[static_72] = -(20);
+        let static_72[48] = -(20);
         
-        let 49[static_72] = -(20);
+        let static_72[49] = -(20);
         
-        let 50[static_72] = -(20);
+        let static_72[50] = -(20);
         
-        let 51[static_72] = -(20);
+        let static_72[51] = -(20);
         
-        let 52[static_72] = -(20);
+        let static_72[52] = -(20);
         
-        let 53[static_72] = -(20);
+        let static_72[53] = -(20);
         
-        let 54[static_72] = -(20);
+        let static_72[54] = -(20);
         
-        let 55[static_72] = -(20);
+        let static_72[55] = -(20);
         
-        let 64[static_72] = -(20);
+        let static_72[64] = -(20);
         
-        let 65[static_72] = -(20);
+        let static_72[65] = -(20);
         
-        let 66[static_72] = -(20);
+        let static_72[66] = -(20);
         
-        let 67[static_72] = -(20);
+        let static_72[67] = -(20);
         
-        let 68[static_72] = -(20);
+        let static_72[68] = -(20);
         
-        let 69[static_72] = -(20);
+        let static_72[69] = -(20);
         
-        let 70[static_72] = -(20);
+        let static_72[70] = -(20);
         
-        let 71[static_72] = -(20);
+        let static_72[71] = -(20);
         
-        let 80[static_72] = -(7);
+        let static_72[80] = -(7);
         
-        let 81[static_72] = -(15);
+        let static_72[81] = -(15);
         
-        let 82[static_72] = -(15);
+        let static_72[82] = -(15);
         
-        let 83[static_72] = -(15);
+        let static_72[83] = -(15);
         
-        let 84[static_72] = -(15);
+        let static_72[84] = -(15);
         
-        let 85[static_72] = -(15);
+        let static_72[85] = -(15);
         
-        let 86[static_72] = -(15);
+        let static_72[86] = -(15);
         
-        let 87[static_72] = -(7);
+        let static_72[87] = -(7);
         
-        let 96[static_72] = -(5);
+        let static_72[96] = -(5);
         
-        let 97[static_72] = -(5);
+        let static_72[97] = -(5);
         
-        let 98[static_72] = -(12);
+        let static_72[98] = -(12);
         
-        let 99[static_72] = -(12);
+        let static_72[99] = -(12);
         
-        let 100[static_72] = -(12);
+        let static_72[100] = -(12);
         
-        let 101[static_72] = -(12);
+        let static_72[101] = -(12);
         
-        let 102[static_72] = -(5);
+        let static_72[102] = -(5);
         
-        let 103[static_72] = -(5);
+        let static_72[103] = -(5);
         
-        let 112[static_72] = 3;
+        let static_72[112] = 3;
         
-        let 113[static_72] = 3;
+        let static_72[113] = 3;
         
-        let 114[static_72] = 8;
+        let static_72[114] = 8;
         
-        let 115[static_72] = -(12);
+        let static_72[115] = -(12);
         
-        let 116[static_72] = -(8);
+        let static_72[116] = -(8);
         
-        let 117[static_72] = -(12);
+        let static_72[117] = -(12);
         
-        let 118[static_72] = 10;
+        let static_72[118] = 10;
         
-        let 119[static_72] = 5;
+        let static_72[119] = 5;
         
         return;
     }
 
     function void initbKingEndPieceSquareTable() {
         
-        let 0[static_74] = 0;
+        let static_74[0] = 0;
         
-        let 1[static_74] = 0;
+        let static_74[1] = 0;
         
-        let 2[static_74] = 0;
+        let static_74[2] = 0;
         
-        let 3[static_74] = 0;
+        let static_74[3] = 0;
         
-        let 4[static_74] = 0;
+        let static_74[4] = 0;
         
-        let 5[static_74] = 0;
+        let static_74[5] = 0;
         
-        let 6[static_74] = 0;
+        let static_74[6] = 0;
         
-        let 7[static_74] = 0;
+        let static_74[7] = 0;
         
-        let 16[static_74] = 0;
+        let static_74[16] = 0;
         
-        let 17[static_74] = 2;
+        let static_74[17] = 2;
         
-        let 18[static_74] = 4;
+        let static_74[18] = 4;
         
-        let 19[static_74] = 5;
+        let static_74[19] = 5;
         
-        let 20[static_74] = 5;
+        let static_74[20] = 5;
         
-        let 21[static_74] = 4;
+        let static_74[21] = 4;
         
-        let 22[static_74] = 2;
+        let static_74[22] = 2;
         
-        let 23[static_74] = 0;
+        let static_74[23] = 0;
         
-        let 32[static_74] = 0;
+        let static_74[32] = 0;
         
-        let 33[static_74] = 7;
+        let static_74[33] = 7;
         
-        let 34[static_74] = 10;
+        let static_74[34] = 10;
         
-        let 35[static_74] = 12;
+        let static_74[35] = 12;
         
-        let 36[static_74] = 12;
+        let static_74[36] = 12;
         
-        let 37[static_74] = 10;
+        let static_74[37] = 10;
         
-        let 38[static_74] = 7;
+        let static_74[38] = 7;
         
-        let 39[static_74] = 0;
+        let static_74[39] = 0;
         
-        let 48[static_74] = 1;
+        let static_74[48] = 1;
         
-        let 49[static_74] = 4;
+        let static_74[49] = 4;
         
-        let 50[static_74] = 12;
+        let static_74[50] = 12;
         
-        let 51[static_74] = 15;
+        let static_74[51] = 15;
         
-        let 52[static_74] = 15;
+        let static_74[52] = 15;
         
-        let 53[static_74] = 12;
+        let static_74[53] = 12;
         
-        let 54[static_74] = 4;
+        let static_74[54] = 4;
         
-        let 55[static_74] = 1;
+        let static_74[55] = 1;
         
-        let 64[static_74] = 1;
+        let static_74[64] = 1;
         
-        let 65[static_74] = 4;
+        let static_74[65] = 4;
         
-        let 66[static_74] = 10;
+        let static_74[66] = 10;
         
-        let 67[static_74] = 10;
+        let static_74[67] = 10;
         
-        let 68[static_74] = 10;
+        let static_74[68] = 10;
         
-        let 69[static_74] = 10;
+        let static_74[69] = 10;
         
-        let 70[static_74] = 4;
+        let static_74[70] = 4;
         
-        let 71[static_74] = 1;
+        let static_74[71] = 1;
         
-        let 80[static_74] = 1;
+        let static_74[80] = 1;
         
-        let 81[static_74] = 4;
+        let static_74[81] = 4;
         
-        let 82[static_74] = 6;
+        let static_74[82] = 6;
         
-        let 83[static_74] = 7;
+        let static_74[83] = 7;
         
-        let 84[static_74] = 7;
+        let static_74[84] = 7;
         
-        let 85[static_74] = 6;
+        let static_74[85] = 6;
         
-        let 86[static_74] = 4;
+        let static_74[86] = 4;
         
-        let 87[static_74] = 1;
+        let static_74[87] = 1;
         
-        let 96[static_74] = 0;
+        let static_74[96] = 0;
         
-        let 97[static_74] = 2;
+        let static_74[97] = 2;
         
-        let 98[static_74] = 4;
+        let static_74[98] = 4;
         
-        let 99[static_74] = 5;
+        let static_74[99] = 5;
         
-        let 100[static_74] = 5;
+        let static_74[100] = 5;
         
-        let 101[static_74] = 4;
+        let static_74[101] = 4;
         
-        let 102[static_74] = 2;
+        let static_74[102] = 2;
         
-        let 103[static_74] = 0;
+        let static_74[103] = 0;
         
-        let 112[static_74] = 0;
+        let static_74[112] = 0;
         
-        let 113[static_74] = 0;
+        let static_74[113] = 0;
         
-        let 114[static_74] = 1;
+        let static_74[114] = 1;
         
-        let 115[static_74] = 2;
+        let static_74[115] = 2;
         
-        let 116[static_74] = 2;
+        let static_74[116] = 2;
         
-        let 117[static_74] = 1;
+        let static_74[117] = 1;
         
-        let 118[static_74] = 0;
+        let static_74[118] = 0;
         
-        let 119[static_74] = 0;
+        let static_74[119] = 0;
         
         return;
     }
@@ -3445,137 +3445,137 @@ class Board {
         var int local_0;
         
         while (local_0 < 239) {
-        	let local_0[static_30] = static_16;
+        	let static_30[local_0] = static_16;
         	
         	let local_0 = local_0 + 1;
         }
-        let 0[static_30] = static_21;
+        let static_30[0] = static_21;
         
-        let 7[static_30] = static_18;
+        let static_30[7] = static_18;
         
-        let 14[static_30] = static_21;
+        let static_30[14] = static_21;
         
-        let 17[static_30] = static_21;
+        let static_30[17] = static_21;
         
-        let 23[static_30] = static_18;
+        let static_30[23] = static_18;
         
-        let 29[static_30] = static_21;
+        let static_30[29] = static_21;
         
-        let 34[static_30] = static_21;
+        let static_30[34] = static_21;
         
-        let 39[static_30] = static_18;
+        let static_30[39] = static_18;
         
-        let 44[static_30] = static_21;
+        let static_30[44] = static_21;
         
-        let 51[static_30] = static_21;
+        let static_30[51] = static_21;
         
-        let 55[static_30] = static_18;
+        let static_30[55] = static_18;
         
-        let 59[static_30] = static_21;
+        let static_30[59] = static_21;
         
-        let 68[static_30] = static_21;
+        let static_30[68] = static_21;
         
-        let 71[static_30] = static_18;
+        let static_30[71] = static_18;
         
-        let 74[static_30] = static_21;
+        let static_30[74] = static_21;
         
-        let 85[static_30] = static_21;
+        let static_30[85] = static_21;
         
-        let 86[static_30] = static_22;
+        let static_30[86] = static_22;
         
-        let 87[static_30] = static_18;
+        let static_30[87] = static_18;
         
-        let 88[static_30] = static_22;
+        let static_30[88] = static_22;
         
-        let 89[static_30] = static_21;
+        let static_30[89] = static_21;
         
-        let 101[static_30] = static_22;
+        let static_30[101] = static_22;
         
-        let 102[static_30] = static_20;
+        let static_30[102] = static_20;
         
-        let 103[static_30] = static_17;
+        let static_30[103] = static_17;
         
-        let 104[static_30] = static_20;
+        let static_30[104] = static_20;
         
-        let 105[static_30] = static_22;
+        let static_30[105] = static_22;
         
-        let 112[static_30] = static_18;
+        let static_30[112] = static_18;
         
-        let 113[static_30] = static_18;
+        let static_30[113] = static_18;
         
-        let 114[static_30] = static_18;
+        let static_30[114] = static_18;
         
-        let 115[static_30] = static_18;
+        let static_30[115] = static_18;
         
-        let 116[static_30] = static_18;
+        let static_30[116] = static_18;
         
-        let 117[static_30] = static_18;
+        let static_30[117] = static_18;
         
-        let 118[static_30] = static_17;
+        let static_30[118] = static_17;
         
-        let 120[static_30] = static_17;
+        let static_30[120] = static_17;
         
-        let 121[static_30] = static_18;
+        let static_30[121] = static_18;
         
-        let 122[static_30] = static_18;
+        let static_30[122] = static_18;
         
-        let 123[static_30] = static_18;
+        let static_30[123] = static_18;
         
-        let 124[static_30] = static_18;
+        let static_30[124] = static_18;
         
-        let 125[static_30] = static_18;
+        let static_30[125] = static_18;
         
-        let 126[static_30] = static_18;
+        let static_30[126] = static_18;
         
-        let 133[static_30] = static_22;
+        let static_30[133] = static_22;
         
-        let 134[static_30] = static_19;
+        let static_30[134] = static_19;
         
-        let 135[static_30] = static_17;
+        let static_30[135] = static_17;
         
-        let 136[static_30] = static_19;
+        let static_30[136] = static_19;
         
-        let 137[static_30] = static_22;
+        let static_30[137] = static_22;
         
-        let 149[static_30] = static_21;
+        let static_30[149] = static_21;
         
-        let 150[static_30] = static_22;
+        let static_30[150] = static_22;
         
-        let 151[static_30] = static_18;
+        let static_30[151] = static_18;
         
-        let 152[static_30] = static_22;
+        let static_30[152] = static_22;
         
-        let 153[static_30] = static_21;
+        let static_30[153] = static_21;
         
-        let 164[static_30] = static_21;
+        let static_30[164] = static_21;
         
-        let 167[static_30] = static_18;
+        let static_30[167] = static_18;
         
-        let 170[static_30] = static_21;
+        let static_30[170] = static_21;
         
-        let 179[static_30] = static_21;
+        let static_30[179] = static_21;
         
-        let 183[static_30] = static_18;
+        let static_30[183] = static_18;
         
-        let 187[static_30] = static_21;
+        let static_30[187] = static_21;
         
-        let 194[static_30] = static_21;
+        let static_30[194] = static_21;
         
-        let 199[static_30] = static_18;
+        let static_30[199] = static_18;
         
-        let 204[static_30] = static_21;
+        let static_30[204] = static_21;
         
-        let 209[static_30] = static_21;
+        let static_30[209] = static_21;
         
-        let 215[static_30] = static_18;
+        let static_30[215] = static_18;
         
-        let 221[static_30] = static_21;
+        let static_30[221] = static_21;
         
-        let 224[static_30] = static_21;
+        let static_30[224] = static_21;
         
-        let 231[static_30] = static_18;
+        let static_30[231] = static_18;
         
-        let 238[static_30] = static_21;
+        let static_30[238] = static_21;
         
         return;
     }
@@ -3584,138 +3584,138 @@ class Board {
         var int local_0;
         
         while (local_0 < 239) {
-        	let local_0[static_31] = 0;
+        	let static_31[local_0] = 0;
         	
         	let local_0 = local_0 + 1;
         }
-        let 0[static_31] = -(17);
+        let static_31[0] = -(17);
         
-        let 7[static_31] = -(16);
+        let static_31[7] = -(16);
         
-        let 14[static_31] = -(15);
+        let static_31[14] = -(15);
         
-        let 17[static_31] = -(17);
+        let static_31[17] = -(17);
         
-        let 23[static_31] = -(16);
+        let static_31[23] = -(16);
         
-        let 29[static_31] = -(15);
+        let static_31[29] = -(15);
         
-        let 34[static_31] = -(17);
+        let static_31[34] = -(17);
         
-        let 39[static_31] = -(16);
+        let static_31[39] = -(16);
         
-        let 44[static_31] = -(15);
+        let static_31[44] = -(15);
         
-        let 51[static_31] = -(17);
+        let static_31[51] = -(17);
         
-        let 55[static_31] = -(16);
+        let static_31[55] = -(16);
         
-        let 59[static_31] = -(15);
+        let static_31[59] = -(15);
         
-        let 68[static_31] = -(17);
+        let static_31[68] = -(17);
         
-        let 71[static_31] = -(16);
+        let static_31[71] = -(16);
         
-        let 74[static_31] = -(15);
+        let static_31[74] = -(15);
         
-        let 85[static_31] = -(17);
+        let static_31[85] = -(17);
         
-        let 87[static_31] = -(16);
+        let static_31[87] = -(16);
         
-        let 89[static_31] = -(15);
+        let static_31[89] = -(15);
         
-        let 102[static_31] = -(17);
+        let static_31[102] = -(17);
         
-        let 103[static_31] = -(16);
+        let static_31[103] = -(16);
         
-        let 104[static_31] = -(15);
+        let static_31[104] = -(15);
         
-        let 112[static_31] = -(1);
+        let static_31[112] = -(1);
         
-        let 113[static_31] = -(1);
+        let static_31[113] = -(1);
         
-        let 114[static_31] = -(1);
+        let static_31[114] = -(1);
         
-        let 115[static_31] = -(1);
+        let static_31[115] = -(1);
         
-        let 116[static_31] = -(1);
+        let static_31[116] = -(1);
         
-        let 117[static_31] = -(1);
+        let static_31[117] = -(1);
         
-        let 118[static_31] = -(1);
+        let static_31[118] = -(1);
         
-        let 120[static_31] = 1;
+        let static_31[120] = 1;
         
-        let 121[static_31] = 1;
+        let static_31[121] = 1;
         
-        let 122[static_31] = 1;
+        let static_31[122] = 1;
         
-        let 123[static_31] = 1;
+        let static_31[123] = 1;
         
-        let 124[static_31] = 1;
+        let static_31[124] = 1;
         
-        let 125[static_31] = 1;
+        let static_31[125] = 1;
         
-        let 126[static_31] = 1;
+        let static_31[126] = 1;
         
-        let 134[static_31] = 15;
+        let static_31[134] = 15;
         
-        let 135[static_31] = 16;
+        let static_31[135] = 16;
         
-        let 136[static_31] = 17;
+        let static_31[136] = 17;
         
-        let 149[static_31] = 15;
+        let static_31[149] = 15;
         
-        let 151[static_31] = 16;
+        let static_31[151] = 16;
         
-        let 153[static_31] = 17;
+        let static_31[153] = 17;
         
-        let 164[static_31] = 15;
+        let static_31[164] = 15;
         
-        let 167[static_31] = 16;
+        let static_31[167] = 16;
         
-        let 170[static_31] = 17;
+        let static_31[170] = 17;
         
-        let 179[static_31] = 15;
+        let static_31[179] = 15;
         
-        let 183[static_31] = 16;
+        let static_31[183] = 16;
         
-        let 187[static_31] = 17;
+        let static_31[187] = 17;
         
-        let 194[static_31] = 15;
+        let static_31[194] = 15;
         
-        let 199[static_31] = 16;
+        let static_31[199] = 16;
         
-        let 204[static_31] = 17;
+        let static_31[204] = 17;
         
-        let 209[static_31] = 15;
+        let static_31[209] = 15;
         
-        let 215[static_31] = 16;
+        let static_31[215] = 16;
         
-        let 221[static_31] = 17;
+        let static_31[221] = 17;
         
-        let 224[static_31] = 15;
+        let static_31[224] = 15;
         
-        let 231[static_31] = 16;
+        let static_31[231] = 16;
         
-        let 238[static_31] = 17;
+        let static_31[238] = 17;
         
         return;
     }
 
     function int convertSq120to64(int argument_0) {
         
-        return argument_0[static_34];
+        return static_34[argument_0];
     }
 
     function int convertSq64to120(int argument_0) {
         
-        return argument_0[static_35];
+        return static_35[argument_0];
     }
 
     method int pieceValFromBoardIndex(int argument_0) {
         var Piece local_0;
-        let local_0 = argument_1[field_1];
+        let local_0 = field_1[argument_1];
         return local_0.getValue();
     }
 
@@ -3723,65 +3723,65 @@ class Board {
         var int local_0;
         
         while (local_0 < 8) {
-        	let local_0[static_33] = Math.multiply(local_0, 64);
+        	let static_33[local_0] = Math.multiply(local_0, 64);
         	
-        	let local_0[static_34] = local_0;
+        	let static_34[local_0] = local_0;
         	
         	let local_0 = local_0 + 1;
         }
         let local_0 = 16;
         while (local_0 < 24) {
-        	let local_0[static_33] = Math.multiply(local_0 - 8, 64);
+        	let static_33[local_0] = Math.multiply(local_0 - 8, 64);
         	
-        	let local_0[static_34] = local_0 - 8;
+        	let static_34[local_0] = local_0 - 8;
         	
         	let local_0 = local_0 + 1;
         }
         let local_0 = 32;
         while (local_0 < 40) {
-        	let local_0[static_33] = Math.multiply(local_0 - 16, 64);
+        	let static_33[local_0] = Math.multiply(local_0 - 16, 64);
         	
-        	let local_0[static_34] = local_0 - 16;
+        	let static_34[local_0] = local_0 - 16;
         	
         	let local_0 = local_0 + 1;
         }
         let local_0 = 48;
         while (local_0 < 56) {
-        	let local_0[static_33] = Math.multiply(local_0 - 24, 64);
+        	let static_33[local_0] = Math.multiply(local_0 - 24, 64);
         	
-        	let local_0[static_34] = local_0 - 24;
+        	let static_34[local_0] = local_0 - 24;
         	
         	let local_0 = local_0 + 1;
         }
         let local_0 = 64;
         while (local_0 < 72) {
-        	let local_0[static_33] = Math.multiply(local_0 - 32, 64);
+        	let static_33[local_0] = Math.multiply(local_0 - 32, 64);
         	
-        	let local_0[static_34] = local_0 - 32;
+        	let static_34[local_0] = local_0 - 32;
         	
         	let local_0 = local_0 + 1;
         }
         let local_0 = 80;
         while (local_0 < 88) {
-        	let local_0[static_33] = Math.multiply(local_0 - 40, 64);
+        	let static_33[local_0] = Math.multiply(local_0 - 40, 64);
         	
-        	let local_0[static_34] = local_0 - 40;
+        	let static_34[local_0] = local_0 - 40;
         	
         	let local_0 = local_0 + 1;
         }
         let local_0 = 96;
         while (local_0 < 104) {
-        	let local_0[static_33] = Math.multiply(local_0 - 48, 64);
+        	let static_33[local_0] = Math.multiply(local_0 - 48, 64);
         	
-        	let local_0[static_34] = local_0 - 48;
+        	let static_34[local_0] = local_0 - 48;
         	
         	let local_0 = local_0 + 1;
         }
         let local_0 = 112;
         while (local_0 < 120) {
-        	let local_0[static_33] = Math.multiply(local_0 - 56, 64);
+        	let static_33[local_0] = Math.multiply(local_0 - 56, 64);
         	
-        	let local_0[static_34] = local_0 - 56;
+        	let static_34[local_0] = local_0 - 56;
         	
         	let local_0 = local_0 + 1;
         }
@@ -3792,7 +3792,7 @@ class Board {
         var int local_0;
         
         while (local_0 < 64) {
-        	let local_0[static_35] = ( local_0 + ( local_0 & ~(7)));
+        	let static_35[local_0] = ( local_0 + ( local_0 & ~(7)));
         	
         	let local_0 = local_0 + 1;
         }

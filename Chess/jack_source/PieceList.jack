@@ -6,7 +6,7 @@ class PieceList {
         let field_1 = 0;
         let field_0 = Array.new(16);
         while (local_0 < 16) {
-        	let local_0[field_0] = Piece.new();
+        	let field_0[local_0] = Piece.new();
         	
         	let local_0 = local_0 + 1;
         }
@@ -17,7 +17,7 @@ class PieceList {
         var int local_0;
         var Piece local_1;
         while (local_0 < 16) {
-        	let local_1 = local_0[field_0];
+        	let local_1 = field_0[local_0];
         	do local_1.dispose();
         	let local_0 = local_0 + 1;
         }
@@ -41,7 +41,7 @@ class PieceList {
 
     method void addPiece(int argument_0, int argument_1) {
         var Piece local_0;
-        let local_0 = field_1[field_0];
+        let local_0 = field_0[field_1];
         do local_0.setValue(argument_1);
         do local_0.setSquare(argument_2);
         do local_0.setDead(0);
@@ -55,7 +55,7 @@ class PieceList {
         var int local_2;
         let local_2 = 0;
         while (( local_0 < field_1 & ~(local_2))) {
-        	let local_1 = local_0[field_0];
+        	let local_1 = field_0[local_0];
         	if (local_1.isDead()) {
         		let local_2 = ~(0);
         // Unhandled VM instruction: GotoInstruction{label='IF_END0}
@@ -64,18 +64,18 @@ class PieceList {
         }
         let field_1 = field_1 - 1;
         while (local_0 < field_1) {
-        	let local_0[field_0] = local_0[1][field_0];
+        	let field_0[local_0] = field_0[local_0 + 1];
         	
         	let local_0 = local_0 + 1;
         }
-        let field_1[field_0] = local_1;
+        let field_0[field_1] = local_1;
         
         return;
     }
 
     method int getKingSquare() {
         var Piece local_0;
-        let local_0 = field_1 - 1[field_0];
+        let local_0 = field_0[field_1 - 1];
         return local_0.getSquare();
     }
 

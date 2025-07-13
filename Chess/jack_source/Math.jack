@@ -6,11 +6,11 @@ class Math {
         
         let static_1 = Array.new(16);
         let static_0 = Array.new(16);
-        let 0[static_0] = 1;
+        let static_0[0] = 1;
         
         while (local_0 < 15) {
         	let local_0 = local_0 + 1;
-        	let local_0[static_0] = ( local_0 - 1[static_0] + local_0 - 1[static_0]);
+        	let static_0[local_0] = ( static_0[local_0 - 1] + static_0[local_0 - 1]);
         	
         }
         return;
@@ -40,9 +40,9 @@ class Math {
         	let argument_1 = local_1;
         }
         while (( local_2 - 1 < argument_1 - 1)) {
-        	if (~(( ( local_3[static_0] & argument_1) = 0))) {
+        	if (~(( ( static_0[local_3] & argument_1) = 0))) {
         		let local_0 = local_0 + argument_0;
-        		let local_2 = ( local_2 + local_3[static_0]);
+        		let local_2 = ( local_2 + static_0[local_3]);
         	}
         	let argument_0 = argument_0 + argument_0;
         	let local_3 = local_3 + 1;
@@ -63,24 +63,24 @@ class Math {
         	do Sys.error(3);
         }
         let local_2 = ( ( argument_0 < 0 & argument_1 > 0) | ( argument_0 > 0 & argument_1 < 0));
-        let 0[static_1] = Math.abs(argument_1);
+        let static_1[0] = Math.abs(argument_1);
         
         let argument_0 = Math.abs(argument_0);
         while (( local_0 < 15 & ~(local_3))) {
-        	let local_3 = ( ( 32767 - ( local_0[static_1] - 1)) < ( local_0[static_1] - 1));
+        	let local_3 = ( ( 32767 - ( static_1[local_0] - 1)) < ( static_1[local_0] - 1));
         	if (~(local_3)) {
-        		let local_0[1][static_1] = ( local_0[static_1] + local_0[static_1]);
+        		let static_1[local_0 + 1] = ( static_1[local_0] + static_1[local_0]);
         		
-        		let local_3 = ( ( local_0[1][static_1] - 1) > argument_0 - 1);
+        		let local_3 = ( ( static_1[local_0 + 1] - 1) > argument_0 - 1);
         		if (~(local_3)) {
         			let local_0 = local_0 + 1;
         		}
         	}
         }
         while (( local_0 > -(1))) {
-        	if (~(( ( local_0[static_1] - 1) > argument_0 - 1))) {
-        		let local_1 = ( local_1 + local_0[static_0]);
-        		let argument_0 = ( argument_0 - local_0[static_1]);
+        	if (~(( ( static_1[local_0] - 1) > argument_0 - 1))) {
+        		let local_1 = ( local_1 + static_0[local_0]);
+        		let argument_0 = ( argument_0 - static_1[local_0]);
         	}
         	let local_0 = local_0 - 1;
         }

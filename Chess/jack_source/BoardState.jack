@@ -88,12 +88,12 @@ class BoardState {
         var int local_0;
         var int local_1;
         var int local_2;
-        let 0[field_9] = argument_1;
+        let field_9[0] = argument_1;
         
         let local_2 = getPv();
         let local_1 = getPvCount();
         while (local_0 < local_1) {
-        	let local_0[1][field_9] = local_0[local_2];
+        	let field_9[local_0 + 1] = local_2[local_0];
         	
         	let local_0 = local_0 + 1;
         }
@@ -126,7 +126,7 @@ class BoardState {
         let local_0 = argument_1.getPieces();
         let field_6 = 0;
         while (local_1 < local_2) {
-        	let local_3 = local_1[local_0];
+        	let local_3 = local_0[local_1];
         	let field_6 = ( field_6 + Board.matValue(local_3.getValue()));
         	let local_1 = local_1 + 1;
         }
@@ -135,7 +135,7 @@ class BoardState {
         let local_0 = argument_2.getPieces();
         let field_7 = 0;
         while (local_1 < local_2) {
-        	let local_3 = local_1[local_0];
+        	let local_3 = local_0[local_1];
         	let field_7 = ( field_7 + Board.matValue(( local_3.getValue() & 7)));
         	let local_1 = local_1 + 1;
         }
@@ -154,19 +154,19 @@ class BoardState {
     }
 
     method void storeKiller(int argument_0) {
-        if (~(( ( argument_1 = 0[field_8]) | ( argument_1 = 1[field_8])))) {
-        	let 1[field_8] = 0[field_8];
+        if (~(( ( argument_1 = field_8[0]) | ( argument_1 = field_8[1])))) {
+        	let field_8[1] = field_8[0];
         	
-        	let 0[field_8] = argument_1;
+        	let field_8[0] = argument_1;
         	
         }
         return;
     }
 
     method void resetKillers() {
-        let 0[field_8] = 0;
+        let field_8[0] = 0;
         
-        let 1[field_8] = 0;
+        let field_8[1] = 0;
         
         return;
     }
